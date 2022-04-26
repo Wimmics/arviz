@@ -1,0 +1,41 @@
+.rotationValueNav{
+    width: 700px;
+    margin: auto;
+    display: none;
+}
+
+
+.rotationValueNav button {
+    background-color: #2C3E50;
+    color: #fff;
+    padding: 5px;
+    font-size: 14px;
+    border: #fff;
+}
+
+.rotationValueNav input{
+    width: 100px;
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.rotationValueNav div{
+    /* margin: auto; */
+    width: fit-content;
+}
+
+.rotationNavText{
+    line-height: 35px;
+    width: fit-content;
+    padding: 10px;
+    display: inline;
+}
+
+.rotationNavText i {
+    font-size:2em;
+    text-align: center;
+    position: relative;
+    right: 5px;
+    top: 5px;
+}
