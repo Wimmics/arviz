@@ -123,8 +123,9 @@
     </div>
 
     <script>
-        let data, filteredData;
         const locals = <%- JSON.stringify(locals) %>;
+        const data = <%- JSON.stringify(data) %>;
+        let filteredData;
 
         // chord diagram nodes' settings
         const cd = {
@@ -142,11 +143,11 @@
         let height, width, activeChart = null;
 
         window.addEventListener('load', async (event) => {
-            const response = await fetch('/arviz/' + locals.appli + '/data')
-            data = await response.json()
-            console.log(data)
+            // const response = await fetch('/arviz/' + locals.appli + '/data')
+            // data = await response.json()
+            // console.log(data)
 
-            data.rules = data.rules.filter(d => locals.appli === 'issa' ? d.lang === 'en' : true)
+            data.rules = data.rules.filter(d => locals.appli === 'issa' ? d.lang !== 'fr' : true)
 
             await getLabelsURI()
 

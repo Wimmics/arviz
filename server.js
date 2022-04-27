@@ -6,7 +6,7 @@
  * Yun Tian - Olivier Corby - Marco Winckler - 2019-2020
  * Minh nhat Do - Aline Menin - Maroua Tikat - 2020-2022
 **/
-const port = 3000
+const port = 8030
 
 const fs = require('fs');
 const express = require('express');
@@ -56,8 +56,26 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-app.get('/arviz/:dataset/', function(req, res) {
-    res.render('index', { appli: req.params.dataset });
+async function loadData(req) {
+    let params = req.params;
+    let data = { rules: [] }
+    let dirname = path.join(__dirname, datafile[params.dataset] + 'rules/')
+    if (fs.existsSync(dirname)){
+        let filenames = fs.readdirSync(dirname)
+        filenames.forEach(filename => {
+            let rawdata = fs.readFileSync(path.join(dirname + filename))
+
+            data.rules = data.rules.concat(JSON.parse(rawdata))
+        })
+    }
+    return data
+}
+
+app.get('/arviz/:dataset/', async function(req, res) {
+    
+    let data = await loadData(req)
+    
+    res.render('index', { appli: req.params.dataset, data: data });
 })
 
 app.get('/arviz/:dataset/data', (req, res) => {

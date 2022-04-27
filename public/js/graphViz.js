@@ -632,7 +632,10 @@ function getRules(type, value){
     }
 
     // filter data according to whether the user chose ascendent, consequent or all rules
-    let validRules = filteredData.filter(d => value && d[type].includes(value) || !value)
+    let validRules = filteredData.slice(0, 1000)
+    if (value) {
+        validRules = filteredData.filter(d => d[type].includes(value))
+    }
     // console.log(filteredData)
     // console.log(validRules)
     validRules.forEach(pushNode)
