@@ -1,0 +1,23 @@
+{
+    "lang": [
+        "en",
+        "fr"
+    ],
+    "graph": [
+        "agrovoc"
+    ],
+    "min_interestingness": 0.3,
+    "min_confidence": 0.7,
+    "methods": [
+        {
+            "label": "No clustering method",
+            "key": "no_clustering",
+            "value": 1027
+        },
+        {
+            "label": "Clustering of labels",
+            "key": "clust",
+            "value": 20065
+        }
+    ]
+}

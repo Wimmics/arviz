@@ -7,16 +7,30 @@ function prepare(query) {
 }
 
 async function getLabelsURI() {
-    let response = await fetch('/arviz/api/' + locals.appli + '/uris');
-    data.uris = await response.json();
+    let response = await fetch('/arviz/api/' + appli + '/uris');
+    uris = await response.json();
+
+    let labels = uris.map(d => d.label.value)
+    labels = labels.filter((d,i) => labels.indexOf(d) == i)
+
+    d3.select('#labels_list')
+        .selectAll('option')
+        .data(labels)
+        .join(
+            enter => enter.append('option'),
+            update => update,
+            exit => exit.remove()
+        )
+        .attr('value', d => d)
+        .attr('label', d => d)
 }
 
 async function getPublications(values, rule) {
 
-    let uris = data.uris.filter(d => values.includes(d.label.value)).map(d => d.uri.value)
-    uris = uris.filter( (d,i) => uris.indexOf(d) === i)
+    let valid_uris = uris.filter(d => values.includes(d.label.value)).map(d => d.uri.value)
+    valid_uris = valid_uris.filter( (d,i) => valid_uris.indexOf(d) === i)
    
-    let url = `/arviz/api/${locals.appli}/publications?values=${uris.join(',')}`
+    let url = `/arviz/api/${appli}/publications?values=${valid_uris.join(',')}`
 
     let response = await fetch(url)
     let publications = await response.json()
@@ -26,3 +40,7 @@ async function getPublications(values, rule) {
     else 
         alert('Something went wrong. Please try again later!')
 }
+
+// async function getLabels() {
+//     let response = await fetch('/arviz/')
+// }

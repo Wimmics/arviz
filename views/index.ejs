@@ -29,7 +29,7 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- ARViz-related files -->
     <!-- CSS -->
@@ -53,12 +53,15 @@
     <script type="text/javascript" src="/arviz/js/querying.js"></script>
     <script type="text/javascript" src="/arviz/js/details_on_demand.js"></script>
     <script type="text/javascript" src="/arviz/js/configPanel.js"></script>
+    <script type="text/javascript" src="/arviz/js/scatterPlot.js"></script>
     <script type="text/javascript" src="/arviz/js/graphViz.js"></script>
     <script type="text/javascript" src="/arviz/js/chordDiagram.js"></script>
-    <script type="text/javascript" src="/arviz/js/scatterPlot.js"></script> 
+     
 </head>
 
 <body>
+    <div class="tooltip"></div>
+
     <!-- left side buttons -- settings for the current data and visual tools -->
     <div class='menu-buttons' >
         <div class="menu-icon left-icon" id='legend_button'>
@@ -83,30 +86,33 @@
 
     <div class='visu-space'>
         <!-- tabs that enable switching between views -->
-        <div class="tab-bar" onclick="setScatterPlot();" id='scatterplot-tab'>Overview of Rules</div>
-        <div class="tab-bar" onclick="setChordDiagramView();" id='chord-tab'>Circular Paginated View of Subsets</div>
-        <div class="tab-bar" onclick="setGraphView();" id='graph-tab'>Exploratory Graph View of Items</div>
+        <div class="tab-bar" onclick="charts.scatterplot.setScatterPlot();" id='scatterplot-tab'>Overview of Rules</div>
+        <div class="tab-bar" onclick="charts.circular.setChordDiagramView();" id='chord-tab'>Circular Paginated View of Subsets</div>
+        <div class="tab-bar" onclick="charts.graph.setGraphView();" id='graph-tab'>Exploratory Graph View of Items</div>
 
         <!-- the div that will contain the views -->
         <div class='viewContainer'></div>
         
         <!-- the forms below are only enabled for the association graph view -->
+        <datalist id="labels_list"></datalist>
         <div class='forms'>
             <div class='left' id='antecedentSide'>
-                <div class='text-div'>Search by</div> 
                 <form autocomplete="off" onsubmit="handleInput(event)">
                     <div class="autocomplete">
-                        <input id="antecedentInput" type="text" name="source" placeholder="Antecedent">
-                        <input type="submit" value="Go">
+                        <label class='text-div'>Search rules by</label> 
+                        <input id="antecedentInput" list="labels_list" type="text" name="source" placeholder="Antecedent">
+                        <input type="submit" value="Go">    
+                        <i class="fa fa-refresh fa-spin"></i>
                     </div>
                 </form>  
             </div>
             <div class='right' id='consequentSide'>
-                <div class='text-div'>Search by</div> 
                 <form autocomplete="off" onsubmit="handleInput(event)">
                     <div class="autocomplete">
-                        <input id="consequentInput" type="text" name="target" placeholder="Consequent">
+                        <label class='text-div'>Search rules by</label> 
+                        <input id="consequentInput" type="text" name="target" placeholder="Consequent" list="labels_list">
                         <input type="submit" value="Go">
+                        <i class="fa fa-refresh fa-spin"></i>
                     </div>
                 </form>  
             </div>
@@ -114,56 +120,38 @@
         
         <!-- the forms below are enabled together with the circular view -->
         <div class="options">
-            <div class="rotationValueNav"></div>
-            <div class='bottom-button'>
-                <button onclick="setGraphView('all', null)">Display all terms</button>
+            <div class="rotationValueNav">
+                <label class="rotationNavText"></label>
+                <button id='rotationValuePrevious' onclick="charts.circular.decreaseRotationValue()">Previous</button>
+                <input type='text' id='rotationValueInput' onchange="charts.circular.updateRotationValue(event)"></input>
+                <button id='rotationValueNext' onclick="charts.circular.increaseRotationValue()">Next</button>
+                <label class="rotationNavText2"></label>
             </div>
+            <!-- <div class='bottom-button'>
+                <button onclick="setGraphView('all', null)">Display all terms</button>
+            </div> -->
         </div>
 
     </div>
 
     <script>
-        const locals = <%- JSON.stringify(locals) %>;
-        const data = <%- JSON.stringify(data) %>;
-        let filteredData;
+        const appli = <%- JSON.stringify(appli) %>;
+        // const config = ;
+        // let data, filteredData;
 
         // chord diagram nodes' settings
-        const cd = {
-            'visibleNodes': 40,
-            'firstNode': 0,
-            'lastNode': 40,
-            'data': null,
-            'browsing': 'rules'
-        };
+        
 
-        const graph = {direction: null, 
-            currentTerm: null,
-            activeTerms: null}
-
-        let height, width, activeChart = null;
-
+        let height, width, 
+            activeChart = null,
+            configPanel,
+            charts = { graph: null, circular: null, scatterplot: null },
+            uris;
+        
         window.addEventListener('load', async (event) => {
-            // const response = await fetch('/arviz/' + locals.appli + '/data')
-            // data = await response.json()
-            // console.log(data)
-
-            data.rules = data.rules.filter(d => locals.appli === 'issa' ? d.lang !== 'fr' : true)
 
             await getLabelsURI()
-
-            let symmetricItems = data.rules.filter(d => d.isSymmetric)
-        
-    
-            let validItems = []
-            symmetricItems.forEach((d,i) => {
-                if (!validItems.some(e => (e.antecedents.equals(d.consequents) && e.consequents.equals(d.antecedents)) || (e.antecedents.equals(d.antecedents) && e.consequents.equals(d.consequents))))
-                    validItems.push(d)
-            })
-            
-            data.rules = data.rules.filter((d,i) => d.isSymmetric ? validItems.some(e => e.antecedents.equals(d.antecedents) && e.consequents.equals(d.consequents)) : true)
-
-            const tooltip = d3.select('body').append('div')
-                .classed('tooltip', true)
+            d3.selectAll('.fa-spin').style('display', 'none')
 
             // set page 
             const div = d3.select('div.viewContainer')
@@ -177,23 +165,25 @@
                 .on('mouseenter', showSideButtonTooltip)
                 .on('mouseleave', hideTooltip)
 
-            cd['maxNodes'] = data.length,
+            configPanel =  new ConfigPanel(<%- JSON.stringify(config) %>)
+            charts.graph = new GraphView()
+            charts.circular = new CircularView()
+            charts.scatterplot = new ScatterPlot()
 
             // legend
-            setColors()
-            setLegends()
+            configPanel.setColors()
+            configPanel.setLegends()
 
             // filtering and sorting panels
-            setFilteringCriteria()
-            setSortPanel()
-            setFilterPanel()
+            configPanel.setFilteringCriteria()
+            configPanel.setSortPanel()
+            configPanel.setFilterPanel()
+            configPanel.updateFilteringKeys()
             setInfoTooltip()
-            updateFilteringKeys()
 
-            filteredData = getFilteredData(); // this variable keeps the filtered data used in both charts, commonly updated
-            updateSearchForms()
-
-            setGraphView('all', null)
+            charts.graph.setGraphView()
+            // charts.circular.setChordDiagramView()
+            // charts.scatterplot.setScatterPlot()
 
         })
 
@@ -203,14 +193,14 @@
             if (event.submitter.nodeName == 'BUTTON') return;
             let type = event.srcElement[0].name;
             let value = document.getElementById(event.srcElement[0].id).value;
-            setGraphView(type, value)
+            charts.graph.setGraphView(type, value)
 
             if (type == 'source') document.getElementById('consequentInput').value = '';
             else document.getElementById('antecedentInput').value = '';
         }       
         
         function about(event) {
-            window.open('/arviz/' + locals.appli + '/about')
+            window.open('/arviz/' + appli + '/about')
         }
         
     </script>

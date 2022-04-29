@@ -85,11 +85,11 @@ function setDetailsPanel(d){
         })
         .classed('dragscroll details-content', true)
 
-    let uris = data.uris.filter(d => queryValues.includes(d.label.value))
-    uris = uris.filter( (d,i) => uris.findIndex(e => e.uri.value === d.uri.value) === i)
+    let valid_uris = uris.filter(d => queryValues.includes(d.label.value))
+    valid_uris = valid_uris.filter( (d,i) => valid_uris.findIndex(e => e.uri.value === d.uri.value) === i)
 
     divContent.node().innerHTML += '<b>Associated URIs</b><br>'
-    uris.forEach(e => {
+    valid_uris.forEach(e => {
         divContent.node().innerHTML += '<b>' + e.label.value + ': </b>' + '<a href=' + e.uri.value + ' target="_blank">' + e.uri.value + '</a><br>'
     })
 
@@ -116,7 +116,7 @@ function getContent(result){
     let content = '<br><br>';
     if (result.length > 0) {
         result.forEach(d => {
-            content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + 'Authors: ' + d.authors + '</br>' +
+            content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + 'Authors: ' + d.authors.split('--').join(' and ') + '</br>' +
                 'DOI: <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br></br>'
         })
     }else {
@@ -160,14 +160,15 @@ function highlightRule() {
     id.pop()
     id = id.join('_')
 
-    if (activeChart == 'graph') highlightGraphRule(id)
-    else highlightChord(id)
+    charts[activeChart].highlightRule(id)
+    // else highlightChord(id)
 }
 
 function removeRuleHighlight() {
     interacting = false;
-    removeGraphHighlight();
-    removeChordHighlight();
+    charts[activeChart].removeRuleHighlight()
+    // removeGraphHighlight();
+    // removeChordHighlight();
 }
 
 function removeDetailsHighlight() {

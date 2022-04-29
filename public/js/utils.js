@@ -53,16 +53,6 @@ function getFilteredData(){
     return filteredData;
 }
 
-function sortTerms(){
-    if (sortCriteria.terms == 'nbrules') 
-        filtering.terms.sort((a,b) => {
-            let nodesA = data.rules.filter(d => d.target.includes(a.value) || d.source.includes(a.value)),
-                nodesB = data.rules.filter(d => d.target.includes(b.value) || d.source.includes(b.value))
-            return nodesB.length - nodesA.length;
-        })
-    else
-        filtering.terms.sort((a,b) => a.value.localeCompare(b.value))
-}
 
 function transformString() {
     let args = Array.prototype.slice.call(arguments);
@@ -95,6 +85,13 @@ const toast = Swal.mixin({
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
 })
+
+function fireSelectionError(){
+    toast.fire({
+        icon: 'error',
+        title: 'This will delete all rules! Action not allowed.'
+    })
+}
 
 Array.prototype.equals = function (array) {
   // if the other array is a falsy value, return
@@ -238,7 +235,18 @@ function hideTooltip(){
         .style('opacity', '0')
 }
 
-
+function setInfoTooltip(){
+    tippy('.config-info', {
+        theme: 'light',
+        placement: 'right-start', 
+        allowHTML: true,
+        interactive: true,
+        appendTo: document.body,
+        followCursor: false,
+        delay: [200, 0],
+        animation: 'scale'
+    })
+}
 
 // close button for every floating div
 function setCloseIcon(div) {

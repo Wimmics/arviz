@@ -59,7 +59,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 async function loadData(req) {
     let params = req.params;
     let data = { rules: [] }
-    let dirname = path.join(__dirname, datafile[params.dataset] + 'rules/')
+    let dirname = path.join(__dirname, datafile[params.app] + 'rules/')
     if (fs.existsSync(dirname)){
         let filenames = fs.readdirSync(dirname)
         filenames.forEach(filename => {
@@ -71,28 +71,41 @@ async function loadData(req) {
     return data
 }
 
-app.get('/arviz/:dataset/', async function(req, res) {
-    
-    let data = await loadData(req)
-    
-    res.render('index', { appli: req.params.dataset, data: data });
+app.get('/arviz/:dataset/', async function(req, res) { 
+    let config = fs.readFileSync(path.join(__dirname, datafile[req.params.dataset] + 'config_' + req.params.dataset + '.json'))   
+    config = JSON.parse(config)
+    res.render('index', { appli: req.params.dataset, config: config });
 })
 
-app.get('/arviz/:dataset/data', (req, res) => {
-    let params = req.params;
+app.post('/arviz/:app/data/:vis', async (req, res) => {
+    let values = req.body;
+    // let query = req.query;
+    let data = await loadData(req)
 
-    let data = { rules: [], uris: null }
-    let dirname = path.join(__dirname, datafile[params.dataset] + 'rules/')
-    if (fs.existsSync(dirname)){
-        let filenames = fs.readdirSync(dirname)
-        filenames.forEach(filename => {
-            let rawdata = fs.readFileSync(path.join(dirname + filename))
+    // apply confidence and interestingness filters
+    data.rules = data.rules.filter(d => d.confidence >= values.filtering.conf.min && d.confidence <= values.filtering.conf.max && 
+        d.interestingness >= values.filtering.int.min && d.interestingness <= values.filtering.int.max)
 
-            data.rules = data.rules.concat(JSON.parse(rawdata))
-        })
-    }
+    // apply symmetry filter
+    data.rules = data.rules.filter(d => values.filtering.symmetry && values.filtering.no_symmetry ? true : 
+        (values.filtering.symmetry ? d.isSymmetric : (values.filtering.no_symmetry ? !d.isSymmetric : false)))
     
-    res.send(JSON.stringify(data))
+    values.uncheck_methods.forEach(d => { // not working, verify!
+        data.rules = data.rules.filter(e => d === 'no_clustering' ? e.cluster != d : !e.cluster.includes(d) && e.cluster != 'no_clustering' )
+    })
+    
+    
+    let result = null
+    if (req.params.vis === 'graph')
+        result = data.rules.filter(d => d[values.type].includes(values.value))
+    else if (req.params.vis === 'circular') {
+        result = { count: data.rules.length }
+        if (values.sort !== 'null') data.rules.sort((a,b) => b[values.sort] - a[values.sort])
+        result.data = data.rules.slice(values.first, values.last)
+    } else {
+        result = data.rules;
+    }
+    res.send(JSON.stringify(result))
 })
 
 app.get('/arviz/:dataset/about', function(req, res) {

@@ -2,7 +2,7 @@
     "uris": {
         "agrovoc": "PREFIX oa: <http://www.w3.org/ns/oa#> prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> SELECT distinct ?uri ?label from <http://agrovoc.fao.org/graph> from <http://data-issa.cirad.fr/graph/thematic-descriptors> from <http://data-issa.cirad.fr/graph/annif-descriptors> WHERE { ?s oa:hasTarget ?article ; oa:hasBody ?uri . ?uri skosxl:prefLabel [ skosxl:literalForm ?label ] . filter ( langMatches( lang(?label), 'en') || langMatches( lang(?label), 'fr'))} limit 10000 offset $offset"
     }, 
-    "documents": "PREFIX oa: <http://www.w3.org/ns/oa#>  prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> prefix bibo: <http://purl.org/ontology/bibo/> PREFIX dcterms: <http://purl.org/dc/terms/>  PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT distinct ?article ?url ?title ?date ?authors WHERE { { select * where { $pattern ?article bibo:doi ?url ; dcterms:title ?title ; dcterms:issued ?date . } } {select ?article group_concat(distinct ?n ; separator = ',') as ?authors where { ?article dc:creator ?n . } group by ?article}}",
+    "documents": "PREFIX oa: <http://www.w3.org/ns/oa#>  prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> prefix bibo: <http://purl.org/ontology/bibo/> PREFIX dcterms: <http://purl.org/dc/terms/>  PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT distinct ?article ?url ?title ?date ?authors WHERE { { select * where { $pattern ?article bibo:doi ?url ; dcterms:title ?title ; dcterms:issued ?date . } } {select ?article group_concat(distinct ?n ; separator = '--') as ?authors where { ?article dc:creator ?n . } group by ?article}}",
     "endpoint": "http://issa.i3s.unice.fr/sparql",
     "pattern": "?article ^oa:hasTarget $ann . $ann oa:hasBody <$body> ."
 }
