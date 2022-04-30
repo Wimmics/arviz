@@ -31,6 +31,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+    <script src="https://cdn.jsdelivr.net/npm/datalist-ajax/dist/datalist-ajax.min.js"></script>
+
     <!-- ARViz-related files -->
     <!-- CSS -->
     <link rel="stylesheet" href="/arviz/css/common.css">
@@ -105,8 +108,9 @@
                 <form autocomplete="off" onsubmit="handleInput(event)">
                     <div class="autocomplete">
                         <label class='text-div'>Search rules by</label> 
-                        <input id="antecedentInput" list="labels_list" type="text" name="source" placeholder="Antecedent">
-                        <input type="submit" value="Go">    
+                        <input id="antecedentInput" list="labels_list" type="text" name="source" placeholder="Antecedent" oninput="updateDatalist(event)">
+                        <input type="submit" value="Go">   
+                        <i class="fa-solid fa-circle-info" title="Type at least three letters"></i>
                         <i class="fa fa-refresh fa-spin labels-loading"></i>
                     </div>
                 </form>  
@@ -115,8 +119,9 @@
                 <form autocomplete="off" onsubmit="handleInput(event)">
                     <div class="autocomplete">
                         <label class='text-div'>Search rules by</label> 
-                        <input id="consequentInput" type="text" name="target" placeholder="Consequent" list="labels_list">
+                        <input id="consequentInput" type="text" name="target" placeholder="Consequent" list="labels_list" oninput="updateDatalist(event)">
                         <input type="submit" value="Go">
+                        <i class="fa-solid fa-circle-info" title="Type at least three letters"></i> 
                         <i class="fa fa-refresh fa-spin labels-loading"></i>
                     </div>
                 </form>  
@@ -197,6 +202,7 @@
         function handleInput(event){
             event.preventDefault();
             if (event.submitter.nodeName == 'BUTTON') return;
+
             let type = event.srcElement[0].name;
             let value = document.getElementById(event.srcElement[0].id).value;
             charts.graph.setGraphView(type, value)
@@ -204,6 +210,24 @@
             if (type == 'source') document.getElementById('consequentInput').value = '';
             else document.getElementById('antecedentInput').value = '';
         }       
+
+        function updateDatalist(event) {
+            let value = event.srcElement.value
+            if (value.length > 2) {
+                let labels = uris.filter(d => d.label.value.includes(value))
+
+                d3.select('#labels_list')
+                    .selectAll('option')
+                    .data(labels)
+                    .join(
+                        enter => enter.append('option'),
+                        update => update,
+                        exit => exit.remove()
+                    )
+                    .attr('value', d => d.label.value)
+                    // .attr('label', d => d.label.value)
+            }
+        }
         
         function about(event) {
             window.open('/arviz/' + appli + '/about')

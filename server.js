@@ -19,7 +19,7 @@ const datadir = 'data/';
 
 const cachedir = datadir + 'cache/';
 if (!fs.existsSync(cachedir)){
-    fs.mkdirSync(cachedir);
+    fs.mkdirSync(path.join(__dirname, cachedir));
 }
 
 // one cache folder per querying page
@@ -29,8 +29,8 @@ const cachefile = {
 }
 
 Object.keys(cachefile).forEach(key => {
-    if (!fs.existsSync(cachefile[key]))
-        fs.mkdirSync(cachefile[key]);
+    if (!fs.existsSync(path.join(__dirname, cachefile[key])))
+        fs.mkdirSync(path.join(__dirname, cachefile[key]));
 })
 
 const datafile = {
@@ -137,15 +137,17 @@ app.get('/arviz/:dataset/about', function(req, res) {
 app.get('/arviz/api/:app/uris', async function(req, res) {
 
     let filePath = path.join(__dirname, datafile[req.params.app] + 'labels_uri.json')
-    let uris = []
+    
     if (fs.existsSync(filePath)) {
-        let rawdata = fs.readFileSync(filePath)
-        uris = JSON.parse(rawdata)
-        // res.sendFile(filePath)
+        // let rawdata = fs.readFileSync(filePath)
+        // uris = JSON.parse(rawdata)
+        res.sendFile(filePath)
     } else {
 
         let queries = fs.readFileSync(path.join(__dirname, datafile[req.params.app] + 'queries.json'))
         queries = JSON.parse(queries)
+
+        let uris = []
         
         let endpoint = queries.endpoint
         let graphs = Object.keys(queries.uris)
@@ -168,18 +170,20 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
                     bindings = result.results.bindings
                 }
 
-                fs.writeFileSync(path.join(__dirname, datafile[req.params.app] + 'labels_uri.json'), JSON.stringify(uris), null, 4)
             } catch(e) {
                 console.log(e)
             }
         }
+
+        let data = await loadData(req)
+        let validLabels = data.rules.map(d => d.source.concat(d.target)).flat()
+        let result = uris.filter(d => validLabels.includes(d.label.value)) // keep only labels mentioned in the rules
+
+        fs.writeFileSync(path.join(__dirname, datafile[req.params.app] + 'labels_uri.json'), JSON.stringify(result), null, 4)
+
+        res.send(JSON.stringify(uris))
     }
-
-    let data = await loadData(req)
-    let validLabels = data.rules.map(d => d.source.concat(d.target)).flat()
-    let result = uris.filter(d => validLabels.includes(d.label.value))
-
-    res.send(JSON.stringify(result))
+    
 
 })
 

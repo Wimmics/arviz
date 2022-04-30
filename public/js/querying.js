@@ -10,19 +10,10 @@ async function getLabelsURI() {
     let response = await fetch('/arviz/api/' + appli + '/uris');
     uris = await response.json();
 
-    let labels = uris.map(d => d.label.value)
-    labels = labels.filter((d,i) => labels.indexOf(d) == i)
+    // let labels = uris.map(d => d.label.value)
+    // labels = labels.filter((d,i) => labels.indexOf(d) == i)
 
-    d3.select('#labels_list')
-        .selectAll('option')
-        .data(labels)
-        .join(
-            enter => enter.append('option'),
-            update => update,
-            exit => exit.remove()
-        )
-        .attr('value', d => d)
-        .attr('label', d => d)
+    
 }
 
 async function getPublications(values, rule) {
