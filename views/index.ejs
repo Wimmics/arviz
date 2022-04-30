@@ -87,11 +87,16 @@
     <div class='visu-space'>
         <!-- tabs that enable switching between views -->
         <div class="tab-bar" onclick="charts.scatterplot.setScatterPlot();" id='scatterplot-tab'>Overview of Rules</div>
-        <div class="tab-bar" onclick="charts.circular.setChordDiagramView();" id='chord-tab'>Circular Paginated View of Subsets</div>
+        <div class="tab-bar" onclick="charts.chord.setChordDiagramView();" id='chord-tab'>Circular Paginated View of Subsets</div>
         <div class="tab-bar" onclick="charts.graph.setGraphView();" id='graph-tab'>Exploratory Graph View of Items</div>
 
         <!-- the div that will contain the views -->
-        <div class='viewContainer'></div>
+        <div class='viewContainer'>
+            <div id="vis-loading" style="margin-top:30%; margin-left:50%; font-size: 40px;">
+                <i class="fa fa-refresh fa-spin" ></i>
+            </div>
+            
+        </div>
         
         <!-- the forms below are only enabled for the association graph view -->
         <datalist id="labels_list"></datalist>
@@ -102,7 +107,7 @@
                         <label class='text-div'>Search rules by</label> 
                         <input id="antecedentInput" list="labels_list" type="text" name="source" placeholder="Antecedent">
                         <input type="submit" value="Go">    
-                        <i class="fa fa-refresh fa-spin"></i>
+                        <i class="fa fa-refresh fa-spin labels-loading"></i>
                     </div>
                 </form>  
             </div>
@@ -112,7 +117,7 @@
                         <label class='text-div'>Search rules by</label> 
                         <input id="consequentInput" type="text" name="target" placeholder="Consequent" list="labels_list">
                         <input type="submit" value="Go">
-                        <i class="fa fa-refresh fa-spin"></i>
+                        <i class="fa fa-refresh fa-spin labels-loading"></i>
                     </div>
                 </form>  
             </div>
@@ -145,13 +150,14 @@
         let height, width, 
             activeChart = null,
             configPanel,
-            charts = { graph: null, circular: null, scatterplot: null },
+            charts = { graph: null, chord: null, scatterplot: null },
             uris;
         
         window.addEventListener('load', async (event) => {
 
             await getLabelsURI()
-            d3.selectAll('.fa-spin').style('display', 'none')
+            d3.selectAll('.labels-loading').style('display', 'none')
+            d3.select('#vis-loading').style('display', 'none')
 
             // set page 
             const div = d3.select('div.viewContainer')
@@ -167,7 +173,7 @@
 
             configPanel =  new ConfigPanel(<%- JSON.stringify(config) %>)
             charts.graph = new GraphView()
-            charts.circular = new CircularView()
+            charts.chord = new CircularView()
             charts.scatterplot = new ScatterPlot()
 
             // legend

@@ -585,7 +585,8 @@ class GraphView{
                 type: this.type,
                 value: this.value,
                 filtering: configPanel.filtering,
-                uncheck_methods: configPanel.getMethods()
+                uncheck_methods: configPanel.getMethods(),
+                langs: configPanel.getLanguages()
             } )
         })
         return response.json()

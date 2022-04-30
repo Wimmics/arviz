@@ -319,16 +319,10 @@ class CircularView {
     }
 
     async updateRotationValueForm(){
-        // const htmlContent = '<div class="rotationNavText">' +
-        //     capitalize(this.browsing) + ' ' + (this.firstNode + 1) + ' - ' + (this.lastNode >= this.maxNodes ? this.maxNodes : this.lastNode) + '</div>' +
-        //     "<button id='rotationValuePrevious' onclick=this.decreaseRotationValue()>Previous</button>" +
-        //     "<input type='text' id='rotationValueInput' onchange=this.updateRotationValue(event) value= " + this.visibleNodes + " />" +
-        //     "<button id='rotationValueNext' onclick=this.increaseRotationValue()>Next</button>" ;
 
         document.querySelector('.rotationNavText').innerHTML = capitalize(this.browsing) + ' ' + (this.firstNode + 1) + ' - ' + 
             (this.lastNode >= this.maxNodes ? this.maxNodes : this.lastNode)
-        console.log(document.querySelector('#rotationValueInput').value)
-        console.log(this)
+        
         document.querySelector('#rotationValueInput').value = this.visibleNodes;
 
         this.updateDiagramData()
@@ -341,7 +335,7 @@ class CircularView {
 
     setChordDiagramView(){
 
-        setActiveChart('circular')
+        setActiveChart('chord')
         displayDetailPanels();
         
         const div = d3.select('div.viewContainer')
@@ -368,15 +362,18 @@ class CircularView {
 
         // this.firstNode = 0;
         this.source = arguments.length > 0 ? 'vis' : 'server'
-        this.total = this.source === 'vis' ? arguments[0] : await this.fetchData();
+        let result = this.source === 'vis' ? await this.fetchData(arguments[0]) : await this.fetchData();
+       
+        this.total = result.data
         
+
         // cd.validTerms = []
         // cd.filteredData.forEach(d => {
         //     d.source.forEach(e => { if (!cd.validTerms.includes(e)) cd.validTerms.push(e); })
         //     d.target.forEach(e => { if (!cd.validTerms.includes(e)) cd.validTerms.push(e); })
         // })
-        this.data = this.source === 'vis' ? this.total : this.total.data
-        this.maxNodes = this.source === 'vis' ? this.total.length : this.total.count; // result.count is the total number of rules sent by the server
+        // this.data = this.source this.total.data
+        this.maxNodes = this.source === 'vis' ? this.total.length : result.count; // result.count is the total number of rules sent by the server
         
         let value = this.firstNode + this.visibleNodes;
         this.lastNode = value > this.maxNodes ? this.maxNodes : value;
@@ -387,16 +384,33 @@ class CircularView {
     async fetchData() {
         let url = '/arviz/' + appli + '/data/circular';
 
-        let response = await fetch(url, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify( {
+        let values = null
+        if (arguments.length) {
+            let d = arguments[0]
+            values = {
+                interestingness: d.interestingness,
+                confidence: d.confidence,
+                isSymmetric: d.isSymmetric,
+                sort: configPanel.sortCriteria.rules,
+                filtering: configPanel.filtering,
+                uncheck_methods: configPanel.getMethods(),
+                langs: configPanel.getLanguages()
+            }
+        } else {
+            values = {
                 first: this.firstNode,
                 last: this.lastNode,
                 sort: configPanel.sortCriteria.rules,
                 filtering: configPanel.filtering,
-                uncheck_methods: configPanel.getMethods()
-            } )
+                uncheck_methods: configPanel.getMethods(),
+                langs: configPanel.getLanguages()
+            }
+        }
+
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify( values )
         })
         return response.json()
     }

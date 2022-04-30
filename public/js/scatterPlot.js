@@ -13,6 +13,8 @@ class ScatterPlot{
         setActiveChart('scatterplot')
         hideAllPanels()
 
+        d3.select('#vis-loading').style('display', 'block')
+
         clearGraphView()
         clearChordDiagram()
 
@@ -32,12 +34,17 @@ class ScatterPlot{
         const y = d3.axisLeft(y_scale),
             x = d3.axisBottom(x_scale);
 
-        const countComb = {};
+        // const countComb = {};
 
         // const filteredData = getFilteredData()
         if (!this.data || this.changed || !this.data.length) {
-            this.data = await this.fetchData()
+            let result = await this.fetchData()
+            this.count = result.count
+            this.data = result.data
             this.changed = false
+        } else if (!this.changed) {
+            d3.select('svg#scatter-plot').style('display', 'block')
+            return
         }
 
         if (!this.data || !this.data.length) {
@@ -48,28 +55,14 @@ class ScatterPlot{
             return;
         }
 
-        this.data.forEach(d => {
-            const key = d.confidence+'-'+d.interestingness+'-'+d.isSymmetric;
-            if (countComb[key]) {
-                countComb[key] ++;
-            } else countComb[key] = 1;
-        })
-
-        this.data.sort((a,b) => {
-            const keyA = a.confidence+'-'+a.interestingness+'-'+a.isSymmetric,
-                keyB = b.confidence+'-'+b.interestingness+'-'+b.isSymmetric;
-            return countComb[keyB] - countComb[keyA]
-        })
-
-        let values = Object.values(countComb);
-        // values = values.filter((d,i) => values.indexOf(d) == i)
+        let values = Object.values(this.count);
         values.sort((a,b) => a - b)
 
         this.rectSides = [10, 20, 40, 60, 80, 100]
         this.countBreaks = ss.jenks(values, 5);
         this.sideScale = d3.scaleThreshold()
             .domain(this.countBreaks.slice(1, 5))
-            .range(this.rectSides)
+            .range(this.rectSides.map(d => d * .7))
 
         this.plotGroup = graphContainer.select('svg#scatter-plot')
         let rectGroup; //legendGroup;
@@ -144,7 +137,7 @@ class ScatterPlot{
             )
             .attrs(d => {
                 const key = d.confidence+'-'+d.interestingness+'-'+d.isSymmetric;
-                const rectSide = this.sideScale(countComb[key])
+                const rectSide = this.sideScale(this.count[key])
                 const x = x_scale(d.interestingness),
                     y = y_scale(d.confidence) - Math.sqrt(Math.pow(rectSide, 2) * 2)/2;
                 return{
@@ -163,8 +156,8 @@ class ScatterPlot{
             })
             .on('mouseenter', d => {
                 const key = d.confidence+'-'+d.interestingness+'-'+d.isSymmetric;
-                const rectSide = this.sideScale(countComb[key])
-                let html = countComb[key] + ' rules<br><br>' + 
+                const rectSide = this.sideScale(this.count[key])
+                let html = this.count[key] + ' rules<br><br>' + 
                     'Confidence: ' + d.confidence + 
                     '<br>Interestingness: ' + d.interestingness + 
                     '<br>Symmetric: ' + d.isSymmetric;
@@ -176,7 +169,7 @@ class ScatterPlot{
             .on('contextmenu', d3.contextMenu(scatterPlotMenu))
 
         this.plotGroup.selectAll('line.helper').raise()
-    
+        d3.select('#vis-loading').style('display', 'none')
     }
 
     //-----------------------------------
@@ -247,7 +240,8 @@ class ScatterPlot{
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify( {
                 filtering: configPanel.filtering,
-                uncheck_methods: configPanel.getMethods()
+                uncheck_methods: configPanel.getMethods(),
+                langs: configPanel.getLanguages()
             } )
         })
         return response.json()

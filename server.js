@@ -91,19 +91,41 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
         (values.filtering.symmetry ? d.isSymmetric : (values.filtering.no_symmetry ? !d.isSymmetric : false)))
     
     values.uncheck_methods.forEach(d => { // not working, verify!
-        data.rules = data.rules.filter(e => d === 'no_clustering' ? e.cluster != d : !e.cluster.includes(d) && e.cluster != 'no_clustering' )
+        data.rules = data.rules.filter(e => !e.cluster.startsWith(d) )
     })
     
-    
+
+    values.langs.forEach(d => { // not working, verify!
+        data.rules = data.rules.filter(e => e.lang != d )
+    })
+
     let result = null
     if (req.params.vis === 'graph')
         result = data.rules.filter(d => d[values.type].includes(values.value))
     else if (req.params.vis === 'circular') {
         result = { count: data.rules.length }
-        if (values.sort !== 'null') data.rules.sort((a,b) => b[values.sort] - a[values.sort])
-        result.data = data.rules.slice(values.first, values.last)
+        if (values.sort) data.rules.sort((a,b) => b[values.sort] - a[values.sort])
+        if (values.last) {
+            result.data = data.rules.slice(values.first, values.last)
+        } else {
+            result.data = data.rules.filter(d => d.confidence === values.confidence && d.interestingness === values.interestingness && d.isSymmetric === values.isSymmetric)
+        }
     } else {
-        result = data.rules;
+        result = { count: {} }
+        data.rules.forEach(d => {
+            const key = d.confidence+'-'+d.interestingness+'-'+d.isSymmetric;
+            if (result.count[key]) {
+                result.count[key] ++;
+            } else result.count[key] = 1;
+        })
+
+        result.data = data.rules.filter( (d,i) => data.rules.findIndex(e => e.confidence === d.confidence && e.interestingness === d.interestingness && e.isSymmetric === d.isSymmetric) === i)
+
+        result.data.sort((a,b) => {
+            const keyA = a.confidence+'-'+a.interestingness+'-'+a.isSymmetric,
+                keyB = b.confidence+'-'+b.interestingness+'-'+b.isSymmetric;
+            return result.count[keyB] - result.count[keyA]
+        })
     }
     res.send(JSON.stringify(result))
 })
@@ -115,8 +137,11 @@ app.get('/arviz/:dataset/about', function(req, res) {
 app.get('/arviz/api/:app/uris', async function(req, res) {
 
     let filePath = path.join(__dirname, datafile[req.params.app] + 'labels_uri.json')
+    let uris = []
     if (fs.existsSync(filePath)) {
-        res.sendFile(filePath)
+        let rawdata = fs.readFileSync(filePath)
+        uris = JSON.parse(rawdata)
+        // res.sendFile(filePath)
     } else {
 
         let queries = fs.readFileSync(path.join(__dirname, datafile[req.params.app] + 'queries.json'))
@@ -124,8 +149,6 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
         
         let endpoint = queries.endpoint
         let graphs = Object.keys(queries.uris)
-
-        let data = []
 
         for (let i = 0; i < graphs.length; i++) {
             let offset = 0
@@ -137,7 +160,7 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
                 let bindings = result.results.bindings
 
                 while ( bindings.length ) {
-                    data = data.concat(bindings)
+                    uris = uris.concat(bindings)
 
                     offset += 10000;
                     result = await sparql.sendRequest(query.replace('$offset', offset), endpoint)
@@ -145,14 +168,19 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
                     bindings = result.results.bindings
                 }
 
-                fs.writeFileSync(path.join(__dirname, datafile[req.params.app] + 'labels_uri.json'), JSON.stringify(data), null, 4)
+                fs.writeFileSync(path.join(__dirname, datafile[req.params.app] + 'labels_uri.json'), JSON.stringify(uris), null, 4)
             } catch(e) {
                 console.log(e)
             }
         }
-
-        res.send(JSON.stringify(data))
     }
+
+    let data = await loadData(req)
+    let validLabels = data.rules.map(d => d.source.concat(d.target)).flat()
+    let result = uris.filter(d => validLabels.includes(d.label.value))
+
+    res.send(JSON.stringify(result))
+
 })
 
 app.get('/arviz/api/:app/publications', async function(req, res) {

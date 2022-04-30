@@ -92,6 +92,10 @@ class ConfigPanel{
         this.config.methods.forEach(d => {
             this.filtering[d.key] = true;
         })
+
+        this.config.lang.forEach(d => {
+            this.filtering[d] = true;
+        })
     }
 
     // info icon
@@ -280,15 +284,6 @@ class ConfigPanel{
     sortTerms(data){
         let values = data.map(d => d.source.concat(d.target)).flat()
         values = values.filter( (d,i) => values.indexOf(d) === i)
-
-        // if (this.sortCriteria.terms == 'nbrules') 
-        //     values.sort((a,b) => {
-        //         let nodesA = data.rules.filter(d => d.target.includes(a.value) || d.source.includes(a.value)),
-        //             nodesB = data.rules.filter(d => d.target.includes(b.value) || d.source.includes(b.value))
-        //         return nodesB.length - nodesA.length;
-        //     })
-        // else
-        //     data.terms.sort((a,b) => a.value.localeCompare(b.value))
     }
 
     setSortPanel(){
@@ -350,17 +345,6 @@ class ConfigPanel{
             .on('change', function(d){
                 _this.sortCriteria[d.value] = this.options[this.selectedIndex].value;
                 charts[activeChart].update()
-                // sortTerms()
-                // update the charts accordingly
-                // if (activeChart == 'chord') {
-                //     setChordDiagramView();
-                // } else {
-                //     // computePositions().then(() => {
-                //     //     setNodes()
-                //     //     if (!d3.selectAll('g.edges').empty()) setEdges()
-                //     // })
-                //     graph.update()
-                // }
         })
 
         selection.selectAll('option')
@@ -415,6 +399,10 @@ class ConfigPanel{
             {'label': 'Methods of Rules Extraction', 'value': 'methods',
             'children': this.config.methods.map(d => { 
                 return {value: d.key, checked: true, label: `${d.label} (${d.value})`, type: 'checkbox'}
+            }) },
+            {'label': 'Language', 'value': 'lang',
+            'children': this.config.lang.map(d => { 
+                return {value: d, checked: true, label: d, type: 'checkbox'}
             }) }
         ]   
                 
@@ -558,71 +546,21 @@ class ConfigPanel{
 
     // update upon a filtering choice
     handleCheckbox(elem) {
-        let error = false;
-        // if (this.id == 'no_clustering' || this.id.includes('symmetry')){
-        // if (!elem.checked) {
-        //     switch(elem.id) {
-        //         case 'symmetry':
-        //             if (!this.filtering['no_symmetry'].checked) {
-        //                 error = true;
-        //                 fireSelectionError()
-        //             }
-        //             break; 
-        //         case 'no_symmetry':
-        //             if (!this.filtering['no_symmetry'].checked) {
-        //                 error = true;
-        //                 fireSelectionError()
-        //             } 
-        //             break;
-        //         case 'no_clustering':
-        //             if (!this.filtering['clust_']) {
-        //                 error = true;
-        //                 fireSelectionError()
-        //             }
-        //             break;
-        //         default:
-        //             if (!this.filtering['no_clustering']) {
-        //                 error = true;
-        //                 fireSelectionError()
-        //             }
-        //     }
-        // }
 
-        // if (!error) {
-            this.filtering[elem.id] = elem.checked;
-        // } else elem.checked = !elem.checked;
-            
-        // } else {
-        //     let parent = d3.select(this.parentNode.parentNode.parentNode);
-            
-        //     if (d3.select(this).datum().value == 'all') {
-        //         if (!this.checked){
-        //             let clusters = Object.keys(filtering).filter(key => key.includes('clusters') && key != parent.datum().value)
-        //             let selected = 0;
-        //             clusters.forEach(key => {
-        //                 selected += filtering[key].length;
-        //             })
-        //             if (!filtering['no_clustering'] && selected == 0) {
-        //                 this.checked = !this.checked;
-        //                 fireSelectionError()
-        //             }
-        //         }
-        //         parent.selectAll('input').property('checked', this.checked)
-        //     } else { // if the user unselect an item, unselect the "all option" since not all items are selected
-        //         parent.selectAll('input')
-        //             .filter(d => d.value == 'all')
-        //             .property('checked', false)
-        //     }
-        // }
+        this.filtering[elem.id] = elem.checked;
 
         this.updateFilteringKeys()
-        // updateCharts()
         charts[activeChart].update()
     }
 
     getMethods() {
         let unckeck_methods = this.config.methods.filter(d => !this.filtering[d.key])
         return unckeck_methods.map(d => d.key)
+    }
+
+    getLanguages() {
+        let unckeck_langs = this.config.lang.filter(d => !this.filtering[d])
+        return unckeck_langs.map(d => d)
     }
 
     async filterData(data) {

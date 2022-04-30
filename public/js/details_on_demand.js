@@ -90,7 +90,7 @@ function setDetailsPanel(d){
 
     divContent.node().innerHTML += '<b>Associated URIs</b><br>'
     valid_uris.forEach(e => {
-        divContent.node().innerHTML += '<b>' + e.label.value + ': </b>' + '<a href=' + e.uri.value + ' target="_blank">' + e.uri.value + '</a><br>'
+        divContent.node().innerHTML += '<b>' + e.label.value + ': </b>' + '<a href="https://agrovoc.fao.org/browse/agrovoc/en/page/?uri=' + e.uri.value + '" target="_blank">' + e.uri.value + '</a><br>'
     })
 
     divContent.node().innerHTML += '<br><b>Interestingness: </b>' + d.interestingness.toFixed(2) + '<br>' +
@@ -98,7 +98,7 @@ function setDetailsPanel(d){
         '<b>Support: </b>' + d.support.toFixed(4) + '<br>' +
         '<b>Symmetric: </b>' + d.isSymmetric + '<br>' +
         (d.cluster ? '<b>Cluster: </b>' + d.cluster + '<br><br>' : '') +
-        '<b>List of Associated Publications: </b>' +
+        '<b id="pubs-title">List of Associated Publications: </b>' +
         '<div id="loading" style="text-align: center; margin:auto;" ><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br>Searching for Publications</div>';
     
     getPublications(queryValues, d)   // the id is not being used in this function (is meant for cache purposes) 
@@ -109,15 +109,19 @@ function setPubContent(result, id){
     const publications = prepareContent(result)
 
     d3.select('div#loading').remove()
+    d3.select('#pubs-title').remove()
     d3.select('div#'+id+'_'+activeChart).select('div.details-content').node().innerHTML += getContent(publications)
 }
 
 function getContent(result){
-    let content = '<br><br>';
+    let content = '';
     if (result.length > 0) {
+        content = 'List of Associated Publications (' + result.length + ')<br><br>'
         result.forEach(d => {
             content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + 'Authors: ' + d.authors.split('--').join(' and ') + '</br>' +
-                'DOI: <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br></br>'
+                'DOI: <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br>' + 
+                (appli === 'issa' ? 'Augmented visualization (ISSA): <a href="http://issa.i3s.unice.fr/visu/?uri=' + d.article + '" target="_blank">http://issa.i3s.unice.fr/visu/?uri=' + d.article + '</a><br>' : '') +
+                '</br>'
         })
     }else {
         content += '<center style="height: fit-content; text-align: center;">We could not find the publications associated to this rule.'
@@ -133,9 +137,11 @@ function prepareContent(result){
     const pubs = []
     titles.forEach(t => {
         let items = result.filter(d => d.title.value == t)
+
         pubs.push({
+            'article': items[0].article.value,
             'title': t,
-            'year': items[0].date.value.split('-')[0],
+            'year': appli != 'issa' ? +items[0].date.value.split('-')[0] : Math.trunc(+items[0].date.value),
             'url': items[0].url.value,
             'authors': items.map(i => i.authors.value.replace(/[\u0300-\u036f]/g, "")).join(' and ')
         })
