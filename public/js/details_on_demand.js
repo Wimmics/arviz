@@ -120,7 +120,7 @@ function getContent(result){
         result.forEach(d => {
             content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + 'Authors: ' + d.authors.split('--').join(' and ') + '</br>' +
                 'DOI: <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br>' + 
-                (appli === 'issa' ? 'Augmented visualization (ISSA): <a href="http://issa.i3s.unice.fr/visu/?uri=' + d.article + '" target="_blank">http://issa.i3s.unice.fr/visu/?uri=' + d.article + '</a><br>' : '') +
+                (appli === 'issa' ? '<a href="http://issa.i3s.unice.fr/visu/?uri=' + d.article + '" target="_blank">Augmented visualization (ISSA)</a><br>' : '') +
                 '</br>'
         })
     }else {
