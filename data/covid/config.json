@@ -1,0 +1,25 @@
+{
+    "lang": [],
+    "graph": [],
+    "min_interestingness": 0.3,
+    "min_confidence": 0.7,
+    "methods": [
+        {
+            "label": "No clustering",
+            "key": "no_clustering"
+        },
+        {
+            "label": "Clusters of labels",
+            "key": "^label_cluster[0-9]+$"
+        },
+        {
+            "label": "Clusters of articles",
+            "key": "^article_cluster[0-9]+$"
+        },
+        {
+            "label": "Clusters of labels and articles",
+            "key": "^label_cluster[0-9]+article_cluster[0-9]+$"
+        }
+    ],
+    "rdf": true
+}

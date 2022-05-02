@@ -11,13 +11,12 @@
     "methods": [
         {
             "label": "No clustering method",
-            "key": "no_clustering",
-            "value": 1027
+            "key": "no_clustering"
         },
         {
-            "label": "Clustering of labels",
-            "key": "clust",
-            "value": 20065
+            "label": "Clusters of labels",
+            "key": "^clust[0-9]+$"
         }
-    ]
+    ],
+    "rdf": true
 }

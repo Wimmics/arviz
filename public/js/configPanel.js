@@ -395,16 +395,23 @@ class ConfigPanel{
                 ]},
                 {'value': 'symmetry', 'checked': true, 'label': 'Symmetric Rules', 'type': 'checkbox'},
                 {'value': 'no_symmetry', 'checked': true, 'label': 'Non-Symmetric Rules', 'type': 'checkbox'}
-            ]},
-            {'label': 'Methods of Rules Extraction', 'value': 'methods',
+            ]}          
+            
+        ]  
+        
+        if (this.config.methods.length) {
+            filterData.push({'label': 'Methods of Rules Extraction', 'value': 'methods',
             'children': this.config.methods.map(d => { 
-                return {value: d.key, checked: true, label: `${d.label} (${d.value})`, type: 'checkbox'}
-            }) },
-            {'label': 'Language', 'value': 'lang',
+                return {value: d.key, checked: true, label: d.label, type: 'checkbox'}
+            }) })
+        }
+
+        if (this.config.lang.length) {
+            filterData.push({'label': 'Language', 'value': 'lang',
             'children': this.config.lang.map(d => { 
                 return {value: d, checked: true, label: d, type: 'checkbox'}
-            }) }
-        ]   
+            }) })
+        }
                 
         // filtering 
         const filterGroup = div.selectAll('div')
@@ -549,7 +556,8 @@ class ConfigPanel{
 
         this.filtering[elem.id] = elem.checked;
 
-        this.updateFilteringKeys()
+        // this.updateFilteringKeys()
+        console.log(activeChart)
         charts[activeChart].update()
     }
 
@@ -579,20 +587,20 @@ class ConfigPanel{
         return data
     }
 
-    updateFilteringKeys(){
-        let keys = Object.keys(this.filtering);
-        keys.forEach(key => {
-            if (!d3.select('table#'+key).empty()){
+    // updateFilteringKeys(){
+    //     let keys = Object.keys(this.filtering);
+    //     keys.forEach(key => {
+    //         if (!d3.select('table#'+key).empty()){
             
-                this.filtering[key] = [];
-                d3.select('table#'+key).selectAll('input').nodes().forEach(function(n){
-                    if (n.checked){
-                        this.filtering[key].push(d3.select(n).datum())
-                    }
-                })
-            }
-        })
-    }
+    //             this.filtering[key] = [];
+    //             d3.select('table#'+key).selectAll('input').nodes().forEach(function(n){
+    //                 if (n.checked){
+    //                     this.filtering[key].push(d3.select(n).datum())
+    //                 }
+    //             })
+    //         }
+    //     })
+    // }
 
 }
 

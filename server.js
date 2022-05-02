@@ -72,7 +72,7 @@ async function loadData(req) {
 }
 
 app.get('/arviz/:dataset/', async function(req, res) { 
-    let config = fs.readFileSync(path.join(__dirname, datafile[req.params.dataset] + 'config_' + req.params.dataset + '.json'))   
+    let config = fs.readFileSync(path.join(__dirname, datafile[req.params.dataset] + 'config.json'))   
     config = JSON.parse(config)
     res.render('index', { appli: req.params.dataset, config: config });
 })
@@ -91,7 +91,8 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
         (values.filtering.symmetry ? d.isSymmetric : (values.filtering.no_symmetry ? !d.isSymmetric : false)))
     
     values.uncheck_methods.forEach(d => { // not working, verify!
-        data.rules = data.rules.filter(e => !e.cluster.startsWith(d) )
+        let regex = new RegExp(d)
+        data.rules = data.rules.filter(e => !e.cluster.match(regex) )
     })
     
 

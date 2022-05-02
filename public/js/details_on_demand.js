@@ -3,6 +3,8 @@ let interacting = false;
 
 function setDetailsPanel(d){
 
+    if (!configPanel.config.rdf) return;
+
     const queryValues = d.source.concat(d.target)
     const divId = getRuleId(d) + '_' + activeChart;
 
