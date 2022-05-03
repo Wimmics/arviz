@@ -212,9 +212,9 @@
         }       
 
         function updateDatalist(event) {
-            let value = event.srcElement.value
+            let value = event.srcElement.value.toLowerCase()
             if (value.length > 2) {
-                let labels = uris.filter(d => d.label.value.includes(value))
+                let labels = uris.filter(d => d.label.value.toLowerCase().includes(value))
 
                 d3.select('#labels_list')
                     .selectAll('option')
