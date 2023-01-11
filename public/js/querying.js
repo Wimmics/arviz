@@ -6,15 +6,7 @@ function prepare(query) {
     return query;
 }
 
-async function getLabelsURI() {
-    let response = await fetch('/arviz/api/' + appli + '/uris');
-    uris = await response.json();
 
-    // let labels = uris.map(d => d.label.value)
-    // labels = labels.filter((d,i) => labels.indexOf(d) == i)
-
-    
-}
 
 async function getPublications(values, rule) {
 

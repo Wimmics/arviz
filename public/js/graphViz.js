@@ -1,26 +1,27 @@
 
-class GraphView{
-    constructor() {
+class GraphView extends Chart{
+    constructor(config) {
+        super(config)
 
+        this.id = 'graph'
     }
 
     init() {
-        const div = d3.select('div.viewContainer')
-        if (d3.select('div.graphContainer').empty()) { // the svg may contain only the text info, which means that only the graph group needs to be created
-            div.append('div')
-                .attr('class', 'dragscroll graphContainer')
-                .append('svg')
-                .classed('content', true)
-                .attr('id', 'graph-view')
-                .attrs({
-                    'height': '100%',
-                    'width': '100%'
-                })
-        }
+        this.div.append('div')
+            .attr('class', 'dragscroll graphContainer')
+            .append('svg')
+            .classed('content', true)
+            .attr('id', 'graph-view')
+            .attrs({
+                'height': '100%',
+                'width': '100%'
+            })
         
-        this.graphGroup = d3.select('svg#graph-view').append('g').attr('id', 'graph-group')
+        this.group = this.div.select('svg#graph-view')
+            .append('g')
+            .attr('id', 'graph-group')
 
-        this.graphGroup.append('text')
+        this.group.append('text')
             .attrs({
                 'x': '50%',
                 'y': 70,
@@ -33,32 +34,13 @@ class GraphView{
             .text('Rules')
 
 
-        this.graphGroup.append('g')
+        this.group.append('g')
             .classed('node', true)
 
-        this.graphGroup.append('g')
+        this.group.append('g')
             .classed('rule', true)
 
-        this.setInfo()
-    }
-
-    empty(){
-
-        let text = 'Using the current filter options, I could not find any rule where "' + this.value + '" is a' + (this.type == 'source' ? 'n antecedent' : ' consequent') + '. \nPlease try again with another value, or search it in the consequent side.';
-
-        d3.select('text#welcome-text')
-            .style('display', 'block')
-            .text(text)
-
-        this.graphGroup.selectAll('g.edges').remove()
-        this.graphGroup.select('text#rule-title').style('display', 'none')
-        this.graphGroup.select('g.node').style('display', 'none')
-        this.graphGroup.select('g.rule').style('display', 'none')
-    }
-
-    setInfo(){
-
-        this.graphGroup.append('text')
+        this.group.append('text')
             .attr('id', 'welcome-text')
             .attrs({
                 'x': '50%',
@@ -67,43 +49,51 @@ class GraphView{
             .styles({
                 'text-anchor': 'middle'
             })
-            
+    }
+    
+    hide() {
+        d3.select(this.dashboard.shadowRoot.querySelector('div.graphContainer')).style('display', 'none')
+        d3.select(this.dashboard.shadowRoot.querySelector('div.bottom-button')).style('display', 'none')
+        d3.select(this.dashboard.shadowRoot.querySelector('div.forms')).style('display', 'none')
+    }
+
+    display() {
+        d3.select(this.dashboard.shadowRoot.querySelector('div.graphContainer')).style('display', 'block')
+        d3.select(this.dashboard.shadowRoot.querySelector('div.bottom-button')).style('display', 'block')
+        d3.select(this.dashboard.shadowRoot.querySelector('div.forms')).style('display', 'table')
+    }
+
+    empty(){
+
+        let text = 'Using the current filter options, we could not find any rule where "' + this.value + '" is a' + (this.type == 'source' ? 'n antecedent' : ' consequent') + '. \nPlease try again with another value, or search it in the consequent side.';
+
+        d3.select('text#welcome-text')
+            .style('display', 'block')
+            .text(text)
+
+        this.group.selectAll('g.edges').remove()
+        this.group.select('text#rule-title').style('display', 'none')
+        this.group.select('g.node').style('display', 'none')
+        this.group.select('g.rule').style('display', 'none')
     }
 
     async update(){
-        this.setGraphView(this.type, this.value)
+        this.set(this.type, this.value)
     }
 
-    async setGraphView(type, value){
+    async set(type, value){
         
-        setActiveChart('graph')
-        displayDetailPanels()
-        
-        // graph.type = arguments[0] ? arguments[0] : graph.type;
-        // graph.value = arguments[1] === undefined ? graph.value : arguments[1];
         this.type = type;
         this.value = value;
 
-
-        let selection = d3.select('g#graph-group');
-
-        if (selection.size() === 0) { // if the group does not exist: create the necessary elements
-            this.init()
-        }else { // the graph already exists: display the div containing the graph
-            d3.select('div.graphContainer').style('display', 'block')
-        } 
-
-        d3.select('div.forms').style('display', 'table')
-
-        // clear input fields
-        document.getElementById('consequentInput').value = !this.type || this.type == 'source' || !this.value ? '' : this.value;
-        document.getElementById('antecedentInput').value = !this.type || this.type == 'target' || !this.value ? '' : this.value;
-
         // remove the visual information regarding the chord diagram
-        clearChordDiagram()
-        clearScatterPlot()
-        
-        if (arguments.length > 0) { // if the action is to create a new graph
+        this.dashboard.chord.hide()
+        this.dashboard.scatterplot.hide()
+
+        this.display()
+        this.clearSearch()
+
+        if (this.type && this.value) { // if the action is to create a new graph
             let response = await this.getRules(this.type, this.value);
 
             if (response.nodes.length == 0) {
@@ -113,8 +103,7 @@ class GraphView{
 
             this.rules = response;
 
-            clearDetailPanels()
-            this.graphGroup.selectAll('g.edges').remove()
+            // clearDetailPanels() // fix it!
             this.currentTerm = null;
             this.direction = null;
             this.activeTerms = null;
@@ -131,16 +120,22 @@ class GraphView{
                 this.setRules(nodes)
             } 
 
-        }else if (this.renderedNodes) {
+        } else if (this.renderedNodes) {
             await this.computePositions()
-            this.setNodes()
+            this.drawNodes()
             if (this.renderedNodes.some(d => d.type == 'rule'))
-                this.setEdges()
+                this.drawEdges()
         } else {
             d3.select('#welcome-text')
                 .style('display', 'block')
                 .text('To begin the exploration search for a an antecedent or consequent concept in the forms above.')
         }   
+    }
+
+    clearSearch() {
+        // clear input fields
+        this.dashboard.shadowRoot.querySelector('#target-input').value = !this.type || this.type == 'source' || !this.value ? '' : this.value;
+        this.dashboard.shadowRoot.querySelector('#source-input').value = !this.type || this.type == 'target' || !this.value ? '' : this.value;
     }
 
     getNode(nodeId){
@@ -154,7 +149,7 @@ class GraphView{
     mouseover(d) {
         let ruleId = d.id >= 0 ? d.id : d3.select(this.parentNode).datum().rule;
 
-        const edges =  d3.select('g#graph-group').selectAll('g.edges');
+        const edges = this.group.selectAll('g.edges');
         if (edges.size() == 0) return;
 
         let elements = [],
@@ -178,16 +173,16 @@ class GraphView{
 
         let rule = this.rules.nodes.filter(e => e.id == ruleId)[0]
         if (!['source', 'target'].includes(d.type)) {
-            highlightDetailsPanel(getRuleId(rule))
+            // highlightDetailsPanel(this.getRuleId(rule)) // fix it!
         } 
 
         if (d.type == 'rule') {
-            showRuleTooltip(d)
+            this.displayTooltip(this.getRuleTooltip(d))
         } else if (['source', 'target'].includes(d.type)) {
-            showArcTooltip(ruleNodes.filter(e => e[d.type].includes(d.name)).length)
+            this.displayTooltip(this.getArcTooltip(ruleNodes.filter(e => e[d.type].includes(d.name)).length))
         }
         
-        closeNav()
+        this.dashboard.closeNav()
     }
 
     highlightRule(id) {
@@ -197,14 +192,14 @@ class GraphView{
     }
 
     removeRuleHighlight(){
-        d3.selectAll('g.edges')
+        this.div.selectAll('g.edges')
             .transition()
             .duration(500)
             .style('opacity', 1)
 
-        removeDetailsHighlight()
+        // removeDetailsHighlight() // fix it!
 
-        hideTooltip()
+        this.hideTooltip()
     }
 
     async sortTermsByNbRules(counts) {
@@ -216,7 +211,7 @@ class GraphView{
                 if (a.type == t) {
                     if (a.type == b.type) {
                         if (keys.includes(a.name) && keys.includes(b.name))
-                            return configPanel.sortCriteria.terms == 'alpha' ? a.name.localeCompare(b.name) : counts[t][b.name] - counts[t][a.name]
+                            return this.dashboard.sort.sortCriteria.terms == 'alpha' ? a.name.localeCompare(b.name) : counts[t][b.name] - counts[t][a.name]
                         else if (keys.includes(a.name) && !keys.includes(b.name))
                             return -1;
                         else return 1;
@@ -244,7 +239,7 @@ class GraphView{
         let counts = {'source': {}, 'target': {}}
 
         // sort terms according to criteria
-        if (configPanel.sortCriteria.terms == 'alpha') {
+        if (this.dashboard.sort.sortCriteria.terms === 'alpha') {
             this.renderedNodes.sort((a,b) => a.type == 'rule' ? 1 : a.name.localeCompare(b.name));
         } else {
             this.countRules(this.rules.nodes.filter(d => d.type == 'rule'), counts)
@@ -264,7 +259,7 @@ class GraphView{
         }
 
         // sort rules according to selected criteria
-        if (configPanel.sortCriteria.rules) {
+        if (this.dashboard.sort.sortCriteria.rules) {
             this.renderedNodes.sort((a,b) => a.type != 'rule' ? 1 : b[configPanel.sortCriteria.rules] - a[configPanel.sortCriteria.rules])
         }
 
@@ -288,93 +283,9 @@ class GraphView{
 
         // update the height of the svg according to the number of nodes displayed
         let maxY = d3.max(this.renderedNodes, d => d.y);
-        maxY = maxY < height ? height : maxY + 100;
-        d3.select('svg#graph-view').attr('height', maxY)
+        maxY = maxY < this.height ? this.height : maxY + 100;
+        this.div.select('svg#graph-view').attr('height', maxY)
 
-    }
-
-
-    setNodes(){
-
-        this.graphGroup.select('#welcome-text').style('display', 'none')
-        d3.select('g#graph-group').select('text#rule-title')
-            .style('display', this.renderedNodes.some(d => d.type == 'rule') ? 'block' : 'none')
-
-        let nodeGroup = this.graphGroup.select('g.node').style('display', 'block')
-        let ruleGroup = this.graphGroup.select('g.rule').style('display', 'block')
-
-        const rects = nodeGroup.selectAll('rect').data(this.renderedNodes.filter(d => d.type != 'rule')),
-            texts = nodeGroup.selectAll('text').data(this.renderedNodes.filter(d => d.type != 'rule')),
-            squares = ruleGroup.selectAll('rect').data(this.renderedNodes.filter(d => d.type === 'rule'));
-
-        rects.join(
-            enter => enter.append('rect')
-                .attrs(d => {
-                    return {
-                        'width': d.width + '%',
-                        'height': d.height,
-                        'fill': 'white'
-                    }
-                })
-                .on('click', d => this.setRules(d))
-                .on('mouseenter', d => this.mouseover(d))
-                .on('mouseleave', d => this.removeRuleHighlight(d))
-                .on('contextmenu', d3.contextMenu(menu)),
-            update => update,
-            exit => exit.remove()
-        )
-        .attrs((d,i) => {
-            return {
-                x: d.x + '%',
-                y: d.y
-            }
-        })
-        .styles(d => this.getShapeStyle(d))
-
-
-        width = d3.select('div.graphContainer').node().clientWidth;
-
-        texts.join(
-            enter => enter.append('text')
-                .on('click', d => this.setRules(d))
-                .on('mouseenter', d => this.mouseover(d))
-                .on('mouseleave', d => this.removeRuleHighlight(d))
-                .on('contextmenu', d3.contextMenu(menu)),
-            update => update,
-            exit => exit.remove()
-        )
-        .text(d => d.name)
-        .attrs(function(d,i){
-            return {
-                x: d.tx + '%',
-                y: this.getComputedTextLength() > width * 14/100 ? d.ty - 8 : d.ty
-            }
-        })
-        .call(wrap, width * 14/100, d => width * d.tx / 100)
-        .transition()
-        .duration(1500)
-        .styles(d => this.getTextStyle(d))
-
-        
-
-        squares.join(
-            enter => enter.append('rect')
-                .classed('g-rule', true),
-            update => update,
-            exit => exit.remove()
-        )
-        .on('mouseenter', d => this.mouseover(d))
-        .on('mouseleave', d => this.removeRuleHighlight(d))
-        .on('click', setDetailsPanel)
-        .transition()
-        .duration(500)
-        .attrs(d => {
-            return {
-                'width': d.width,
-                'height': d.height,
-                'transform': `translate(${width/2}, ${d.y})rotate(45)`
-            }
-        }).attrs(d => this.getShapeStyle(d))
     }
 
     getShapeStyle(d){
@@ -402,7 +313,7 @@ class GraphView{
     async setRules(d){
         if (d.type == 'rule' || d.id == this.currentTerm) return;
 
-        d3.select('div.graphContainer').node().scrollTo(0, 0);
+        this.div.select('div.graphContainer').node().scrollTo(0, 0);
 
         this.direction = d.type == 'source' ? 'target' : 'source';
 
@@ -414,20 +325,116 @@ class GraphView{
             this.renderedNodes = this.renderedNodes.filter(e => e.type == this.direction ? validTerms.some(t => t.includes(e.name)) : true)
         }
 
-        d3.selectAll('line').remove()
+        // d3.selectAll('line').remove()
         this.currentTerm = d.id;
         await this.computePositions()
-        this.setNodes()
-        this.setEdges()
+        this.hideText()
+        this.displayNodes() 
 
-        this.graphGroup.selectAll('g.node').selectAll('rect').styles(d => this.getShapeStyle(d))
+        this.drawNodes()
+        this.drawEdges()
+
+        this.group.selectAll('g.node').selectAll('rect').styles(d => this.getShapeStyle(d))
     }
 
-    /*
-        Display links towards rules
-    */
-    setEdges(){
+    displayNodes() {
+        this.group.select('g.node').style('display', 'block')
+        this.group.select('g.rule').style('display', 'block')
+    }
 
+    hideText() {
+        this.group.select('#welcome-text').style('display', 'none')
+        d3.select('g#graph-group').select('text#rule-title')
+            .style('display', this.renderedNodes.some(d => d.type == 'rule') ? 'block' : 'none')
+    }
+
+    drawNodes() {
+        this.drawLabelBoxes()
+        this.drawLabels() 
+        this.drawDiamonds()      
+    }
+
+    drawLabelBoxes() {
+        this.group.select('g.node')
+            .selectAll('rect')
+            .data(this.renderedNodes.filter(d => d.type != 'rule'))
+            .join(
+                enter => enter.append('rect')
+                    .attrs(d => {
+                        return {
+                            'width': d.width + '%',
+                            'height': d.height,
+                            'fill': 'white'
+                        }
+                    })
+                    .on('click', d => this.setRules(d))
+                    .on('mouseenter', d => this.mouseover(d))
+                    .on('mouseleave', d => this.removeRuleHighlight(d))
+                    .on('contextmenu', d3.contextMenu(menu)),
+                update => update,
+                exit => exit.remove()
+            )
+            .attrs((d,i) => {
+                return {
+                    x: d.x + '%',
+                    y: d.y
+                }
+            })
+            .styles(d => this.getShapeStyle(d))
+    }
+
+    drawLabels() {
+        this.group.select('g.node')
+            .selectAll('text')
+            .data(this.renderedNodes.filter(d => d.type != 'rule'))
+            .join(
+                enter => enter.append('text')
+                    .on('click', d => this.setRules(d))
+                    .on('mouseenter', d => this.mouseover(d))
+                    .on('mouseleave', d => this.removeRuleHighlight(d))
+                    .on('contextmenu', d3.contextMenu(menu)),
+                update => update,
+                exit => exit.remove()
+            )
+            .text(d => d.name)
+            .attrs(function(d,i){
+                return {
+                    x: d.tx + '%',
+                    y: this.getComputedTextLength() > this.width * 14/100 ? d.ty - 8 : d.ty
+                }
+            })
+            .call(wrap, this.width * 14/100, d => this.width * d.tx / 100)
+            .transition()
+            .duration(1500)
+            .styles(d => this.getTextStyle(d))
+
+    }
+
+    drawDiamonds() {
+        this.group.select('g.rule')
+            .selectAll('rect')
+            .data(this.renderedNodes.filter(d => d.type === 'rule'))
+            .join(
+                enter => enter.append('rect')
+                    .classed('g-rule', true),
+                update => update,
+                exit => exit.remove()
+            )
+            .on('mouseenter', d => this.mouseover(d))
+            .on('mouseleave', d => this.removeRuleHighlight(d))
+            .on('click', setDetailsPanel)
+            .transition()
+            .duration(500)
+            .attrs(d => {
+                return {
+                    'width': d.width,
+                    'height': d.height,
+                    'transform': `translate(${this.width/2}, ${d.y})rotate(45)`
+                }
+            }).attrs(d => this.getShapeStyle(d))
+    }
+
+    async getEdgesPoints() {
         let ruleNodes = this.renderedNodes.filter(d => d.type == 'rule')
         
         let links = [],
@@ -449,50 +456,60 @@ class GraphView{
                 targetNodes = d.target.map(e => this.getNodesByName(e).filter(a => a.type == 'target')[0]),
                 rule = this.renderedNodes.filter(e => e.id == d.id)[0],
                 center = (Math.sqrt(2) * d.width)/2,
-                rx = rule.x / 100 * width,
+                rx = rule.x / 100 * this.width,
                 ry = rule.y + center,
                 y = top + (linkDistance * i),
-                x = ((sourceNodes[0].x + sourceNodes[0].width) / 100 * width + rx) / 2 ;
+                x = ((sourceNodes[0].x + sourceNodes[0].width) / 100 * this.width + rx) / 2 ;
 
             sourceNodes.forEach(e => {
                 links[i].points.push({
-                    'source': { x: (e.x + e.width) / 100 * width, y: e.y + e.height / 2},
+                    'source': { x: (e.x + e.width) / 100 * this.width, y: e.y + e.height / 2},
                     'target': { x: rx - center, y: ry }
                 })
             })
 
-            x = (rx + targetNodes[0].x / 100 * width) / 2;
+            x = (rx + targetNodes[0].x / 100 * this.width) / 2;
 
             targetNodes.forEach(e => {
                 links[i].points.push({
-                    source: { x: e.x / 100 * width, y: e.y + e.height / 2},
+                    source: { x: e.x / 100 * this.width, y: e.y + e.height / 2},
                     target: {'x': rx + center, 'y': ry}
                 })
             })
         })
 
-        const lineGenerator = d3.linkHorizontal()
-            .x(d => d.x)
-            .y(d => d.y)
+        return links
+    }
 
-        this.graphGroup.selectAll('g.edges').remove()
+    /*
+        Display links towards rules
+    */
+    async drawEdges(){
 
-        const edgeGroup = this.graphGroup.selectAll('g.edges')
+        let links = await this.getEdgesPoints()
+
+        const edgeGroup = this.group.selectAll('g.edges')
             .data(links)
-            .enter()
-                .append("g")
-                .classed('edges', true)
-                .attr('id', d => {
-                    let rule = this.rules.nodes.filter(e => e.id == d.rule)[0];
-                    return getRuleId(rule)
-                })
+            .join(
+                enter => enter.append("g")
+                    .classed('edges', true),
+                update => update,
+                exit => exit.remove()
+            )    
+            .attr('id', d => {
+                let rule = this.rules.nodes.filter(e => e.id == d.rule)[0];
+                return this.getRuleId(rule)
+            })
 
         const path = edgeGroup.selectAll("path")
             .data(d => d.points)
-            .enter()
-            .append('path')
-            .classed('edge', true)
-            .attr('d', d => lineGenerator(d))
+            .join(
+                enter => enter.append('path')
+                    .classed('edge', true),
+                update => update,
+                exit => exit.remove()
+            )
+            .attr('d', d3.linkHorizontal().x(d => d.x).y(d => d.y))
 
 
         path.attr("stroke-dasharray", function() { return this.getTotalLength()})
@@ -503,14 +520,14 @@ class GraphView{
                 .attr("stroke-dashoffset", 0);
 
         // bring rules to front
-        this.graphGroup.selectAll("g.rule").raise()
+        this.group.selectAll("g.rule").raise()
 
     }  
 
     async getRules(){
         let rules = {'nodes': [], 'links':[]}
         
-        function pushNode(d){
+        const pushNode = (d) => {
             let ruleNode = rules.nodes.length;
             rules.nodes.push({'id': ruleNode, 
                 'source': d.source,
@@ -521,7 +538,7 @@ class GraphView{
                 'support': d.support,
                 'cluster': d.cluster,
                 'graph': d.graph,
-                'fill': configPanel.getColor(d),
+                'fill': this.dashboard.legend.getColor(d),
                 'type': 'rule'})
 
             let antIds = [],
@@ -571,22 +588,21 @@ class GraphView{
         }
 
         this.data = await this.fetchData()
-        // this.data = await configPanel.filterData(this.data)        
         this.data.forEach(pushNode)
         return rules
     }
 
     async fetchData() {
-        let url = '/arviz/' + appli + '/data/graph'
+        let url = '/arviz/' + this.dashboard.app + '/data/' + this.id;
         let response = await fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify( {
                 type: this.type,
                 value: this.value,
-                filtering: configPanel.filtering,
-                uncheck_methods: configPanel.getMethods(),
-                langs: configPanel.getLanguages()
+                filtering: this.dashboard.filter.getFilteringCriteria(),
+                uncheck_methods: this.dashboard.filter.getMethods(),
+                langs: this.dashboard.filter.getLanguages()
             } )
         })
         return response.json()

@@ -1,0 +1,29 @@
+{
+    "lang": [
+        "en"
+    ],
+    "graph": [
+        null
+    ],
+    "min_interestingness": 0.3,
+    "min_confidence": 0.7,
+    "methods": [
+        {
+            "label": "No clustering method",
+            "key": "no_clustering"
+        },
+        {
+            "label": "Clusters of labels",
+            "key": "clust_"
+        },
+        {
+            "label": "Communities of articles",
+            "key": "wt_community"
+        },
+        {
+            "label": "Combination of clusters and communities",
+            "key": "communities"
+        }
+    ],
+    "rdf": false
+}
