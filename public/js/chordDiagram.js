@@ -11,16 +11,16 @@ class CircularView extends Chart{
         this.id = "chord"
     }
 
-    getRule(source, target) {
-        let sources = source.map(e => e.label),
-            targets = target.map(e => e.label),
-            cluster = source[0].cluster;
+    getRule(d) {
+        let sources = d.source.map(e => e.label),
+            targets = d.target.map(e => e.label),
+            cluster = d.source[0].cluster;
         
-        return this.data.filter(d => d.cluster == cluster && d.source.equals(sources) && d.target.equals(targets))[0]
+        return this.data.filter(e => e.cluster == cluster && e.source.equals(sources) && e.target.equals(targets))[0]
     }
 
     getColor(d){
-        return this.dashboard.legend.getColor(this.getRule(d.source, d.target));
+        return this.dashboard.legend.getColor(this.getRule(d));
     }
 
     init(){
@@ -66,7 +66,10 @@ class CircularView extends Chart{
         this.dashboard.graph.hide()
 
         if (arguments.length == 0) this.filterDiagramData() 
-        else this.filterDiagramData(arguments[0])
+        else { 
+            this.clearPanels()
+            this.filterDiagramData(arguments[0])
+        }
     }
 
     update(){
@@ -129,7 +132,7 @@ class CircularView extends Chart{
                 exit => exit.remove()
             )
             .styles(d => {
-                let rule = this.getRule(d.source, d.target)
+                let rule = this.getRule(d)
                 let color = this.getColor(d);
                 return {
                     'stroke' : d3.rgb(color).darker(),
@@ -138,10 +141,10 @@ class CircularView extends Chart{
                     'opacity': 1
                 }
             })
-            .attr('id', d => this.getRuleId(this.getRule(d.source, d.target, d.cluster)))
-            .on('click', d => setDetailsPanel(this.getRule(d.source, d.target, d.cluster)))
+            .attr('id', d => this.getRuleId(this.getRule(d)))
+            .on('click', d => this.newPanel(this.getRule(d)))
             .on('mouseenter', function(d) { _this.mouseover(this, d)})
-            .on('mouseleave', () => this.mouseout()) 
+            .on('mouseleave', (d) => this.mouseout(d)) 
             .transition('update-chords')
             .duration(500)
             .attrTween('d', function(d) { return _this.ribbonTween(this, d) })
@@ -206,16 +209,17 @@ class CircularView extends Chart{
     }
 
     arcMouseover(d) {
-        if (dragActive) return;
+        if (this.isPanelMoving()) return;
 
-        this.group.selectAll('path.chord').transition()
+        this.group.selectAll('path.chord')
+            .transition('arc-highlight')
             .duration(200)
-            .style("opacity", e => e.source.some(s => s.index.includes(d.index)) || e.target.some(t => t.subindex.includes(d.index)) ? 1 : .05)
+            .style("opacity", e => e.source ? e.source.some(s => s.index.includes(d.index)) || e.target.some(t => t.subindex.includes(d.index)) ? 1 : .05 : .05) // fix this!
         
         let relatedTerms = this.data.filter(e => e.source.includes(d.label) || e.target.includes(d.label)).map(e => e.source.concat(e.target))
         
         this.group.selectAll('text.terms')
-            .transition()
+            .transition('terms-highlight')
             .duration(200)
             .styles(e => {
                 let valid = relatedTerms.some(x => x.includes(e.label));
@@ -246,33 +250,32 @@ class CircularView extends Chart{
     }
 
     mouseover(elem, d) {
-        if (dragActive) return;
+        if (this.isPanelMoving()) return;
 
-        this.highlightRule(elem, d);
-        // highlightDetailsPanel(elem.id); // fix it!
+        const rule = this.getRule(d)
+        this.highlightRule(elem.id, d);
 
-        const rule = this.getRule(d.source, d.target, d.cluster)
-        // showRuleTooltip(rule)
+        if (this.panels[elem.id]) this.panels[elem.id].highlight()
+
         this.displayTooltip(this.getRuleTooltip(rule))
     }
 
-    mouseout(){
-        this.removeRuleHighlight();
-        // removeDetailsHighlight() // fix it!
+    mouseout(d){
+        this.removeRuleHighlight(this.getRule(d));
         this.hideTooltip()
     }
 
-    highlightRule(elem, d){
-        // let path = this.group.select('path#'+id)
-        // console.log(path.node())
-        if (!elem) return;
+    highlightRule(id, d){
+        
+        let path = this.group.select('path#'+id)
+        if (path.empty()) return;
 
         this.group.selectAll('path.chord')
             .transition()
             .duration(200)
-            .style("opacity", function() {return this === elem ? 1 : .05})
+            .style("opacity", function() { return this.id === id ? 1 : .05})
 
-        let labels = d.source.concat(d.target).map(e => e.label)
+        let labels = d.source.concat(d.target).map(e => e.label || e)
         this.group.selectAll('text.terms')
             .transition()
             .duration(200)
@@ -287,7 +290,7 @@ class CircularView extends Chart{
         this.dashboard.closeNav()
     }
 
-    removeRuleHighlight() {
+    removeRuleHighlight(d) {
         this.group.selectAll('path.chord')
             .transition()
             .duration(200)
@@ -298,6 +301,10 @@ class CircularView extends Chart{
             .duration(200)
             .style('font-weight', 'normal')
             .style('opacity', '1')
+
+        let id = this.getRuleId(d)
+        if (this.panels[id]) this.panels[id].removeHighlight()
+        
     }
 
     arcTween(elem, a) {
@@ -322,7 +329,7 @@ class CircularView extends Chart{
         this.lastNode = value > this.maxNodes ? this.maxNodes : value;
         value = this.lastNode - this.visibleNodes;
         this.firstNode = this.lastNode == this.maxNodes ? value : this.firstNode;
-        clearDetailPanels()
+        this.clearPanels()
         this.updateRotationValueForm()
     }
 
@@ -331,7 +338,7 @@ class CircularView extends Chart{
         this.firstNode = value < 0 ? 0 : value;
         value = this.firstNode + this.visibleNodes;
         this.lastNode = value > this.maxNodes ? this.maxNodes : value;
-        clearDetailPanels()
+        this.clearPanels()
         this.updateRotationValueForm()
     }
 
@@ -340,7 +347,7 @@ class CircularView extends Chart{
         this.lastNode = value > this.maxNodes ? this.maxNodes : value;
         value = this.lastNode - this.visibleNodes
         this.firstNode = value < 0 ? 0 : value;
-        clearDetailPanels()
+        this.clearPanels()
         this.updateRotationValueForm()
     }
 
@@ -358,16 +365,17 @@ class CircularView extends Chart{
     hide() {
         this.svg.style("display", 'none')
         d3.select(this.dashboard.shadowRoot.querySelector('div.rotationValueNav')).style('display', 'none') 
+        this.hidePanels()
     }
 
     display() {
         this.svg.style("display", 'block')
         d3.select(this.dashboard.shadowRoot.querySelector('div.rotationValueNav')).style('display', 'block') 
+        this.displayPanels()
     }
 
     async filterDiagramData(){
 
-        // this.firstNode = 0;
         this.source = arguments.length > 0 ? 'vis' : 'server'
         let result = this.source === 'vis' ? await this.fetchData(arguments[0]) : await this.fetchData();
        
@@ -434,8 +442,5 @@ class CircularView extends Chart{
     }
 
 }
-// updateRotationValueForm()
-
-// setChordDiagramView()
 
 

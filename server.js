@@ -32,12 +32,6 @@ Object.keys(cachefile).forEach(key => {
         fs.mkdirSync(path.join(__dirname, cachefile[key]));
 })
 
-// const datafile = {
-//     'covid': datadir + 'covid/', 
-//     'issa': datadir + 'issa/',
-//     'crobora': datadir + 'crobora/'
-// }
-
 /**
  * HTTP node server
  * Browser form send HTTP request to this node server
@@ -71,6 +65,10 @@ async function loadData(req) {
     return data
 }
 
+app.get('/arviz/about', function(req, res) {
+    res.render('about');
+})
+
 app.get('/arviz/:app/', async function(req, res) { 
     res.render('index', { app: req.params.app });
 })
@@ -82,7 +80,6 @@ app.get('/arviz/:app/config', async function(req, res) {
 app.post('/arviz/:app/data/:vis', async (req, res) => {
     let values = req.body;
     let data = await loadData(req)
-    console.log(values)
 
     // apply confidence and interestingness filters
     data.rules = data.rules.filter(d => d.confidence >= values.filtering.conf.min && d.confidence <= values.filtering.conf.max && 
@@ -96,15 +93,14 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
         let regex = new RegExp(d)
         data.rules = data.rules.filter(e => !e.cluster.match(regex) )
     })
-    
 
     values.langs.forEach(d => { // not working, verify!
         data.rules = data.rules.filter(e => e.lang != d )
     })
-
+   
     let result = null
     if (req.params.vis === 'graph')
-        result = data.rules.filter(d => d[values.type].includes(values.value))
+        result = data.rules.filter(d => d[values.type].includes(values.value) )
     else if (req.params.vis === 'chord') {
         result = { count: data.rules.length }
         if (values.sort) data.rules.sort((a,b) => b[values.sort] - a[values.sort])
@@ -133,14 +129,12 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
     res.send(JSON.stringify(result))
 })
 
-app.get('/arviz/:dataset/about', function(req, res) {
-    res.render('about', { appli: req.params.dataset });
-})
+
 
 app.get('/arviz/api/:app/labels', async function(req, res) {
     let data = await loadData(req)
 
-    let labels = data.map(d => d.antecedents.concat(d.consequents)).flat()
+    let labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
     labels = labels.filter((d,i) => labels.indexOf(d) === i)
 
     res.send(JSON.stringify(labels))
@@ -197,9 +191,19 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
 
 })
 
+app.get('/arviz/api/:app/images', async function(req, res) {
+    let values = req.query.values.split(',') // array of labels
+
+    let data = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/context.json'))
+    data = JSON.parse(data)
+
+    data = data.filter(d => values.every(e => d.keywords.includes(e)))
+
+    res.send(JSON.stringify(data))
+})
+
 app.get('/arviz/api/:app/publications', async function(req, res) {
-    let values = req.query.values
-    values = values.split(',') // array of uris
+    let values = req.query.values.split(',') // array of uris
 
     let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
     queries = JSON.parse(queries)

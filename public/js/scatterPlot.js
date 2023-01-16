@@ -18,6 +18,7 @@ class ScatterPlot extends Chart{
 
     display() {
         d3.select(this.dashboard.shadowRoot.querySelector('svg#scatter-plot')).style('display', 'block')
+        this.dashboard.hideLoading()
     }
 
     init() {
@@ -102,11 +103,10 @@ class ScatterPlot extends Chart{
     }
 
     async set() {
-       
-        // hideAllPanels()
-        console.log('here')
-       
-        this.dashboard.showLoading()
+        
+        if (!this.changed)
+            this.dashboard.showLoading()
+
         this.dashboard.chord.hide()
         this.dashboard.graph.hide()
 
@@ -120,8 +120,6 @@ class ScatterPlot extends Chart{
             return
         }
 
-        console.log(this.data)
-
         if (!this.data || !this.data.length) {
             this.svg.select('g#rects').style('display', 'none')
             this.svg.select('#welcome-text')
@@ -130,7 +128,6 @@ class ScatterPlot extends Chart{
             return;
         }
 
-        this.dashboard.hideLoading()
         this.display()
 
         let values = Object.values(this.count);

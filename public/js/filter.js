@@ -159,14 +159,15 @@ class FilterPanel extends ConfigPanel {
                 .on('mouseup', () => {
                     let changed = false;
                     ['conf', 'int'].forEach(e => {
-                        const a = d3.select('input#'+e+'-a').node(),
-                            b = d3.select('input#'+e+'-b').node();    
+                        const a = this.div.select('input#'+e+'-a').node(),
+                            b = this.div.select('input#'+e+'-b').node();    
 
                         changed = changed || this.filtering[e].min != a.valueAsNumber || this.filtering[e].max != b.valueAsNumber;
                         this.filtering[e] = { 'min': a.valueAsNumber, 'max': b.valueAsNumber }
                     })
+
                     if (changed) {
-                        charts[activeChart].update()
+                        this.dashboard.updateChart()
                     }
                 })
 
@@ -174,7 +175,6 @@ class FilterPanel extends ConfigPanel {
     }
 
     updateInputRange(elem){
-        console.log(this)
         let pivot = null;
         const group = d3.select(elem.parentNode.parentNode);
 
@@ -217,7 +217,7 @@ class FilterPanel extends ConfigPanel {
 
         this.filtering[elem.id] = elem.checked;
 
-        charts[activeChart].update()
+        this.dashboard.updateChart()
     }
 
     getFilteringCriteria() {

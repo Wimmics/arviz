@@ -55,19 +55,21 @@ class GraphView extends Chart{
         d3.select(this.dashboard.shadowRoot.querySelector('div.graphContainer')).style('display', 'none')
         d3.select(this.dashboard.shadowRoot.querySelector('div.bottom-button')).style('display', 'none')
         d3.select(this.dashboard.shadowRoot.querySelector('div.forms')).style('display', 'none')
+        this.hidePanels()
     }
 
     display() {
         d3.select(this.dashboard.shadowRoot.querySelector('div.graphContainer')).style('display', 'block')
         d3.select(this.dashboard.shadowRoot.querySelector('div.bottom-button')).style('display', 'block')
         d3.select(this.dashboard.shadowRoot.querySelector('div.forms')).style('display', 'table')
+        this.displayPanels()
     }
 
     empty(){
 
         let text = 'Using the current filter options, we could not find any rule where "' + this.value + '" is a' + (this.type == 'source' ? 'n antecedent' : ' consequent') + '. \nPlease try again with another value, or search it in the consequent side.';
 
-        d3.select('text#welcome-text')
+        this.group.select('text#welcome-text')
             .style('display', 'block')
             .text(text)
 
@@ -94,16 +96,17 @@ class GraphView extends Chart{
         this.clearSearch()
 
         if (this.type && this.value) { // if the action is to create a new graph
+            this.dashboard.showLoading()
             let response = await this.getRules(this.type, this.value);
 
             if (response.nodes.length == 0) {
                 this.empty()
                 return;
             }
-
             this.rules = response;
 
-            // clearDetailPanels() // fix it!
+            this.clearPanels()
+
             this.currentTerm = null;
             this.direction = null;
             this.activeTerms = null;
@@ -126,10 +129,11 @@ class GraphView extends Chart{
             if (this.renderedNodes.some(d => d.type == 'rule'))
                 this.drawEdges()
         } else {
-            d3.select('#welcome-text')
+            this.group.select('#welcome-text')
                 .style('display', 'block')
-                .text('To begin the exploration search for a an antecedent or consequent concept in the forms above.')
+                .text('To begin the exploration search for a keyword using the forms above.')
         }   
+        this.dashboard.hideLoading()
     }
 
     clearSearch() {
@@ -173,7 +177,8 @@ class GraphView extends Chart{
 
         let rule = this.rules.nodes.filter(e => e.id == ruleId)[0]
         if (!['source', 'target'].includes(d.type)) {
-            // highlightDetailsPanel(this.getRuleId(rule)) // fix it!
+            let id = this.getRuleId(rule)
+            if (this.panels[id]) this.panels[id].highlight()
         } 
 
         if (d.type == 'rule') {
@@ -186,18 +191,23 @@ class GraphView extends Chart{
     }
 
     highlightRule(id) {
-        d3.selectAll('g.edges').transition()
+        this.group.selectAll('g.edges')
+            .transition()
             .duration(500)
             .style('opacity', function() { return this.id == id ? 1 : 0.05; })
     }
 
-    removeRuleHighlight(){
-        this.div.selectAll('g.edges')
+    removeRuleHighlight(d){
+        
+        this.group.selectAll('g.edges')
             .transition()
             .duration(500)
             .style('opacity', 1)
 
-        // removeDetailsHighlight() // fix it!
+        if (d.type === "rule") {
+            let id = this.getRuleId(d)
+            if (this.panels[id]) this.panels[id].removeHighlight()
+        }
 
         this.hideTooltip()
     }
@@ -325,7 +335,6 @@ class GraphView extends Chart{
             this.renderedNodes = this.renderedNodes.filter(e => e.type == this.direction ? validTerms.some(t => t.includes(e.name)) : true)
         }
 
-        // d3.selectAll('line').remove()
         this.currentTerm = d.id;
         await this.computePositions()
         this.hideText()
@@ -422,7 +431,7 @@ class GraphView extends Chart{
             )
             .on('mouseenter', d => this.mouseover(d))
             .on('mouseleave', d => this.removeRuleHighlight(d))
-            .on('click', setDetailsPanel)
+            .on('click', d => this.newPanel(d))
             .transition()
             .duration(500)
             .attrs(d => {
@@ -521,6 +530,7 @@ class GraphView extends Chart{
 
         // bring rules to front
         this.group.selectAll("g.rule").raise()
+        this.group.selectAll("g.node").raise()
 
     }  
 

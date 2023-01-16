@@ -1,27 +1,3 @@
-function getURI(value) {
-    let res = data.uri.filter(d => d.label == value)
-    return res.length > 0 ? res[0].uri : null;
-}
-
-function getClusterSubject(cluster, type) {
-    let filter = data.clusters.filter(d => d.cluster == cluster).map(d => {
-        let info = 'Covering topics of: <br>';
-        Object.keys(d).sort((a,b) => d[b] - d[a])
-            .forEach(e => {
-                if (d[e] >= 1) {
-                    info += (d[e] > 20 ? '<b>' : '') + e + ' (' + Math.trunc(d[e]) + '% of items)' + (d[e] > 20 ? '</b>' : '') + '<br>'
-                }
-            })
-
-        return {
-            cluster: d.cluster,
-            info: info
-        }
-    })[0]
-
-    return filter ? filter.info : 'No information available.'
-}
-
 function transformString() {
     let args = Array.prototype.slice.call(arguments);
     return args.shift() + '(' + args.join(',') + ')';

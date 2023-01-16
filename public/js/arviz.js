@@ -58,7 +58,8 @@ class ARViz extends HTMLElement {
 
         this.setInteraction()
 
-        // this.setTooltip()
+        this.graph.set()
+
     }
 
     setInteraction() {
@@ -103,13 +104,16 @@ class ARViz extends HTMLElement {
     async fetchConfig() {
         let response = await fetch('/arviz/' + this.app + '/config')
         this.config = await response.json()
-        console.log("config = ", this.config)
     }
 
     async fetchLabels() {
-        let response = await fetch('/arviz/api/' + this.app + (this.app === "crobora" ? '/labels' : '/uris'));
-        this.labels = await response.json();
-        console.log(this.labels)
+        let response = await fetch('/arviz/api/' + this.app + (!this.config.rdf ? '/labels' : '/uris'));
+        this.labels = await response.json()
+    }
+
+    getLabels(labels) {
+        let values = this.labels.filter(d => labels.includes(d.label ? d.label.value : d))
+        return values.filter( (d,i) => values.indexOf(d) === i)
     }
 
     // handle the submit action from the graph view's forms
@@ -131,7 +135,7 @@ class ARViz extends HTMLElement {
         if (value.length > 2) {
             let tempLabels = [];
             if (this.labels.length)
-                tempLabels = this.labels.filter(d => d.label.value.toLowerCase().includes(value))
+                tempLabels = this.labels.filter(d => d.label ? d.label.value.toLowerCase().includes(value) : d.toLowerCase().includes(value))
 
             d3.select(this.shadowRoot.querySelector('#labels_list'))
                 .selectAll('option')
@@ -147,6 +151,10 @@ class ARViz extends HTMLElement {
     
     about(event) {
         window.open('/arviz/' + this.app + '/about')
+    }
+
+    updateChart() {
+        this[this.activeChart].update()
     }
 
     getActiveChart() {
@@ -180,19 +188,6 @@ class ARViz extends HTMLElement {
         d3.select(this.shadowRoot.querySelector('#vis-loading')).style('display', 'none')
     }
 
-    // setTooltip(){
-    //     tippy('.config-info', {
-    //         theme: 'light',
-    //         placement: 'right-start', 
-    //         allowHTML: true,
-    //         interactive: true,
-    //         appendTo: document.body,
-    //         followCursor: false,
-    //         delay: [200, 0],
-    //         animation: 'scale'
-    //     })
-    // }
-
     openNav(id) {
         d3.select(this.shadowRoot.querySelector('div#'+id))
             .style('width', '270px')
@@ -212,7 +207,9 @@ template.innerHTML = `
 <link rel="stylesheet" href="/arviz/css/common.css">
 <link rel="stylesheet" href="/arviz/css/graph_viz.css">
 <link rel="stylesheet" href="/arviz/css/chordDiagram.css">
+<link rel="stylesheet" href="/arviz/css/detailsPanel.css">
 
+<div class="panels-container"></div>
 <div class="tooltip"></div>
 
 <!-- left side buttons -- settings for the current data and visual tools -->
@@ -245,8 +242,8 @@ template.innerHTML = `
 
     <!-- the div that will contain the views -->
     <div class='viewContainer'>
-        <div id="vis-loading" style="margin-top:30%; margin-left:50%; font-size: 40px;">
-            <i class="fa fa-refresh fa-spin" ></i>
+        <div id="vis-loading" style="top:30%; font-size: 40px; z-index: 1000; position:absolute; left:45%;" >
+            <img src='/arviz/images/loading.gif' width="150px"></img>
         </div>
         
     </div>
