@@ -14,7 +14,6 @@ const bodyParser = require('body-parser');
 const sparql = require('./sparql_helper');
 const path = require('path');
 
-const datafiletimeout = 1296000000; /// keep files in cache for 15 days
 const datadir = 'data/';
 
 const cachedir = datadir + 'cache/';
@@ -32,11 +31,6 @@ Object.keys(cachefile).forEach(key => {
     if (!fs.existsSync(path.join(__dirname, cachefile[key])))
         fs.mkdirSync(path.join(__dirname, cachefile[key]));
 })
-
-const datafile = {
-    'covid': datadir + 'covid/', 
-    'issa': datadir + 'issa/'
-}
 
 /**
  * HTTP node server
@@ -59,7 +53,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 async function loadData(req) {
     let params = req.params;
     let data = { rules: [] }
-    let dirname = path.join(__dirname, datafile[params.app] + 'rules/')
+    let dirname = path.join(__dirname, datadir + params.app + '/rules/')
     if (fs.existsSync(dirname)){
         let filenames = fs.readdirSync(dirname)
         filenames.forEach(filename => {
@@ -71,15 +65,20 @@ async function loadData(req) {
     return data
 }
 
-app.get('/arviz/:dataset/', async function(req, res) { 
-    let config = fs.readFileSync(path.join(__dirname, datafile[req.params.dataset] + 'config.json'))   
-    config = JSON.parse(config)
-    res.render('index', { appli: req.params.dataset, config: config });
+app.get('/arviz/about', function(req, res) {
+    res.render('about');
+})
+
+app.get('/arviz/:app/', async function(req, res) { 
+    res.render('index', { app: req.params.app });
+})
+
+app.get('/arviz/:app/config', async function(req, res) {
+    res.sendFile(path.join(__dirname, datadir + req.params.app + '/config.json'))
 })
 
 app.post('/arviz/:app/data/:vis', async (req, res) => {
     let values = req.body;
-    // let query = req.query;
     let data = await loadData(req)
 
     // apply confidence and interestingness filters
@@ -94,16 +93,15 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
         let regex = new RegExp(d)
         data.rules = data.rules.filter(e => !e.cluster.match(regex) )
     })
-    
 
     values.langs.forEach(d => { // not working, verify!
         data.rules = data.rules.filter(e => e.lang != d )
     })
-
+   
     let result = null
     if (req.params.vis === 'graph')
-        result = data.rules.filter(d => d[values.type].includes(values.value))
-    else if (req.params.vis === 'circular') {
+        result = data.rules.filter(d => d[values.type].includes(values.value) )
+    else if (req.params.vis === 'chord') {
         result = { count: data.rules.length }
         if (values.sort) data.rules.sort((a,b) => b[values.sort] - a[values.sort])
         if (values.last) {
@@ -131,21 +129,26 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
     res.send(JSON.stringify(result))
 })
 
-app.get('/arviz/:dataset/about', function(req, res) {
-    res.render('about', { appli: req.params.dataset });
+
+
+app.get('/arviz/api/:app/labels', async function(req, res) {
+    let data = await loadData(req)
+
+    let labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
+    labels = labels.filter((d,i) => labels.indexOf(d) === i)
+
+    res.send(JSON.stringify(labels))
 })
 
 app.get('/arviz/api/:app/uris', async function(req, res) {
 
-    let filePath = path.join(__dirname, datafile[req.params.app] + 'labels_uri.json')
+    let filePath = path.join(__dirname, datadir + req.params.app + '/labels_uri.json')
     
     if (fs.existsSync(filePath)) {
-        // let rawdata = fs.readFileSync(filePath)
-        // uris = JSON.parse(rawdata)
         res.sendFile(filePath)
     } else {
 
-        let queries = fs.readFileSync(path.join(__dirname, datafile[req.params.app] + 'queries.json'))
+        let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
         queries = JSON.parse(queries)
 
         let uris = []
@@ -180,7 +183,7 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
         let validLabels = data.rules.map(d => d.source.concat(d.target)).flat()
         let result = uris.filter(d => validLabels.includes(d.label.value)) // keep only labels mentioned in the rules
 
-        fs.writeFileSync(path.join(__dirname, datafile[req.params.app] + 'labels_uri.json'), JSON.stringify(result), null, 4)
+        fs.writeFileSync(path.join(__dirname, datadir + req.params.app + '/labels_uri.json'), JSON.stringify(result), null, 4)
 
         res.send(JSON.stringify(uris))
     }
@@ -188,11 +191,21 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
 
 })
 
-app.get('/arviz/api/:app/publications', async function(req, res) {
-    let values = req.query.values
-    values = values.split(',') // array of uris
+app.get('/arviz/api/:app/images', async function(req, res) {
+    let values = req.query.values.split(',') // array of labels
 
-    let queries = fs.readFileSync(path.join(__dirname, datafile[req.params.app] + 'queries.json'))
+    let data = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/context.json'))
+    data = JSON.parse(data)
+
+    data = data.filter(d => values.every(e => d.keywords.includes(e)))
+
+    res.send(JSON.stringify(data))
+})
+
+app.get('/arviz/api/:app/publications', async function(req, res) {
+    let values = req.query.values.split(',') // array of uris
+
+    let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
     queries = JSON.parse(queries)
 
     let query = queries.documents
