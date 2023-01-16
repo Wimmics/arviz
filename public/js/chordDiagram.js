@@ -65,6 +65,7 @@ class CircularView extends Chart{
         this.dashboard.scatterplot.hide()
         this.dashboard.graph.hide()
 
+        this.dashboard.showLoading()
         if (arguments.length == 0) this.filterDiagramData() 
         else { 
             this.clearPanels()

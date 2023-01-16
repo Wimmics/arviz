@@ -150,7 +150,7 @@ class ARViz extends HTMLElement {
     }
     
     about(event) {
-        window.open('/arviz/' + this.app + '/about')
+        window.open('/arviz/about')
     }
 
     updateChart() {
