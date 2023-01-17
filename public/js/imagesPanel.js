@@ -47,7 +47,6 @@ class ImagesPanel extends DetailsPanel {
 
             result.forEach(d => {
                 let docLink = d.documentId ? `http://dataviz.i3s.unice.fr/crobora/document/${d.documentId.replace('/', '_')}` : '#'
-
                 content += `<div class="image-content" >
                     <hr>
                     <p>Archive: <b>${d.documentTitle}</b><br>
@@ -83,21 +82,22 @@ class ImagesPanel extends DetailsPanel {
     }
 
     getLink(image_title) {
-        if (image_title.includes("TF1")){
-          return this.path + 'Atlas_TF1/' + image_title +".png";
-        } else if (image_title.includes("FR2")){
-          return this.path + 'Atlas_France2/' + image_title +".png";
-        } else if (image_title.includes("FR3")){
-          return this.path + 'Atlas_France3/' + image_title +".png";
-        } else if (image_title.includes("ARTE")){
-          return this.path + 'Atlas_Arte/' + image_title +".jpg";
-        } else if (image_title.includes("TG1")){
-          return this.path + 'Atlas_RaiUno/' + image_title +".png";
-        } else if (image_title.includes("TG2")){
-          return this.path + 'Atlas_RaiDue/'+ image_title +".png";
-        } else {
-          return this.path + 'Atlas_WebFR/'+ image_title +".PNG";
-        }
+      image_title = encodeURIComponent(image_title)
+      if (image_title.includes("TF1")){
+        return this.path + 'Atlas_TF1/' + image_title +".png";
+      } else if (image_title.includes("FR2")){
+        return this.path + 'Atlas_France2/' + image_title +".png";
+      } else if (image_title.includes("FR3")){
+        return this.path + 'Atlas_France3/' + image_title +".png";
+      } else if (image_title.includes("ARTE")){
+        return this.path + 'Atlas_Arte/' + image_title +".jpg";
+      } else if (image_title.includes("TG1")){
+        return this.path + 'Atlas_RaiUno/' + image_title +".png";
+      } else if (image_title.includes("TG2")){
+        return this.path + 'Atlas_RaiDue/'+ image_title +".png";
+      } else {
+        return this.path + 'Atlas_WebFR/'+ image_title +".PNG";
       }
+    }
   
 }
