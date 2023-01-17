@@ -9,7 +9,8 @@ class DetailsPanel {
 
         this.dashboard = document.querySelector("#arviz")
 
-        this.init()
+        this.width = null;
+        this.height = null;
     }
 
     init() {
@@ -18,6 +19,10 @@ class DetailsPanel {
         this.div = d3.select(this.dashboard.shadowRoot.querySelector('div.panels-container'))
             .append('div')
             .classed('details-panel', true)
+            .styles({
+                width: this.width + 'px',
+                height: this.height + 'px'
+            })
             .call(d3.drag()
                 .on('drag', function() {
                     _this.dragActive = true;
@@ -28,7 +33,7 @@ class DetailsPanel {
                     _this.div.raise().styles({ 'top': y + 'px', 'left': x + 'px' })
                 }).on('end', () => _this.dragActive = false))
 
-        this.width = this.div.node().clientWidth;
+        // this.width = this.div.node().clientWidth;
 
         this.setResizer()
     

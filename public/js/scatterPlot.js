@@ -172,7 +172,7 @@ class ScatterPlot extends Chart{
             .styles(d => {
                 let color = this.dashboard.legend.getColor(d)
                 return {
-                    'fill': d.isSymmetric ? "url('#"+ color + "-pattern')" : color,
+                    'fill': d.isSymmetric ? this.getPatternUrl(color) : color,
                     'stroke': d3.rgb(d.fill).darker()
                 }
             })

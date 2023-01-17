@@ -138,7 +138,7 @@ class CircularView extends Chart{
                 return {
                     'stroke' : d3.rgb(color).darker(),
                     'stroke-width': 1,
-                    'fill': rule.isSymmetric ? "url('#"+ color + "-pattern')" : color,
+                    'fill': rule.isSymmetric ? this.getPatternUrl(color) : color,
                     'opacity': 1
                 }
             })
@@ -213,14 +213,14 @@ class CircularView extends Chart{
         if (this.isPanelMoving()) return;
 
         this.group.selectAll('path.chord')
-            .transition('arc-highlight')
+            .transition('chord-arcmouseover')
             .duration(200)
             .style("opacity", e => e.source ? e.source.some(s => s.index.includes(d.index)) || e.target.some(t => t.subindex.includes(d.index)) ? 1 : .05 : .05) // fix this!
         
         let relatedTerms = this.data.filter(e => e.source.includes(d.label) || e.target.includes(d.label)).map(e => e.source.concat(e.target))
         
         this.group.selectAll('text.terms')
-            .transition('terms-highlight')
+            .transition('terms-arcmouseover')
             .duration(200)
             .styles(e => {
                 let valid = relatedTerms.some(x => x.includes(e.label));
@@ -237,12 +237,13 @@ class CircularView extends Chart{
     arcMouseout(){
         if (d3.event.buttons > 0) return;
 
-        this.group.selectAll('path.chord').transition()
+        this.group.selectAll('path.chord')
+            .transition('chord-arcmouseout')
             .duration(500)
             .style('opacity', 1)
 
         this.group.selectAll('text.terms')
-            .transition()
+            .transition('terms-arcmouseout')
             .duration(200)
             .style('font-weight', 'normal')
             .style('opacity', '1')

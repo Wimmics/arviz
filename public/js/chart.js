@@ -22,6 +22,10 @@ class Chart{
         this.tooltip = d3.select(this.dashboard.shadowRoot.querySelector('div.tooltip'))
     }
 
+    getPatternUrl(color) {
+        return `url('/arviz/${this.dashboard.app}#${color}-pattern')`
+    }
+
     displayTooltip(content) {
 
         let x = d3.event.pageX,
@@ -101,6 +105,7 @@ class Chart{
         let id = this.getRuleId(d)
         
         let panel = this.dashboard.app === "crobora" ? new ImagesPanel(id) : new PublicationsPanel(id) 
+        panel.init()
         panel.set(d, event)
 
         panel.div

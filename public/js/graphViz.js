@@ -301,7 +301,7 @@ class GraphView extends Chart{
     getShapeStyle(d){
     
         return {
-            'fill': this.value && d.name == this.value ? '#f1f1f1' : (d.type == 'rule' ? (d.isSymmetric ? "url('#"+ d.fill + "-pattern')" : d.fill) : 'white'),
+            'fill': this.value && d.name == this.value ? '#f1f1f1' : (d.type == 'rule' ? (d.isSymmetric ? this.getPatternUrl(d.fill) : d.fill) : 'white'),
             'stroke-width': d.id == this.currentTerm ? 3 : 1,
             'stroke': d.type == 'rule' ? 'none' : '#000',
             'color': d.type == 'rule' ? 'white' : 'black',

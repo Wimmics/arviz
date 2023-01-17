@@ -3,6 +3,9 @@ class ImagesPanel extends DetailsPanel {
         super()
 
         this.path = "http://dataviz.i3s.unice.fr/crobora/assets/images/images_archives/"
+
+        this.width = 500;
+        this.height = 500;
     }
 
     async set(d, event){
@@ -12,7 +15,6 @@ class ImagesPanel extends DetailsPanel {
         this.setContentDiv()
 
         this.labels = this.dashboard.getLabels(d.source.concat(d.target))
-        console.log(this.labels)
     
         let content = '<b id="waiting-message">Associated Images: </b>' +
             '<div id="loading" style="text-align: center; margin:auto;" ><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br>Loading Images...</div>';
@@ -28,7 +30,6 @@ class ImagesPanel extends DetailsPanel {
     
         let response = await fetch(url)
         let data = await response.json()
-        console.log(data)
 
         if (response.ok) 
             this.setContent(await this.getContent(data))
@@ -42,24 +43,36 @@ class ImagesPanel extends DetailsPanel {
         if (result.length > 0) {
             content = '<b>' + result.length + ' associated images </b><br><br>'
 
+            result.sort( (a,b) => a.documentTitle.localeCompare(b.documentTitle))
+
             result.forEach(d => {
                 let docLink = d.documentId ? `http://dataviz.i3s.unice.fr/crobora/document/${d.documentId.replace('/', '_')}` : '#'
 
                 content += `<div class="image-content" >
-                    <a href="${docLink}" target="_blank" >
-                        <img class="main-image" src=${this.getLink(d.image)} width="80%" title="Click to explore the archive metadata in the CROBORA platform" ></img> </a>
-                    <p>Archive: <b>${d.documentTitle}</b> <br><br>
-                    <b>Keywords:</b><br>
-                    <ul>
-                    ${d.celebrity.map(e => `<li title="Celebrity"> <img src="/arviz/images/${this.dashboard.app}/celebrity-icon.svg" width="15px"></img> ${e} </li>`).join('')}
-                    ${d.illustration.map(e => `<li title="Illustration"> <img src="/arviz/images/${this.dashboard.app}/illustration-icon.svg" width="15px"></img> ${e} </li>`).join('')}
-                    ${d.event.map(e => `<li title="Event"> <img src="/arviz/images/${this.dashboard.app}/event-icon.svg" width="15px"></img> ${e} </li>`).join('')}
-                    ${d.location.map(e => `<li title="Location"> <img src="/arviz/images/${this.dashboard.app}/location-icon.svg" width="15px"></img> ${e} </li>`).join('')}
-                    </ul>
+                    <hr>
+                    <p>Archive: <b>${d.documentTitle}</b><br>
+                      Date: <b>${d.date}</b>
                     </p>
 
-                    Explore the archive metadata <a href="${docLink}"  target="_blank">here</a>
-                    <hr>
+                    <div class="image-keywords">
+                      <div style="width: 50%;">
+                        <a href="${docLink}" target="_blank" style="pointer-events: ${d.documentId ? 'auto' : 'none'};">
+                            <img class="main-image" src=${this.getLink(d.image)} width="100%" title="Click to explore the archive metadata in the CROBORA platform" ></img> </a>
+                        <br>
+                      </div>
+                      <div style="width: 50%;">
+                      <b style="margin-left: 10px;">Keywords:</b>
+                        <ul>
+                        ${d.celebrity.map(e => `<li title="Celebrity"> <img src="/arviz/images/${this.dashboard.app}/celebrity-icon.svg" width="15px"></img> ${e} </li>`).join('')}
+                        ${d.illustration.map(e => `<li title="Illustration"> <img src="/arviz/images/${this.dashboard.app}/illustration-icon.svg" width="15px"></img> ${e} </li>`).join('')}
+                        ${d.event.map(e => `<li title="Event"> <img src="/arviz/images/${this.dashboard.app}/event-icon.svg" width="15px"></img> ${e} </li>`).join('')}
+                        ${d.location.map(e => `<li title="Location"> <img src="/arviz/images/${this.dashboard.app}/location-icon.svg" width="15px"></img> ${e} </li>`).join('')}
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <p style="display: ${d.documentId ? 'block' : 'none'};">Explore the archive metadata <a href="${docLink}"  target="_blank">here</a></p>
+                    
                     </div>`
             })
         }else {

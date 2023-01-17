@@ -1,6 +1,9 @@
 class PublicationsPanel extends DetailsPanel{
     constructor() {
         super()
+
+        this.width = 380;
+        this.height = 300;
         
     }
 

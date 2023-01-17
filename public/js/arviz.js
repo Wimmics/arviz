@@ -119,8 +119,8 @@ class ARViz extends HTMLElement {
     // handle the submit action from the graph view's forms
     handleInput(){
         d3.event.preventDefault();
-
-        let element = d3.event.path[0]
+        
+        let element = d3.event.path ? d3.event.path[0] : d3.event.originalTarget
         
         let type = element.id.split('-')[0]
         let value = this.shadowRoot.querySelector('#' + element.id.replace('button', 'input')).value;
@@ -149,7 +149,7 @@ class ARViz extends HTMLElement {
         }
     }
     
-    about(event) {
+    about() {
         window.open('/arviz/about')
     }
 
