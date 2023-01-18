@@ -95,10 +95,10 @@ class ARViz extends HTMLElement {
         let forms = d3.selectAll(this.shadowRoot.querySelectorAll("div.autocomplete"))
             
         forms.selectAll("input[type=text]")
-            .on('input', function(event) { _this.updateDatalist() })
+            .on('input', function(event) { _this.updateDatalist(this) })
 
         forms.selectAll("button")
-            .on('click', () => this.handleInput())
+            .on('click', function() { _this.handleInput(this); })
     }
 
     async fetchConfig() {
@@ -117,11 +117,11 @@ class ARViz extends HTMLElement {
     }
 
     // handle the submit action from the graph view's forms
-    handleInput(){
+    handleInput(element){
         d3.event.preventDefault();
         
-        let element = d3.event.path ? d3.event.path[0] : d3.event.originalTarget
-        
+        // d3.selectAll(this.shadowRoot.querySelectorAll())
+
         let type = element.id.split('-')[0]
         let value = this.shadowRoot.querySelector('#' + element.id.replace('button', 'input')).value;
         this.graph.set(type, value)
@@ -130,8 +130,9 @@ class ARViz extends HTMLElement {
         else this.shadowRoot.querySelector('#source-input').value = '';
     }       
 
-    updateDatalist() {
-        let value = d3.event.srcElement.value.toLowerCase()
+    updateDatalist(element) {
+        // let value = d3.event.srcElement.value.toLowerCase()
+        let value = element.value.toLowerCase()
         if (value.length > 2) {
             let tempLabels = [];
             if (this.labels.length)
