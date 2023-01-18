@@ -272,7 +272,7 @@ class GraphView extends Chart{
 
         // sort rules according to selected criteria
         if (this.dashboard.sort.sortCriteria.rules) {
-            this.renderedNodes.sort((a,b) => a.type != 'rule' ? 1 : b[configPanel.sortCriteria.rules] - a[configPanel.sortCriteria.rules])
+            this.renderedNodes.sort((a,b) => a.type != 'rule' ? 1 : b[this.dashboard.sort.sortCriteria.rules] - a[this.dashboard.sort.sortCriteria.rules])
         }
 
         // indexing nodes for displaying

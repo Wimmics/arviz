@@ -5,7 +5,7 @@ class ARViz extends HTMLElement {
 
         this.height 
         this.width
-        this.activeChart = null
+        this.activeChart = 'graph'
 
         // this.configPanel = null
         this.legend = null;
@@ -25,7 +25,6 @@ class ARViz extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.app = this.getAttribute("app")
-        console.log("app = ", this.app)
 
         await this.fetchConfig()
 

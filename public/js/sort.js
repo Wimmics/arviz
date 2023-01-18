@@ -64,7 +64,7 @@ class SortPanel extends ConfigPanel {
             .attr('name', 'sorting')
             .on('change', function(d){
                 _this.sortCriteria[d.value] = this.options[this.selectedIndex].value;
-                _this.dashboard[_this.dashboard.getActiveChart()].update()
+                _this.dashboard.updateChart()
         })
 
         selection.selectAll('option')
