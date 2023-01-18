@@ -73,6 +73,7 @@ class GraphView extends Chart{
             .style('display', 'block')
             .text(text)
 
+        this.clearPanels()
         this.dashboard.hideLoading()
         this.group.selectAll('g.edges').remove()
         this.group.select('text#rule-title').style('display', 'none')
