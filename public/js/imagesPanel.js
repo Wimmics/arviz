@@ -24,16 +24,26 @@ class ImagesPanel extends DetailsPanel {
         this.fetchData()
     }
 
-    async fetchData() {
-       
-        let url = `/arviz/api/${this.dashboard.app}/images?values=${this.labels.join(',')}`
-    
-        let response = await fetch(url)
-        let data = await response.json()
+    async fetchData() { 
+      let url = `/arviz/api/${this.dashboard.app}/images?values=${this.labels.join(',')}`
+  
+      let response = await fetch(url)
+      let data = await response.json()
 
-        if (response.ok) 
-            this.setContent(await this.getContent(data))
-        else alert('Something went wrong. Please try again later!')
+      await this.fetchArchiveData(data)
+
+      if (response.ok) 
+          this.setContent(await this.getContent(data))
+      else alert('Something went wrong. Please try again later!')
+    }
+
+    async fetchArchiveData(data) {
+      for (let d of data) {
+        let res = await fetch(`http://dataviz.i3s.unice.fr/crobora-api/subject?ID_doc=${d.documentId}`)
+        let docInfo = await res.json()
+        if (!docInfo) continue;
+        d.documentTitle = docInfo.document_title;
+      }
     }
 
     async getContent(result){
@@ -45,8 +55,9 @@ class ImagesPanel extends DetailsPanel {
 
             result.sort( (a,b) => a.documentTitle.localeCompare(b.documentTitle))
 
-            result.forEach(d => {
+            result.forEach((d) => {
                 let docLink = d.documentId ? `http://dataviz.i3s.unice.fr/crobora/document/${d.documentId.replace('/', '_')}` : '#'
+                
                 content += `<div class="image-content" >
                     <hr>
                     <p>Archive: <b>${d.documentTitle}</b><br>
