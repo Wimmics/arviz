@@ -5,8 +5,8 @@
     "graph": [
         null
     ],
-    "min_interestingness": 0.3,
-    "min_confidence": 0.7,
+    "min_interestingness": 0,
+    "min_confidence": 0,
     "methods": [
         {
             "label": "No clustering method",
