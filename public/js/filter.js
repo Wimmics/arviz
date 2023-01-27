@@ -6,18 +6,41 @@ class FilterPanel extends ConfigPanel {
         this.title = "Data Filtering"
     }
 
-    init() {
-        this.setFilteringCriteria()
+    async init() {
+        await this.setFilteringCriteria()
+
+        this.set()
+    }
+
+    async setFilteringCriteria(){
+
+        let confAvg =  d3.mean([this.extent.conf.min, this.extent.conf.max ]),
+            intAvg = d3.mean([ this.extent.int.min, this.extent.int.max ]);
+
+        this.filtering = {'symmetry': true,
+                    'no_symmetry': true,
+                    'conf': {'min': this.extent.conf.min, 'max': this.extent.conf.max, 'step': 0.02, 'avg': confAvg},
+                    'int': {'min': this.extent.int.min, 'max': this.extent.int.max, 'step': 0.05, 'avg': intAvg }}
+
+        this.config.methods.forEach(d => {
+            this.filtering[d.key] = true;
+        })
+
+        this.config.lang.forEach(d => {
+            this.filtering[d] = true;
+        })
 
         this.data = [
             {'label': 'Mesures of Interest', 'value': 'mesures', 
             'children': [
-                {'label': 'Confidence', 'value': 'conf', 'type': 'group_range', 'min': this.filtering.conf.min, 'max': this.filtering.conf.max,
+                {'label': 'Confidence', 'value': 'conf', 'type': 'group_range', 'min': this.filtering.conf.min, 'max': this.filtering.conf.max, 
+                    'selected': this.filtering.conf.min,
                 'children': [
                     {'value': 'conf-a', 'selected': this.filtering.conf.min, 'min': this.filtering.conf.min, 'max': this.filtering.conf.avg},
                     {'value': 'conf-b', 'selected': this.filtering.conf.max, 'min': this.filtering.conf.avg + this.filtering.conf.step, 'max': this.filtering.conf.max}
                 ]},
-                {'label': 'Interestingness', 'value': 'int', 'type': 'group_range', 'min': this.filtering.int.min, 'max': this.filtering.int.max,
+                {'label': 'Interestingness', 'value': 'int', 'type': 'group_range', 'min': this.filtering.int.min, 'max': this.filtering.int.max, 
+                    'selected': this.filtering.int.min,
                 'children': [
                     {'value': 'int-a', 'selected': this.filtering.int.min, 'min': this.filtering.int.min, 'max': this.filtering.int.avg},
                     {'value': 'int-b', 'selected': this.filtering.int.max, 'min': this.filtering.int.avg + this.filtering.int.step, 'max': this.filtering.int.max}
@@ -42,23 +65,6 @@ class FilterPanel extends ConfigPanel {
                 }) })
         }
 
-        this.set()
-    }
-
-    setFilteringCriteria(){
-
-        this.filtering = {'symmetry': true,
-                    'no_symmetry': true,
-                    'conf': {'min': this.extent.conf.min, 'max': this.extent.conf.max, 'step': 0.02, 'avg': d3.mean([this.extent.conf.min, this.extent.conf.max ])},
-                    'int': {'min': this.extent.int.min, 'max': this.extent.int.max, 'step': 0.05, 'avg': d3.mean([ this.extent.int.min, this.extent.int.max ])}}
-
-        this.config.methods.forEach(d => {
-            this.filtering[d.key] = true;
-        })
-
-        this.config.lang.forEach(d => {
-            this.filtering[d] = true;
-        })
     }
 
      // filtering panel
@@ -124,7 +130,7 @@ class FilterPanel extends ConfigPanel {
             .style('float', 'right')
             .style('margin-right', '10px')
             .attr('id', d => d.value + '-text')
-            .text(d => d.min.toFixed(2) + ' - ' + d.max.toFixed(2))
+            .text(d => d.selected.toFixed(2) + ' - ' + d.max.toFixed(2))
             
         let range = group_range.append('td')
             .style('position', 'relative')
@@ -164,6 +170,8 @@ class FilterPanel extends ConfigPanel {
 
                         changed = changed || this.filtering[e].min != a.valueAsNumber || this.filtering[e].max != b.valueAsNumber;
                         this.filtering[e] = { 'min': a.valueAsNumber, 'max': b.valueAsNumber }
+
+                        this.div.select('text#'+e+'-text').text(`${(a.valueAsNumber).toFixed(2)} - ${(b.valueAsNumber).toFixed(2)}`)
                     })
 
                     if (changed) {
@@ -200,16 +208,12 @@ class FilterPanel extends ConfigPanel {
             b.min = (pivot + this.filtering[range].step).toFixed(2);
         }
         
-        group.select('text#'+range+'-text').text(`${(+a.value).toFixed(2)} - ${(+b.value).toFixed(2)}`)
-        
         const getStep = (elem) => {
             return Number(elem.max) - Number(elem.min) + this.filtering[range].step;
         }
 
         a.style.flexGrow = getStep(a) * 100;
         b.style.flexGrow = getStep(b) * 100;
-
-        
     }
 
     // update upon a filtering choice

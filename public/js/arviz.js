@@ -132,7 +132,7 @@ class ARViz extends HTMLElement {
     updateDatalist(element) {
         // let value = d3.event.srcElement.value.toLowerCase()
         let value = element.value.toLowerCase()
-        if (value.length > 2) {
+        if (value.length > 1) {
             let tempLabels = [];
             if (this.labels.length)
                 tempLabels = this.labels.filter(d => d.label ? d.label.value.toLowerCase().includes(value) : d.toLowerCase().includes(value))
