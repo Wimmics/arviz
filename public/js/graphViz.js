@@ -67,7 +67,7 @@ class GraphView extends Chart{
 
     empty(){
 
-        let text = 'Using the current filter options, we could not find any rule where "' + this.value + '" is a' + (this.type == 'source' ? 'n antecedent' : ' consequent') + '. \nPlease try again with another value, or search it in the consequent side.';
+        let text = `We could not find any rule containing the keyword "${this.value}". Please change the filter options or try again with another keyword.`;
 
         this.group.select('text#welcome-text')
             .style('display', 'block')
@@ -81,14 +81,34 @@ class GraphView extends Chart{
         this.group.select('g.rule').style('display', 'none')
     }
 
-    async update(){
-        this.set(this.type, this.value)
+    displayClearButton() {
+        d3.select(this.dashboard.shadowRoot.querySelector('#clear-selection'))
+            .style('display', 'block')
+            .on('click', () => this.clearSelection())
     }
 
-    async set(type, value){
+    hideClearButton() {
+        this.dashboard.shadowRoot.querySelector('#clear-selection').style.display = "none";
+    }
+
+    clearSelection() {
+        this.hideClearButton()
+        this.currentTerm = null
+        this.selectedNodes = null
+        this.setRules()
+    }
+
+    hideLabelInfo() {
+        this.dashboard.shadowRoot.querySelector('#info-label').style.display = "none"
+    }
+
+    async update(){
+        this.set(this.value)
+    }
+
+    async set(value){
         
-        this.type = type;
-        this.value = value;
+        
 
         // remove the visual information regarding the chord diagram
         this.dashboard.chord.hide()
@@ -96,12 +116,18 @@ class GraphView extends Chart{
 
         this.display()
         this.clearSearch()
+        
+        
 
-        if (this.type && this.value) { // if the action is to create a new graph
+        if (this.value != value) { // if the action is to create a new graph
+
+            this.value = value;
+
             this.dashboard.showLoading()
-            let response = await this.getRules(this.type, this.value);
+            let response = await this.getRules(this.value);
 
             if (response.nodes.length == 0) {
+                this.hideLabelInfo()
                 this.empty()
                 return;
             }
@@ -114,37 +140,31 @@ class GraphView extends Chart{
             this.activeTerms = null;
 
             this.rules.links.forEach(d => {
-                d.sourceNode = this.getNode(d.source);
-                d.targetNode = this.getNode(d.target); 
+                d.sourceNode = this.getNodeById(d.source);
+                d.targetNode = this.getNodeById(d.target); 
             })
 
-            this.renderedNodes = this.rules.nodes.filter(d => this.value ? d.type == this.type : d.type != 'rule')
-          
-            if (this.value) {
-                let nodes = this.getNodesByName(this.value).filter(d => d.type === this.type)[0]
-                this.setRules(nodes)
-            } 
+            this.renderedNodes = this.rules.nodes.filter(d => d.type != 'rule')
+
+            this.hideLabelInfo()
+            this.clearSelection()
 
         } else if (this.renderedNodes) {
+            this.displayPanels()
             await this.computePositions()
             this.drawNodes()
             if (this.renderedNodes.some(d => d.type == 'rule'))
                 this.drawEdges()
-        } else {
-            this.group.select('#welcome-text')
-                .style('display', 'block')
-                .text('To begin the exploration search for a keyword using the forms above.')
-        }   
+        } 
+
         this.dashboard.hideLoading()
     }
 
     clearSearch() {
-        // clear input fields
-        this.dashboard.shadowRoot.querySelector('#target-input').value = !this.type || this.type == 'source' || !this.value ? '' : this.value;
-        this.dashboard.shadowRoot.querySelector('#source-input').value = !this.type || this.type == 'target' || !this.value ? '' : this.value;
+        this.dashboard.shadowRoot.querySelector('#source-input').value = this.value || '';
     }
 
-    getNode(nodeId){
+    getNodeById(nodeId){
         return this.rules.nodes.filter(d => d.id == nodeId)[0];
     }
 
@@ -233,6 +253,22 @@ class GraphView extends Chart{
         })
     }
 
+    async sortTermsBySelection(counts) {
+        ['source', 'target'].forEach(t => {
+            this.renderedNodes.sort( (a,b) => {
+                if (a.type === t) {
+                    if (a.type === b.type) { // if both are in the same side, then sort them
+                        if (this.selectedNodes.includes(a.id) && this.selectedNodes.includes(b.id)) {
+                            this.dashboard.sort.sortCriteria.terms == 'alpha' ? a.name.localeCompare(b.name) : counts[t][b.name] - counts[t][a.name]
+                        } else if (this.selectedNodes.includes(a.id) && !this.selectedNodes.includes(b.id)) { //
+                            return -1
+                        } else return 1
+                    } else return -1
+                } else return 1
+            })
+        })
+    }
+
     countRules(nodes, counts) {
         nodes.forEach(d => {
             ['source', 'target'].forEach(type => {
@@ -250,24 +286,23 @@ class GraphView extends Chart{
             
         let counts = {'source': {}, 'target': {}}
 
-        // sort terms according to criteria
-        if (this.dashboard.sort.sortCriteria.terms === 'alpha') {
-            this.renderedNodes.sort((a,b) => a.type == 'rule' ? 1 : a.name.localeCompare(b.name));
-        } else {
-            this.countRules(this.rules.nodes.filter(d => d.type == 'rule'), counts)
-            this.sortTermsByNbRules(counts);
-        }
-
         // sort terms in a way that position the ones involved to the selected term first
-        if (!this.value && this.currentTerm && this.renderedNodes.some(d => d.type == 'rule')) {
+        if (this.currentTerm) {
 
             // count the number of rules per term (only the active ones)
-            this.countRules(this.renderedNodes.filter(d => d.type == 'rule'), counts)
-            this.sortTermsByNbRules(counts);
+            await this.countRules(this.renderedNodes.filter(d => d.type == 'rule'), counts)
+        
+            await this.sortTermsBySelection(counts)
 
-            // save the terms related to the active rules for aesthetic purposes
-            this.activeTerms = {'source': Object.keys(counts.source), 
-                'target': Object.keys(counts.target)};
+        }
+        else {
+            // sort terms according to criteria
+            if (this.dashboard.sort.sortCriteria.terms === 'alpha') {
+                this.renderedNodes.sort((a,b) => a.type == 'rule' ? 1 : a.name.localeCompare(b.name));
+            } else {
+                this.countRules(this.rules.nodes.filter(d => d.type == 'rule'), counts)
+                this.sortTermsByNbRules(counts);
+            }   
         }
 
         // sort rules according to selected criteria
@@ -288,7 +323,7 @@ class GraphView extends Chart{
             d.width = d.type == 'rule' ? 40 : 15;
 
             d.x = d.type == 'rule' ? 50 : (d.type == 'source' ? 5 : 80);
-            d.y = (d.type == 'rule' ? 110 : 110) + (d.height + 20) * d.index;
+            d.y = 50 + (d.height + 20) * d.index;
             d.tx = d.type == 'rule' ? d.x : d.x + d.width / 2;
             d.ty = d.y + (d.height / 2 + 5);
         })
@@ -301,43 +336,57 @@ class GraphView extends Chart{
     }
 
     getShapeStyle(d){
-    
+
         return {
-            'fill': this.value && d.name == this.value ? '#f1f1f1' : (d.type == 'rule' ? (d.isSymmetric ? this.getPatternUrl(d.fill) : d.fill) : 'white'),
-            'stroke-width': d.id == this.currentTerm ? 3 : 1,
+            'fill': () => {
+                if (d.id === this.currentTerm) return '#2C3E50'
+                if (this.value && d.name === this.value) return '#dcdcdc'
+                if (d.type === "rule")
+                    return d.isSymmetric ? this.getPatternUrl(d.fill) : d.fill
+                return "#fff"
+            },
+            'stroke-width': 1,
             'stroke': d.type == 'rule' ? 'none' : '#000',
-            'color': d.type == 'rule' ? 'white' : 'black',
-            'opacity': this.value || !this.activeTerms || d.type == 'rule' ? 1 : (this.activeTerms[d.type].includes(d.name) ? 1 : .3),
+            'opacity': !this.selectedNodes || d.type === 'rule' ? 1 : (this.selectedNodes.includes(d.id) ? 1 : .3),
             'cursor': 'pointer'
         } 
     }
 
     getTextStyle(d){
         return {
-            'opacity': this.value || !this.activeTerms ? 1 : (this.activeTerms[d.type].includes(d.name) ? 1 : .3),
+            'opacity': !this.selectedNodes ? 1 : (this.selectedNodes.includes(d.id) ? 1 : .3),
             'text-anchor': 'middle',
             'font-weight': 'normal',
-            'cursor': 'pointer'
+            'cursor': 'pointer',
+            'fill': d.id === this.currentTerm ? 'white' : 'black',
         }
+    }
+
+    isRuleSelected(d) {
+        return d.nodes.includes(this.currentTerm) && d.nodes.every(e => this.selectedNodes.includes(e))
     }
 
     // select the rule nodes and the terms that must be displayed upon the selection of a term in one of the sides
     async setRules(d){
-        if (d.type == 'rule' || d.id == this.currentTerm) return;
+        if (d && (d.type == 'rule' || d.id === this.currentTerm)) return;
 
         this.div.select('div.graphContainer').node().scrollTo(0, 0);
 
-        this.direction = d.type == 'source' ? 'target' : 'source';
+        this.renderedNodes = [... this.rules.nodes]
+        
+        if (d) { // if a node was selected
 
-        // select rule connected to the selected term while keeping every term
-        this.renderedNodes = this.rules.nodes.filter(e => e.type == 'rule' ? e[d.type].includes(d.name) : true)
-        // verify whether the "other side" terms should be totally kept as well
-        if (this.value) {
-            const validTerms = this.renderedNodes.filter(e => e.type == 'rule').map(e => e[this.direction])
-            this.renderedNodes = this.renderedNodes.filter(e => e.type == this.direction ? validTerms.some(t => t.includes(e.name)) : true)
+            this.direction = d.type == 'source' ? 'target' : 'source';
+            let selectedRules = this.renderedNodes.filter(e => e.type === 'rule' ? e[d.type].includes(d.name) : false)
+
+            this.currentTerm = d.id;
+            this.selectedNodes = selectedRules.map(e => e.nodes).flat()
+
+            this.renderedNodes = this.renderedNodes.filter(e => e.type === 'rule' ? this.isRuleSelected(e) : true)
+
+            this.displayClearButton()
         }
-
-        this.currentTerm = d.id;
+        
         await this.computePositions()
         this.hideText()
         this.displayNodes() 
@@ -345,7 +394,7 @@ class GraphView extends Chart{
         this.drawNodes()
         this.drawEdges()
 
-        this.group.selectAll('g.node').selectAll('rect').styles(d => this.getShapeStyle(d))
+        this.group.selectAll('g.node').selectAll('rect').styles(e => this.getShapeStyle(e))
     }
 
     displayNodes() {
@@ -447,6 +496,7 @@ class GraphView extends Chart{
 
     async getEdgesPoints() {
         let ruleNodes = this.renderedNodes.filter(d => d.type == 'rule')
+        if (this.currentTerm) ruleNodes = ruleNodes.filter(d =>  d.nodes.includes(this.currentTerm) && d.nodes.every(e => this.selectedNodes.includes(e)))
         
         let links = [],
             linkDistance = 35,
@@ -601,6 +651,15 @@ class GraphView extends Chart{
 
         this.data = await this.fetchData()
         this.data.forEach(pushNode)
+
+        rules.nodes.forEach(d => {
+            if (d.type !== 'rule') return;
+
+            let sources = d.source.map(e => rules.nodes.find(x => x.name === e && x.type === 'source').id)
+            let targets = d.target.map(e => rules.nodes.find(x => x.name === e && x.type === 'target').id)
+            d.nodes = sources.concat(targets)
+        })
+
         return rules
     }
 
@@ -610,7 +669,7 @@ class GraphView extends Chart{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify( {
-                type: this.type,
+                // type: this.type,
                 value: this.value,
                 filtering: this.dashboard.filter.getFilteringCriteria(),
                 uncheck_methods: this.dashboard.filter.getMethods(),

@@ -70,7 +70,7 @@ app.get('/arviz/about', function(req, res) {
 })
 
 app.get('/arviz/:app/', async function(req, res) { 
-    res.render('index', { app: req.params.app });
+    res.render('index', { app: req.params.app, params: req.query });
 })
 
 app.get('/arviz/:app/config', async function(req, res) {
@@ -99,9 +99,9 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
     })
    
     let result = null
-    if (req.params.vis === 'graph')
-        result = data.rules.filter(d => d[values.type].includes(values.value) )
-    else if (req.params.vis === 'chord') {
+    if (req.params.vis === 'graph') {
+        result = data.rules.filter(d => d.source.includes(values.value) || d.target.includes(values.value) )
+    } else if (req.params.vis === 'chord') {
         result = { count: data.rules.length }
         if (values.sort) data.rules.sort((a,b) => b[values.sort] - a[values.sort])
         if (values.last) {

@@ -9,6 +9,15 @@ class FilterPanel extends ConfigPanel {
     async init() {
         await this.setFilteringCriteria()
 
+        this.div = d3.select(this.dashboard.shadowRoot.querySelector('div#data-filter'))
+            .styles({
+                'width': this.width + 'px',
+                'height': '50%',
+                'overflow-y': 'auto',
+                'overflow-x': 'hidden',
+            })
+            
+
         this.set()
     }
 
@@ -70,13 +79,7 @@ class FilterPanel extends ConfigPanel {
      // filtering panel
      set(){
         const _this = this;
-        this.div = d3.select(this.dashboard.shadowRoot.querySelector('div#data-filter'))
-            .styles({
-                'width': this.width + 'px',
-                'height': '50%',
-                'overflow-y': 'auto',
-                'overflow-x': 'hidden'
-            })
+        
 
         this.setTitleBar()
         

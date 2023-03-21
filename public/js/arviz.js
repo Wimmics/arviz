@@ -7,7 +7,6 @@ class ARViz extends HTMLElement {
         this.width
         this.activeChart = 'graph'
 
-        // this.configPanel = null
         this.legend = null;
         this.sort = null;
         this.filter = null
@@ -20,7 +19,6 @@ class ARViz extends HTMLElement {
     }
 
     async connectedCallback() {
-        const _this = this;
 
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
@@ -57,8 +55,8 @@ class ARViz extends HTMLElement {
 
         this.setInteraction()
 
-        this.graph.set()
-
+        this.setActiveChart('graph', this.getAttribute("keyword"))
+        // this.graph.set()
     }
 
     setInteraction() {
@@ -77,9 +75,9 @@ class ARViz extends HTMLElement {
         d3.selectAll(this.shadowRoot.querySelectorAll(".tab-bar"))
             .on('click', function(){
                 let chart = this.id.split('-')[0]
-                _this.setActiveChart(chart)
-                _this[chart].set()
-               
+                _this.setActiveChart(chart, _this[chart].getValue())
+                // _this[chart].set(_this[chart].getValue())
+                
             })
 
         d3.select(this.shadowRoot.querySelector("#rotationValuePrevious"))
@@ -118,15 +116,9 @@ class ARViz extends HTMLElement {
     // handle the submit action from the graph view's forms
     handleInput(element){
         d3.event.preventDefault();
-        
-        // d3.selectAll(this.shadowRoot.querySelectorAll())
 
-        let type = element.id.split('-')[0]
         let value = this.shadowRoot.querySelector('#' + element.id.replace('button', 'input')).value;
-        this.graph.set(type, value)
-
-        if (type === 'source') this.shadowRoot.querySelector('#target-input').value = '';
-        else this.shadowRoot.querySelector('#source-input').value = '';
+        this.graph.set(value)
     }       
 
     updateDatalist(element) {
@@ -161,21 +153,24 @@ class ARViz extends HTMLElement {
         return this.activeChart;
     }
 
-    setActiveChart(chart){
-       
+    setActiveChart(chart, value){
         this.activeChart = chart;
 
         // update tab
-        d3.selectAll(this.shadowRoot.querySelectorAll('div.tab-bar'))
+        d3.selectAll(this.shadowRoot.querySelectorAll('.tab-bar'))
             .styles(function() {
-                const active = this.id.split('-')[0] === this.activeChart;
+                
+                const active = this.id.split('-')[0] === chart;
+                
                 return {
-                    'height' : active ? '30px' : '20px',
+                    'height' : active ? '25px' : '20px',
                     'background-color': active ? '#cccccc' : '#2C3E50',
                     'color': active ? '#2C3E50' : '#cccccc',
                     'line-height': active ? '30px' : '20px'
                 }
             })
+
+        this[chart].set(value)
         
     }
 
@@ -203,6 +198,7 @@ class ARViz extends HTMLElement {
 
 const template = document.createElement("template");
 template.innerHTML = `
+
 
 <link rel="stylesheet" href="/arviz/css/common.css">
 <link rel="stylesheet" href="/arviz/css/graph_viz.css">
@@ -253,21 +249,18 @@ template.innerHTML = `
     <div class='forms'>
         <div class='left' id='antecedentSide'>
             <div class="autocomplete">
-                <label class='text-div'>Search rules by</label> 
-                <input id="source-input" list="labels_list" type="text" name="source" placeholder="Antecedent" >
-                <button id="source-button">Go</button>   
-                <i class="fa-solid fa-circle-info" title="Type at least three letters"></i>
-                <i class="fa fa-refresh fa-spin labels-loading"></i>
+                <div>
+                    <label class='text-div'>Search for</label> 
+                    <input id="source-input" list="labels_list" type="text" name="source" placeholder="Type here..." >
+                    <button id="source-button">Go</button>   
+                    <i class="fa-solid fa-circle-info" title="Type at least three letters"></i>
+                    <i class="fa fa-refresh fa-spin labels-loading"></i>
+                    <label style="margin-left: 15px;" id="info-label">Begin the exploration by searching for a keyword.</label>
+                </div>
+                <div>    
+                    <button id="clear-selection">Clear Selection</button>
+                </div>
             </div>  
-        </div>
-        <div class='right' id='consequentSide'>
-            <div class="autocomplete">
-                <label class='text-div'>Search rules by</label> 
-                <input id="target-input" type="text" name="target" placeholder="Consequent" list="labels_list">
-                <button id="target-button">Go</button>
-                <i class="fa-solid fa-circle-info" title="Type at least three letters"></i> 
-                <i class="fa fa-refresh fa-spin labels-loading"></i>
-            </div>
         </div>
     </div>
     

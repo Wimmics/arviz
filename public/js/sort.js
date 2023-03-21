@@ -2,7 +2,7 @@ class SortPanel extends ConfigPanel {
     constructor(config) {
         super(config)
 
-        this.sortCriteria = {'terms': 'alpha', 'rules': null}
+        this.sortCriteria = {'terms': 'alpha', 'rules': 'confidence'}
         this.title = "Data Sorting"
     }
 
@@ -77,10 +77,4 @@ class SortPanel extends ConfigPanel {
         this.div.style('width', 0)
 
     }
-
-    // sortTerms(data){
-    //     console.log('debug sortTerms')
-    //     let values = data.map(d => d.source.concat(d.target)).flat()
-    //     values = values.filter( (d,i) => values.indexOf(d) === i)
-    // }
 }

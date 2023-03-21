@@ -66,14 +66,14 @@ class CircularView extends Chart{
         this.dashboard.graph.hide()
 
         this.dashboard.showLoading()
-        if (arguments.length == 0) this.filterDiagramData() 
+        if (arguments.length == 0 || !arguments[0]) this.filterDiagramData() 
         else { 
             this.clearPanels()
             this.filterDiagramData(arguments[0])
         }
     }
 
-    update(){
+    async update(){
 
         this.dashboard.hideLoading()
         this.display()
@@ -92,7 +92,7 @@ class CircularView extends Chart{
         this.drawLabels(chordsData.groups)
     }
 
-    drawArcs() {
+    async drawArcs() {
         const _this = this;
         // ------------------------------------------
         // arcs
@@ -109,15 +109,18 @@ class CircularView extends Chart{
                 update => update,
                 exit => exit.remove()
             )
+            .attr('pointer-events', 'none')
             .on('mouseenter', (d) => this.arcMouseover(d))  		
             .on('mouseleave', () => this.arcMouseout())			
             .on('contextmenu', d3.contextMenu(menu))
             .transition('update-arcs')
-            .duration(1000)
+            .duration(500)
             .attrTween('d', function(d) { return _this.arcTween(this, d) })
+
+        this.group.select('g.arcs').selectAll('path').transition().duration(500).attr('pointer-events', 'auto')
     }
 
-    drawChords() {
+    async drawChords() {
         const _this = this;
         //-----------------------------------------------------------------------
         // chords
@@ -142,16 +145,19 @@ class CircularView extends Chart{
                     'opacity': 1
                 }
             })
-            .attr('id', d => this.getRuleId(this.getRule(d)))
+            .attr('pointer-events', 'none')
             .on('click', d => this.newPanel(this.getRule(d)))
             .on('mouseenter', function(d) { _this.mouseover(this, d)})
             .on('mouseleave', (d) => this.mouseout(d)) 
+            .attr('id', d => this.getRuleId(this.getRule(d)))
             .transition('update-chords')
             .duration(500)
             .attrTween('d', function(d) { return _this.ribbonTween(this, d) })
+
+        this.group.select('g.chords').selectAll('path').transition().duration(500).attr('pointer-events', 'auto')
     }
 
-    drawLabels(data) {
+    async drawLabels(data) {
 
         data.forEach(d => {
             const distance1 = this.innerRadius + 10,
@@ -199,7 +205,7 @@ class CircularView extends Chart{
                 exit => exit.remove()
             )
             .transition()
-            .duration(1000)
+            .duration(500)
             .attr('points', d => {
                 return [
                     [d.cx, d.cy],
@@ -399,6 +405,7 @@ class CircularView extends Chart{
             let result = await this.fetchData()
             this.data = result.data;
         }
+
 
         this.dashboard.shadowRoot.querySelector('.rotationNavText2').innerHTML = "of " + this.maxNodes + ' ' + this.browsing + 
             (this.browsing == 'terms' ? ' in ' + this.data.length + ' rules' : '')

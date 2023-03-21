@@ -1,137 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/arviz/css/common.css">  
-    <title>ARViz</title>
+  <title>ARViz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    html { scroll-behavior: smooth; }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-
 <body>
-    <div class="header">
-        <h1>Visual Exploration of Association Rules</h1>
-        <div class="logo">
-            <a href="http://univ-cotedazur.fr/en" target="_blank">
-                <img src="/arviz/images/uca-logo.png">
-            </a>
-            <a href="https://www.inria.fr/en" target="_blank">
-                <img src="/arviz/images/Inria-logo.png">
-            </a>
-            <a href="https://team.inria.fr/wimmics/" target="_blank">
-                <img src="/arviz/images/WIMMICS_logo.jpg" />
-            </a>
-        </div>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-deep-purple w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-deep-purple" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="#description" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Description</a>
+    <a href="#publications" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Publications</a>
+    <a href="#demo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Online Demo</a>
+    <a href="#code" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Source Code</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#description" class="w3-bar-item w3-button w3-padding-large">Description</a>
+    <a href="#publications" class="w3-bar-item w3-button w3-padding-large">Publications</a>
+    <a href="#demo" class="w3-bar-item w3-button w3-padding-large">Online Demo</a>
+    <a href="#code" class="w3-bar-item w3-button w3-padding-large">Source Code</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-deep-purple w3-center" style="padding: 100px 16px">
+  <!-- <h1 class="w3-margin w3-jumbo">MUVIN</h1> -->
+  <p class="w3-xlarge">ARViz: Association Rules Visualization</p>
+  <img src="/arviz/images/teaser.svg" class="w3-round" alt="ARViz" width="100%">
+  <form action="#demo" >
+    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" >Get Started</button>
+  </form>
+</header>
+
+<!-- First Grid -->
+<div id="description" class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <!-- <div class="w3-twothird"> -->
+      <h1>Description</h1>
+      <h5 class="w3-padding-32">ARViz is a visualization dashboard that supports interactive browsing of association rules through three synchronized and complementary visualization techniques:     </h5>
         
-        
-    </div>
+      <ul class="w3-ul">
+          <li><b>Overview of Rules:</b> We use a scatter plot technique with a slight modification to allow the user to identify how many rules are concerned by each pair &lt;confidence, interestingness&gt;. The chart's x-axis represents values of interestingness, while the y-axis represents values of confidence. The crossing points between both measures are represented by diamond symbols, which color encodes measures of interest, texture encodes symmetry, and size encodes the number of rules for each pair of values &lt;confidence, interestingness&gt;. </li>    
+          <li><b>Circular Paginated View of Subsets:</b> We use a chord diagram chart to provide a clear and simultaneous representation of relationships between items and their measures of interest. The arcs correspond to single items and the ribbons represent the rules, which color encodes values of confidence and interestingness, and texture encodes symmetry. Each ribbon contains arrowheads on its extremities to indicate the rule's direction, i.e. the extremity containing the arrow implies that the item is a consequent. The order of arcs around the circumference can be modified by sorting the keywords by alphabetic order or according to the number of association rules involving each item.</li>
+          <li><b>Exploratory Graph View of Items:</b> The association graph is meant to give an intuitive portray of antecedent and consequent items involved in rules by representing them as nodes placed in the left and right side of rules. We use an association graph with two vertical stacks of labeled rectangles at the left and right extremities of the window to represent items, and diamond-shaped nodes placed at the center of the visualization space to represent the association rules between items.</li>
+      </ul>
 
-    <div class="about">
-        <img style="margin-top:10px; width: 95%;" src="/arviz/images/teaser.svg" ></img>
+      <h2 class="w3-padding-16">Association Rules Mining Algorithm</h2>
 
-        <p>The goal of this visualization is to provide interactive browsing of association rules within named entities of a RDF graph through three synchronized and complementary visualization techniques:  </p>
-        
-        <ul>
-            <li><b>Overview of Rules:</b> We use a scatter plot technique with a slight modification to allow the user to identify how many rules are concerned by each pair &lt;confidence, interestingness&gt;. The chart's x-axis represents values of interestingness, while the y-axis represents values of confidence. The crossing points between both measures are represented by diamond symbols, which color encodes measures of interest, texture encodes symmetry, and size encodes the number of rules for each pair of values &lt;confidence, interestingness&gt;. </li>    
-            <li><b>Circular Paginated View of Subsets:</b> We use a chord diagram chart to provide a clear and simultaneous representation of relationships between items and their measures of interest. The arcs correspond to single items and the ribbons represent the rules, which color encodes values of confidence and interestingness, and texture encodes symmetry. Each ribbon contains arrowheads on its extremities to indicate the rule's direction, i.e. the extremity containing the arrow implies that the item is a consequent. The order of arcs around the circumference can be modified by sorting the keywords by alphabetic order or according to the number of association rules involving each item.</li>
-            <li><b>Exploratory Graph View of Items:</b> The association graph is meant to give an intuitive portray of antecedent and consequent items involved in rules by representing them as nodes placed in the left and right side of rules. We use an association graph with two vertical stacks of labeled rectangles at the left and right extremities of the window to represent items, and diamond-shaped nodes placed at the center of the visualization space to represent the association rules between items.</li>
-        </ul>
-        
-        <hr>
+      <h4 class="w3-padding-16">Input data </h4> A CSV file containing a table which rows represent the transactions (e.g. scientific publications) and columns represent the items (e.g., keywords in the publications). The input dataset is then pre-processed and transformed into a transaction matrix, which intersection cells contain binary values indicating whether the item exist on the transaction (1) or not (0). <br>
 
-        <h3>The Dataset</h3>
+      <h4 class="w3-padding-16">The algorithm</h4> The main goal of the algorithm is to derive association rules between named entities. As an illustrative example, let us take the named entity <em>coronavirus</em>, which in 70% of cases where the term was found in a publication, one would also find to the named entity <em>China</em>. <br>
+      We use the <a href="http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/fpgrowth/"><b>FP-Growth</b></a> algorithm from the Python library <em>mlxtend.frequent_pattern</em>, created by <a href="https://sebastianraschka.com/">Sebastian Raschka</a>.
 
-        The input dataset correspond to the output data of a mining algorithm that discover association rules within a given dataset of items and labels. In particular, ARViz has been applied over three different datasets:
-        
-        <ul>
-            <li>The <b>CovidOnTheWeb</b> knowledge graph, which descres over 100,000 scientific publications about COVID-19 and related coronaviruses and diseases. It correspond to a linked version of the ``COVID-19 Open Research Dataset'' (CORD-19 v7), enriched via entity linking and argument mining. More information can be found at <a href="https://github.com/Wimmics/covidontheweb">https://github.com/Wimmics/covidontheweb</a>. The dataset is accessible through a SPARQL endpoint (<a href="https://covidontheweb.inria.fr/sparql">https://covidontheweb.inria.fr/sparql</a>). <br><br> 
-            In particular, we use the named entities linked to the Wikidata dataset and we treat articles published from 1990 to 2020. The dataset for association rules extraction was retrieved using the following SPARQL query, where <code>%s</code> is replaced by a given offset (increasing in a step of 10000 to retrieve all related data) : <br><br>
-                
-            <code>
-                PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt; <br>
-                PREFIX schema: &lt;http://schema.org/&gt; <br>
-                prefix oa:     &lt;http://www.w3.org/ns/oa#&gt; <br> 
-                prefix rdfs:   &lt;http://www.w3.org/2000/01/rdf-schema#&gt; <br>
-                prefix dct:    &lt;http://purl.org/dc/terms/&gt; <br><br>
-                
-                SELECT distinct ?article ?label ?body (YEAR(?date) as ?year) <br>
-                FROM &lt;http://ns.inria.fr/covid19/graph/entityfishing&gt; <br>
-                FROM named &lt;http://ns.inria.fr/covid19/graph/wikidata-named-entities-full&gt;<br>
-                FROM &lt;http://ns.inria.fr/covid19/graph/articles&gt; <br>
-                WHERE { \n ?x schema:about ?article; oa:hasBody ?body. <br>
-                &nbsp;    GRAPH &lt;http://ns.inria.fr/covid19/graph/wikidata-named-entities-full&gt;{ <br>
-                    &nbsp;	&nbsp;?body rdfs:label ?label. <br>
-                &nbsp;} <br>
-                &nbsp;?article dct:issued ?date; dct:abstract [ rdf:value ?abs ]. <br>
-                &nbsp;FILTER(YEAR(?date) >= 1990 && YEAR(?date) <= 2020) <br>
-                } LIMIT 10000 <br>
-                    OFFSET %s<br>
-            </code><br>
-            Go to demo: <a href="/covid">http://dataviz.i3s.unice.fr/arviz/covid</a>
-            </li>
+      <h4 class="w3-padding-16">Output data</h4> The output data (represented in the visualization) consists of a table which rows correspond to rules and the columns contain descriptive variables, defined as follows:
+      
+      <ul class="w3-ul">
+          <li><b>Antecedents:</b> either a named entity or a pair of named entities.</li>
+          <li><b>Consequents:</b> either a named entity or a pair of named entities, which are consequence of the existence of antecendents in the publication.</li>
+          <li><b>Support:</b> the probability of finding the named entities X and Y in a transaction. It is estimated by the number of times X and Y appear among all available transactions. The resulting value is between 0 and 1.
+              <p style="margin-left: 50px;">Supp(X &#8594; Y) = P(X &#8745; Y)</p>
+          </li>
+          
+          <li><b>Confidence:</b> the probability of finding the named entity Y in a transaction, knowing that the named entity X is in the same transaction. It is estimated by the corresponding frequency observed (number of times that X and Y appear among all transactions divided by the number of times where X is found). The resulting value is is between 0 and 1.
+          <p style="margin-left: 50px;">Conf(X &#8594; Y) = P (Y / X) = P(X &#8745; Y) / P(X) = Sup(X &#8594; Y) / Sup(X)</p>
+          </li>
 
-            <li>The <b>ISSA</b> knowledge graph, which describes over 12,000 scientific publications in the field of agriculture. The dataset is accessible through a SPARQL endpoint at <a href="https://data-issa.cirad.fr/sparql">https://data-issa.cirad.fr/sparql</a>. Each article in this dataset is annotated through the <a href="https://agrovoc.fao.org/browse/agrovoc/en/">AGROVOC thesaurus</a>, a standard SKOS thesaurus in the agronomy and agriculture domains. Thus, we extracted association rules between the different AGROVOC terms associated to each article. <br>
-                Go to demo: <a href="/covid">http://dataviz.i3s.unice.fr/arviz/issa</a>
-            </li>
+          <li><b>Interestingness:</b> the serendipity of the rule, which serve to penalize the rules or named entities with high frequency of appearance within the database.</li>
+            <p style="margin-left: 50px;">Interestingness(X &#8594; Y) = (Supp(X &#8594; Y) / Supp(X)) &#215; (Supp(X &#8594; Y) / Supp(Y)) &#215; (1 - (Supp(X &#8594; Y) / Tot. No. of transactions))</p>
+        </li>
 
-            <li>The <b>CROBORA</b> dataset, which describes multimedia content. In particular, it uses a thesaurus of keywords to classify different image thumbnails extracted from videos used in different television channels in France and Italy. Here, we extracted association rules between the different keywords used to describe each thumbnail. The dataset can be explored at <a href="http://dataviz.i3s.unice.fr/crobora">http://dataviz.i3s.unice.fr/crobora</a>. <br>
-                Go to demo: <a href="/covid">http://dataviz.i3s.unice.fr/arviz/crobora</a></li>
-        </ul>
+          <li><b>isSymmetric:</b> whether the rule works inversely, i.e. whether there is another rule where the antecendent is the consequent and vice versa.</li>
+          <li><b>Cluster:</b> the cluster which the rule belongs. These are automatically generated with no assigend semantic meaning.</li>
+      </ul>
 
-        <h3>About the Algorithm (Cadorel and Tettamanzi, 2020)</h3>
+      <p>Furthermore, to keep only non-evident rules, we applied filtering methods based on: </p>
+      <ul class="w3-ul">
+          <li>the <em>confidence</em>, which defines a threshold of confidence (&#8805; .7) that determine whether the rule is kept.</li>
+          <li>the <em>interestingness</em>, which defines a threshold of interestingness (&#8805; .3) that determine whether the rule is kept.</li>
+          <li>the <em>redundancy</em>, which remove every rule that comply with the following definition of redundancy: A,B,C &#8594; D is redundant if Conf(A,B &#8594; D) &#8805; Conf(A,B,C &#8594; D) </li>
+      </ul>
 
-        <p>The algorithm is publicly available at <a href="https://github.com/Wimmics/association-rules-mining">https://github.com/Wimmics/association-rules-mining</a></p>
+  </div>
+</div>
 
-        <h4>Input data </h4> The dataset is pre-processed and transformed into a transaction matrix, which rows represent the publications and columns represent the named entities. The intersection cells are binary values indicating whether the named entity exist on the paper (1) or not (0). <br>
+<!-- Second Grid -->
+<div id="publications" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+      <h1>Publications</h1>
 
-        <h4>The algorithm</h4> The main goal of the algorithm is to derive association rules between named entities. As an illustrative example, let us take the named entity <em>coronavirus</em>, which in 70% of cases where the term was found in a publication, one would also find to the named entity <em>China</em>. <br>
-        We use the <a href="http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/fpgrowth/"><b>FP-Growth</b></a> algorithm from the Python library <em>mlxtend.frequent_pattern</em>, created by <a href="https://sebastianraschka.com/">Sebastian Raschka</a>.
+      <ul class="w3-ul">
+        <li>Aline Menin, Lucie Cadorel, Andrea G. B. Tettamanzi, Alain Giboin, Fabien Gandon, et al.. ARViz: Interactive Visualization of Association Rules for RDF Data Exploration. IV 2021 - 25th International Conference Information Visualisation, Jul 2021, Melbourne / Virtual, Australia. pp.13-20, (<a href="https://doi.org/10.1109/IV53921.2021.00013">10.1109/IV53921.2021.00013</a>).  (<a href="https://hal.archives-ouvertes.fr/hal-03292140">hal-03292140</a>)</li>
+        <li>Lucie Cadorel, Andrea G. B. Tettamanzi. Mining RDF Data of COVID-19 Scientific Literature for Interesting Association Rules. WI-IAT'20 - IEEE/WIC/ACM International Joint Conference on Web Intelligence and Intelligent Agent Technology, Dec 2020, Melbourne, Australia. (<a href="https://hal.inria.fr/hal-03084029">hal-03084029</a>)</li>
+        <li>Anne Toulet, Franck Michel, Anna Bobasheva, Aline Menin, Sébastien Dupré, et al.. ISSA: Generic Pipeline, Knowledge Model and Visualization tools to Help Scientists Search and Make Sense of a Scientific Archive. ISWC 2022 - 21st International Semantic Web Conference, Oct 2022, Hangzhou, China. (<a href="https://dx.doi.org/10.1007/978-3-031-19433-7_38">10.1007/978-3-031-19433-7_38</a>). (<a href="https://hal.archives-ouvertes.fr/hal-03807744">hal-03807744</a>)</li>
+      </ul>
+  </div>
+</div>
 
-        <h4>Output data</h4> The output data (represented in the visualization) consists of a table which rows correspond to rules and the columns contain descriptive variables, defined as follows:
-        
-        <ul>
-            <li>Antecedents: either a named entity or a pair of named entities.</li>
-            <li>Consequents: either a named entity or a pair of named entities, which are consequence of the existence of antecendents in the publication.</li>
-            <li>Support: the probability of finding the named entities X and Y in a transaction. It is estimated by the number of times X and Y appear among all available transactions. The resulting value is between 0 and 1.</li>
-            <ul>
-                <li>Supp(X &#8594; Y) = P(X &#8745; Y)</li>
-            </ul>
-            <li>Confidence: the probability of finding the named entity Y in a transaction, knowing that the named entity X is in the same transaction. It is estimated by the corresponding frequency observed (number of times that X and Y appear among all transactions divided by the number of times where X is found). The resulting value is is between 0 and 1.</li>
-            <ul>
-                <li>Conf(X &#8594; Y) = P (Y / X) = P(X &#8745; Y) / P(X) = Sup(X &#8594; Y) / Sup(X)</li>
-            </ul>
-            <li>Interestingness: the serendipity of the rule, which serve to penalize the rules or named entities with high frequency of appearance within the database.</li>
-            <ul>
-                <li>Interestingness(X &#8594; Y) = (Supp(X &#8594; Y) / Supp(X)) &#215; (Supp(X &#8594; Y) / Supp(Y)) &#215; (1 - (Supp(X &#8594; Y) / Tot. No. of transactions))</li>
-            </ul>
-            <li>isSymmetric: whether the rule works inversely, i.e. whether there is another rule where the antecendent is the consequent and vice versa.</li>
-            <li>Cluster: the cluster which the rule belongs. These are automatically generated with no assigend semantic meaning.</li>
-        </ul>
+<!-- Third Grid -->
+<div id="demo" class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+      <h1>Online Demo</h1>
 
-        In order to keep only non-evident rules, we applied filtering methods based on:
-        <ul>
-            <li>the <em>confidence</em>, which defines a threshold of confidence (&#8805; .7) that determine whether the rule is kept.</li>
-            <li>the <em>interestingness</em>, which defines a threshold of interestingness (&#8805; .3) that determine whether the rule is kept.</li>
-            <li>the <em>redundancy</em>, which remove every rule that comply with the following definition of redundancy: A,B,C &#8594; D is redundant if Conf(A,B &#8594; D) &#8805; Conf(A,B,C &#8594; D) </li>
-        </ul>
-       
-        <hr>
-        <h3>Related Publications</h3>
-        <ul>
-            <li>Aline Menin, Lucie Cadorel, Andrea G. B. Tettamanzi, Alain Giboin, Fabien Gandon, et al.. ARViz: Interactive Visualization of Association Rules for RDF Data Exploration. IV 2021 - 25th International Conference Information Visualisation, Jul 2021, Melbourne / Virtual, Australia. pp.13-20, (<a href="https://doi.org/10.1109/IV53921.2021.00013">10.1109/IV53921.2021.00013</a>).  (<a href="https://hal.archives-ouvertes.fr/hal-03292140">hal-03292140</a>)</li>
-            <li>Lucie Cadorel, Andrea G. B. Tettamanzi. Mining RDF Data of COVID-19 Scientific Literature for Interesting Association Rules. WI-IAT'20 - IEEE/WIC/ACM International Joint Conference on Web Intelligence and Intelligent Agent Technology, Dec 2020, Melbourne, Australia. (<a href="https://hal.inria.fr/hal-03084029">hal-03084029</a>)</li>
-            <li>Anne Toulet, Franck Michel, Anna Bobasheva, Aline Menin, Sébastien Dupré, et al.. ISSA: Generic Pipeline, Knowledge Model and Visualization tools to Help Scientists Search and Make Sense of a Scientific Archive. ISWC 2022 - 21st International Semantic Web Conference, Oct 2022, Hangzhou, China. (<a href="https://dx.doi.org/10.1007/978-3-031-19433-7_38">10.1007/978-3-031-19433-7_38</a>). (<a href="https://hal.archives-ouvertes.fr/hal-03807744">hal-03807744</a>)</li>
-        </ul>
+      <p>ARViz has been applied to multiple datasets, described as follows.</p>
 
-        <hr>
-        <h3>People involved in the project</h3>
-        <ul class="people">
-            <li><a href="mailto:aline.menin@inria.fr">Aline Menin</a>, Postdoctoral Researcher, Univ. Côte d'Azur, Inria, CNRS, Laboratory I3S</li>
-            <li><a href="mailto:lucie.cadorel@inria.fr">Lucie Cadorel</a>, PhD Student, Univ. Côte d'Azur, Inria, CNRS, Laboratory I3S</li>
-            <li><a href="mailto:andrea.tettamanzi@univ-cotedazur.fr">Andrea G. B. Tettamanzi</a>, Professor, Univ. Côte d'Azur, Inria, CNRS, Laboratory I3S</li>
-            <li><a href="malito:fabien.gandon@inria.fr">Fabien Gandon</a>, Researcher, Univ. Côte d'Azur, Inria, CNRS, Laboratory I3S</li>
-            <li><a href="mailto:marco.winckler@unice.fr">Marco Winckler</a>, Professor, Univ. Côte d'Azur, Inria, CNRS, Laboratory I3S</li>
-        </ul>
-    </div>
+      <h2 class="w3-padding-16">CovidOnTheWeb</h2>
+
+      <p>The <b>CovidOnTheWeb</b> knowledge graph describes over 100,000 scientific publications about COVID-19 and related coronaviruses and diseases. It correspond to a linked version of the ``COVID-19 Open Research Dataset'' (CORD-19 v7), enriched via entity linking and argument mining. More information can be found at <a href="https://github.com/Wimmics/covidontheweb">https://github.com/Wimmics/covidontheweb</a>. The dataset is accessible through a SPARQL endpoint (<a href="https://covidontheweb.inria.fr/sparql">https://covidontheweb.inria.fr/sparql</a>). <br><br> In ARViz, we explore association rules extracted from a dataset formed by scientific publications and their associated named entities (from Wikidata) between 1990 and 2020. </p>
+
+      <p><b>Link to demo: </b><a href="/arviz/covid/" target=”_blank” >http://dataviz.i3s.unice.fr/arviz/covid</a></p>
+
+
+      
+      <h2 class="w3-padding-16">ISSA</h2>
+
+      <p>The <b>ISSA</b> knowledge graph describes over 12,000 scientific publications in the field of agriculture. The dataset is accessible through a SPARQL endpoint at <a href="https://data-issa.cirad.fr/sparql">https://data-issa.cirad.fr/sparql</a>. Each article in this dataset is annotated through the <a href="https://agrovoc.fao.org/browse/agrovoc/en/">AGROVOC thesaurus</a>, a standard SKOS thesaurus in the agronomy and agriculture domains. In ARViz, we explore the association rules between different AGROVOC descriptors associated to each of scientific publication. <br></p>
+
+      <p><b>Link to demo: </b><a href="/arviz/issa/" target=”_blank” >http://dataviz.i3s.unice.fr/arviz/issa</a></p>
+
+
+      
+
+      <h2 class="w3-padding-16">CROBORA</h2>
+      
+      <p>The <b>CROBORA</b> dataset describes multimedia content. In particular, it uses a thesaurus of keywords to classify different image thumbnails extracted from videos used in different television channels in France and Italy. The dataset can be explored at <a href="http://dataviz.i3s.unice.fr/crobora">http://dataviz.i3s.unice.fr/crobora</a>. In ARViz, we extracted association rules between the different keywords used to describe each thumbnail. <br></p>
+      
+      <p><b>Link to demo: </b><a href="/arviz/crobora/" target=”_blank” >http://dataviz.i3s.unice.fr/arviz/crobora</a></p>
+  </div>
+</div>
+
+<!-- Fourth Grid -->
+<div id="code" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+      <h1>Source Code</h1>
+      <p>ARViz source code is available at <a href="https://github.com/Wimmics/arviz">https://github.com/Wimmics/arviz</a>.</p>
+
+      <p>The mining algorithm is publicly available at <a href="https://github.com/Wimmics/association-rules-mining">https://github.com/Wimmics/association-rules-mining</a></p>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div id="contact" class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+      <h1>Contact</h1>
+
+      <ul class="w3-ul">
+          <li><a href="https://amenin.gitlab.io/">Aline Menin</a>, Associate Professor at Université Côte d'Azur (E-mail: aline.menin@univ-cotedazur.fr)</li>
+          <li><a href="https://www.i3s.unice.fr/~winckler/">Marco Winckler</a>, Full Professor at Université Cote d'Azur (E-mail: marco.winckler@univ-cotedazur.fr)</li>
+      </ul>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-deep-purple">  
+  <div class="w3-xlarge w3-padding-32 w3-white">
+    <a href="https://univ-cotedazur.fr/" target=”_blank”><img src="/arviz/images/logos/uca.png" class="w3-round" alt="Université Côte d'Azur" width="60px"></a>
+    <a href="https://www.cnrs.fr/fr" target=”_blank”><img src="/arviz/images/logos/cnrs.png" class="w3-round" alt="CNRS" width="60px"></a>
+    <a href="https://www.i3s.unice.fr/fr/sparks" target=”_blank”><img src="/arviz/images/logos/i3s.png" class="w3-round" alt="I3S Laboratory, SPARKS team" width="60px"></a>
+    <a href="https://www.inria.fr/en" target=”_blank”><img src="/arviz/images/logos/inria.png" class="w3-round" alt="Inria" width="60px"></a>
+    <a href="https://team.inria.fr/wimmics/" target=”_blank”><img src="/arviz/images/logos/wimmics.png" class="w3-round" alt="Wimmics, project-team of Inria" width="60px"></a>
+ </div>
+ <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+$(document).ready(function(){
+
+  this.hash = 'home'
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
 </body>
-
 </html>

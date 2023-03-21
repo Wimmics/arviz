@@ -22,12 +22,17 @@
     position: relative;
 }
 
+#clear-selection {
+    display: none;
+}
+ 
 .autocomplete {
-    /*the container must be positioned relative:*/
     position: absolute;
-    display: inline;
-    left: 30%;  
+    display: flex;
+    justify-content: space-between;
+    left: 5%;  
     top: 10px;
+    width: 90%;
 }
 input {
     border: 1px solid transparent;

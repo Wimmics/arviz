@@ -19,11 +19,17 @@ class Chart{
 
         this.panels = {}
 
+        this.value = null;
+
         this.tooltip = d3.select(this.dashboard.shadowRoot.querySelector('div.tooltip'))
     }
 
+    getValue() {
+        return this.value;
+    }
+
     getPatternUrl(color) {
-        return `url('/arviz/${this.dashboard.app}#${color}-pattern')`
+        return `url('${window.location.pathname}${window.location.search}#${color}-pattern')`
     }
 
     displayTooltip(content) {
