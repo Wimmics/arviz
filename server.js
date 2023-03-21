@@ -65,7 +65,7 @@ async function loadData(req) {
     return data
 }
 
-app.get('/arviz/about', function(req, res) {
+app.get('/arviz/', function(req, res) {
     res.render('about');
 })
 
