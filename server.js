@@ -82,8 +82,9 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
     let data = await loadData(req)
 
     // apply confidence and interestingness filters
-    data.rules = data.rules.filter(d => d.confidence >= values.filtering.conf.min && d.confidence <= values.filtering.conf.max && 
-        d.interestingness >= values.filtering.int.min && d.interestingness <= values.filtering.int.max)
+    data.rules = data.rules.filter(d => d.confidence >= values.filtering.conf.min_sel && d.confidence <= values.filtering.conf.max_sel && 
+        d.interestingness >= values.filtering.int.min_sel && d.interestingness <= values.filtering.int.max_sel)
+        
 
     // apply symmetry filter
     data.rules = data.rules.filter(d => values.filtering.symmetry && values.filtering.no_symmetry ? true : 

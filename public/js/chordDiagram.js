@@ -73,7 +73,10 @@ class CircularView extends Chart{
         }
     }
 
-    async update(){
+    async update(filter){
+
+        if (filter)
+            await this.filterDiagramData()
 
         this.dashboard.hideLoading()
         this.display()
@@ -245,7 +248,7 @@ class CircularView extends Chart{
 
         this.group.selectAll('path.chord')
             .transition('chord-arcmouseout')
-            .duration(500)
+            .duration(200)
             .style('opacity', 1)
 
         this.group.selectAll('text.terms')

@@ -55,7 +55,11 @@ class ARViz extends HTMLElement {
 
         this.setInteraction()
 
-        this.setActiveChart('graph', this.getAttribute("keyword"))
+        this.keyword = this.getAttribute("keyword")
+        
+        this.setActiveChart('graph', this.keyword)
+        
+
         // this.graph.set()
     }
 
@@ -145,8 +149,8 @@ class ARViz extends HTMLElement {
         window.open('/arviz/about')
     }
 
-    updateChart() {
-        this[this.activeChart].update()
+    updateChart(filter) {
+        this[this.activeChart].update(filter)
     }
 
     getActiveChart() {

@@ -22,6 +22,7 @@ class Chart{
         this.value = null;
 
         this.tooltip = d3.select(this.dashboard.shadowRoot.querySelector('div.tooltip'))
+
     }
 
     getValue() {

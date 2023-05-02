@@ -61,7 +61,13 @@ class GraphView extends Chart{
     display() {
         d3.select(this.dashboard.shadowRoot.querySelector('div.graphContainer')).style('display', 'block')
         d3.select(this.dashboard.shadowRoot.querySelector('div.bottom-button')).style('display', 'block')
-        d3.select(this.dashboard.shadowRoot.querySelector('div.forms')).style('display', 'table')
+
+        if (this.dashboard.keyword) d3.select(this.dashboard.shadowRoot.querySelector('div.forms')).style('display', 'none')
+        else d3.select(this.dashboard.shadowRoot.querySelector('div.forms')).style('display', 'table')
+
+        if (this.dashboard.keyword)
+            this.div.select('.graphContainer').style('height', '100%').style('top', 0)
+
         this.displayPanels()
     }
 
@@ -102,24 +108,21 @@ class GraphView extends Chart{
         this.dashboard.shadowRoot.querySelector('#info-label').style.display = "none"
     }
 
-    async update(){
-        this.set(this.value)
+    async update(filter){
+        this.set(this.value, filter)
     }
 
-    async set(value){
-        
-        
-
+    async set(value, filter){
+      
         // remove the visual information regarding the chord diagram
         this.dashboard.chord.hide()
         this.dashboard.scatterplot.hide()
 
         this.display()
         this.clearSearch()
-        
-        
 
-        if (this.value != value) { // if the action is to create a new graph
+        //TODO: check if filters changed
+        if (this.value != value || filter) { // if the action is to create a new graph
 
             this.value = value;
 

@@ -65,12 +65,15 @@ class ScatterPlot extends Chart{
     }
 
     setAxes() {
+
+        this.filter = this.dashboard.filter.getFilteringCriteria()
+
         this.yScale = d3.scaleLinear()
-            .domain([this.extent.conf.min, this.extent.conf.max])
+            .domain([this.filter.conf.min_sel, this.filter.conf.max_sel])
             .range([this.margin.bottom, this.margin.top])
 
         this.xScale = d3.scaleLinear()
-            .domain([this.extent.int.min, this.extent.int.max])
+            .domain([this.filter.int.min_sel, this.filter.int.max_sel])
             .range([this.margin.left, this.margin.right])
 
         const y = d3.axisLeft(this.yScale),
@@ -111,10 +114,17 @@ class ScatterPlot extends Chart{
         this.dashboard.graph.hide()
 
         if (!this.data || this.changed || !this.data.length) {
+            this.filter = this.dashboard.filter.getFilteringCriteria()
+
             let result = await this.fetchData()
             this.count = result.count
             this.data = result.data
             this.changed = false
+
+            this.yScale.domain([this.filter.conf.min_sel, this.filter.conf.max_sel])
+
+            this.xScale.domain([this.filter.int.min_sel, this.filter.int.max_sel])
+
         } else if (!this.changed) {
             this.display()
             return

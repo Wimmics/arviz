@@ -61,7 +61,8 @@ class ImagesPanel extends DetailsPanel {
                 content += `<div class="image-content" >
                     <hr>
                     <p>Archive: <b>${d.documentTitle}</b><br>
-                      Date: <b>${d.date}</b>
+                      Date: <b>${d.date}</b><br>
+                      Collection: <b>${d.collection}</b> 
                     </p>
 
                     <div class="image-keywords">
@@ -101,7 +102,7 @@ class ImagesPanel extends DetailsPanel {
       } else if (image_title.includes("FR3")){
         return this.path + 'Atlas_France3/' + image_title +".png";
       } else if (image_title.includes("ARTE")){
-        return this.path + 'Atlas_Arte/' + image_title +".jpg";
+        return this.path + 'Atlas_Arte/' + image_title +".png";
       } else if (image_title.includes("TG1")){
         return this.path + 'Atlas_RaiUno/' + image_title +".png";
       } else if (image_title.includes("TG2")){
