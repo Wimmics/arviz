@@ -87,7 +87,7 @@ class DetailsPanel {
     }
 
     setTitle(d) {
-        this.divTitle.select('div.title-content').node().innerHTML += d.source.join(', ') + ' &#8594; ' + d.target.join(', ')
+        this.divTitle.select('div.title-content').node().innerHTML += d.source.map(e => this.dashboard.getLabel(e)).join(', ') + ' &#8594; ' + d.target.map(e => this.dashboard.getLabel(e)).join(', ')
     }
 
     setContentDiv() {

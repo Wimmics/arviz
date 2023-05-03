@@ -459,7 +459,7 @@ class GraphView extends Chart{
                 update => update,
                 exit => exit.remove()
             )
-            .text(d => d.name)
+            .text(d => this.dashboard.getLabel(d.name))
             .attrs(function(d,i){
                 return {
                     x: d.tx + '%',
@@ -675,8 +675,7 @@ class GraphView extends Chart{
                 // type: this.type,
                 value: this.value,
                 filtering: this.dashboard.filter.getFilteringCriteria(),
-                uncheck_methods: this.dashboard.filter.getMethods(),
-                langs: this.dashboard.filter.getLanguages()
+                uncheck_methods: this.dashboard.filter.getMethods()
             } )
         })
         return response.json()

@@ -35,10 +35,6 @@ class FilterPanel extends ConfigPanel {
             this.filtering[d.key] = true;
         })
 
-        this.config.lang.forEach(d => {
-            this.filtering[d] = true;
-        })
-
         this.data = [
             {'label': 'Mesures of Interest', 'value': 'mesures', 
             'children': [
@@ -64,13 +60,6 @@ class FilterPanel extends ConfigPanel {
             this.data.push({'label': 'Methods of Rules Extraction', 'value': 'methods',
                 'children': this.config.methods.map(d => { 
                     return {value: d.key, checked: true, label: d.label, type: 'checkbox'}
-                }) })
-        }
-
-        if (this.config.lang.length && this.config.lang.length > 1) {
-            this.data.push({'label': 'Language', 'value': 'lang',
-                'children': this.config.lang.map(d => { 
-                    return {value: d, checked: true, label: d, type: 'checkbox'}
                 }) })
         }
 
@@ -235,11 +224,6 @@ class FilterPanel extends ConfigPanel {
     getMethods() {
         let unckeck_methods = this.config.methods.filter(d => !this.filtering[d.key])
         return unckeck_methods.map(d => d.key)
-    }
-
-    getLanguages() {
-        let unckeck_langs = this.config.lang.filter(d => !this.filtering[d])
-        return unckeck_langs.map(d => d)
     }
 
     // async filterData(data) {

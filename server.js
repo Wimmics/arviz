@@ -21,17 +21,6 @@ if (!fs.existsSync(cachedir)){
     fs.mkdirSync(path.join(__dirname, cachedir));
 }
 
-// one cache folder per querying page
-const cachefile = {
-    'covid': cachedir + 'covid/',
-    'issa': cachedir + 'issa/',
-}
-
-Object.keys(cachefile).forEach(key => {
-    if (!fs.existsSync(path.join(__dirname, cachefile[key])))
-        fs.mkdirSync(path.join(__dirname, cachefile[key]));
-})
-
 /**
  * HTTP node server
  * Browser form send HTTP request to this node server
@@ -84,7 +73,7 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
     // apply confidence and interestingness filters
     data.rules = data.rules.filter(d => d.confidence >= values.filtering.conf.min_sel && d.confidence <= values.filtering.conf.max_sel && 
         d.interestingness >= values.filtering.int.min_sel && d.interestingness <= values.filtering.int.max_sel)
-        
+
 
     // apply symmetry filter
     data.rules = data.rules.filter(d => values.filtering.symmetry && values.filtering.no_symmetry ? true : 
@@ -93,10 +82,6 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
     values.uncheck_methods.forEach(d => { // not working, verify!
         let regex = new RegExp(d)
         data.rules = data.rules.filter(e => !e.cluster.match(regex) )
-    })
-
-    values.langs.forEach(d => { // not working, verify!
-        data.rules = data.rules.filter(e => e.lang != d )
     })
    
     let result = null
@@ -135,8 +120,86 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
 app.get('/arviz/api/:app/labels', async function(req, res) {
     let data = await loadData(req)
 
-    let labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
-    labels = labels.filter((d,i) => labels.indexOf(d) === i)
+    let filePath = path.join(__dirname, datadir + req.params.app + '/labels.json')
+
+    let labels = []
+    switch(req.params.app) {
+        case 'covid':
+            labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
+            labels = labels.filter((d,i) => labels.indexOf(d) === i)
+            labels = labels.map(d => ({value: d}))
+            break;
+        case 'issa':
+        
+            if (fs.existsSync(filePath)) {
+                labels = fs.readFileSync(filePath)
+                labels = JSON.parse(labels)
+            } else {
+
+                let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
+                queries = JSON.parse(queries)
+                
+                let endpoint = queries.endpoint
+                let graphs = Object.keys(queries.labels)
+
+                let values = []
+                for (let i = 0; i < graphs.length; i++) {
+                    let offset = 0
+                    let query = queries.labels[graphs[i]]
+                    query = query.replace(/\$lang/g, "en") // TODO: replace lang according to view settings
+
+                    let result, 
+                        bindings
+                  
+                    try {
+
+                        do {
+                            result = await sparql.sendRequest(query.replace('$offset', offset), endpoint)
+                            result = JSON.parse(result)
+                            bindings = result.results.bindings
+
+                            values = values.concat(bindings)
+                            offset += 10000;
+                        } while ( bindings.length ) 
+
+                    } catch(e) {
+                        console.log(e)
+                    }
+                }
+
+                let uniqueURI = values.map(d => d.uri.value)
+                uniqueURI = uniqueURI.filter( (d,i) => uniqueURI.indexOf(d) === i)
+
+                for (let uri of uniqueURI) {
+                    let uri_data = values.filter( d => d.uri.value === uri)
+                    let prefLabel = uri_data[0].prefLabel.value
+                    let altLabels = [prefLabel]
+
+                    uri_data.forEach(d => { if (d.altLabel) altLabels.push(d.altLabel.value) })
+
+                    labels.push({
+                        uri: uri,
+                        prefLabel: prefLabel,
+                        altLabels: altLabels,
+                    })
+                }
+
+                fs.writeFileSync(filePath, JSON.stringify(labels), null, 4)
+            }
+            break;
+        case 'crobora':
+            labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
+            labels = labels.filter((d,i) => labels.indexOf(d) === i)
+            labels = labels.map(d => {
+                let values = d.split('--')
+                return {
+                    type: values[0],
+                    value: values[1]
+                }
+            })
+            break;
+    }
+    
 
     res.send(JSON.stringify(labels))
 })
@@ -192,6 +255,7 @@ app.get('/arviz/api/:app/uris', async function(req, res) {
 
 })
 
+// TODO: replace this route as we can request the info directly from /crobora-api
 app.get('/arviz/api/:app/images', async function(req, res) {
     let values = req.query.values.split(',') // array of labels
 

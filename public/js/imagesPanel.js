@@ -25,6 +25,7 @@ class ImagesPanel extends DetailsPanel {
     }
 
     async fetchData() { 
+      console.log(this.labels)
       let url = `/arviz/api/${this.dashboard.app}/images?values=${this.labels.join(',')}`
   
       let response = await fetch(url)

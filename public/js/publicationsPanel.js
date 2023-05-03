@@ -14,11 +14,12 @@ class PublicationsPanel extends DetailsPanel{
         this.setContentDiv()
 
         this.labels = this.dashboard.getLabels(d.source.concat(d.target))
+        console.log(this.labels)
     
         let content = '<b>Associated URIs</b><br>'
         this.labels.forEach(e => {
-            content += '<b>' + e.label.value + 
-                ': </b>' + '<a href="https://agrovoc.fao.org/browse/agrovoc/en/page/?uri=' + e.uri.value + '" target="_blank">' + e.uri.value + '</a><br>'
+            content += '<b>' + (e.label ? e.label.value : e.prefLabel) + 
+                ': </b>' + '<a href="https://agrovoc.fao.org/browse/agrovoc/en/page/?uri=' + (e.uri || e.uri.value) + '" target="_blank">' + (e.uri || e.uri.value) + '</a><br>'
         })
     
         content += '<b id="waiting-message">Associated Publications: </b>' +
@@ -31,7 +32,7 @@ class PublicationsPanel extends DetailsPanel{
 
     async fetchData() {
        
-        let uris = this.labels.map(d => d.uri.value)
+        let uris = this.labels.map(d => d.uri || d.uri.value)
         let url = `/arviz/api/${this.dashboard.app}/publications?values=${uris.join(',')}`
     
         let response = await fetch(url)
