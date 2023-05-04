@@ -196,7 +196,7 @@ class ARViz extends HTMLElement {
     }
     
     about() {
-        window.open('/arviz/about')
+        window.open('/arviz')
     }
 
     updateChart(filter) {

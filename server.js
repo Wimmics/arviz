@@ -129,8 +129,12 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
         labels = JSON.parse(labels)
     } else {
 
-        let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
-        queries = JSON.parse(queries)
+        let queriesFile = path.join(__dirname, datadir + req.params.app + '/queries.json')
+        let queries;
+        if (fs.existsSync(queriesFile)) {
+            queries = fs.readFileSync(queriesFile)
+            queries = JSON.parse(queries)
+        }
 
         switch(req.params.app) {
             case 'covid':
