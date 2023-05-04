@@ -14,12 +14,11 @@ class PublicationsPanel extends DetailsPanel{
         this.setContentDiv()
 
         this.labels = this.dashboard.getLabels(d.source.concat(d.target))
-        console.log(this.labels)
     
         let content = '<b>Associated URIs</b><br>'
         this.labels.forEach(e => {
             content += '<b>' + (e.label ? e.label.value : e.prefLabel) + 
-                ': </b>' + '<a href="https://agrovoc.fao.org/browse/agrovoc/en/page/?uri=' + (e.uri || e.uri.value) + '" target="_blank">' + (e.uri || e.uri.value) + '</a><br>'
+                ': </b>' + '<a href="https://agrovoc.fao.org/browse/agrovoc/en/page/?uri=' + (e.uri.value || e.uri) + '" target="_blank">' + (e.uri.value || e.uri) + '</a><br>'
         })
     
         content += '<b id="waiting-message">Associated Publications: </b>' +
@@ -32,7 +31,7 @@ class PublicationsPanel extends DetailsPanel{
 
     async fetchData() {
        
-        let uris = this.labels.map(d => d.uri || d.uri.value)
+        let uris = this.labels.map(d => d.uri.value || d.uri)
         let url = `/arviz/api/${this.dashboard.app}/publications?values=${uris.join(',')}`
     
         let response = await fetch(url)
@@ -50,8 +49,8 @@ class PublicationsPanel extends DetailsPanel{
         if (data.length > 0) {
             content = '<br><b>Associated Publications (' + data.length + ')</b><br><br>'
             data.forEach(d => {
-                content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + 'Authors: ' + d.authors.split('--').join(' and ') + '</br>' +
-                    'DOI: <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br>' + 
+                content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + '<b>Authors:</b> ' + d.authors.split('--').join(' and ') + '</br>' +
+                    '<b>DOI:</b> <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br>' + 
                     (this.dashboard.app === 'issa' ? '<a href="http://issa.i3s.unice.fr/visu/?uri=' + d.article + '" target="_blank">Augmented visualization (ISSA)</a><br>' : '') +
                     '</br>'
             })

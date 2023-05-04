@@ -190,7 +190,7 @@ class CircularView extends Chart{
                 }
             })
             .style('text-anchor', d => d.angle > Math.PI/2 ? 'end' : 'start')
-            .text(d => d.label)
+            .text(d => this.dashboard.getLabel(d.label))
             .style('font-style', d => this.browsing == 'terms' && this.selectedTerms.includes(d.label) ? 'italic' : 'normal')
 
         this.group.select('g.lines')
@@ -431,8 +431,7 @@ class CircularView extends Chart{
         let values = {
             sort: this.dashboard.sort.sortCriteria.rules,
             filtering: this.dashboard.filter.getFilteringCriteria(),
-            uncheck_methods: this.dashboard.filter.getMethods(),
-            langs: this.dashboard.filter.getLanguages()
+            uncheck_methods: this.dashboard.filter.getMethods()
         }
 
         if (arguments.length) {

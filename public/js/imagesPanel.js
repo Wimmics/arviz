@@ -26,64 +26,67 @@ class ImagesPanel extends DetailsPanel {
 
     async fetchData() { 
       console.log(this.labels)
-      let url = `/arviz/api/${this.dashboard.app}/images?values=${this.labels.join(',')}`
+
+      let cats = []
+      let keys = []
+      this.labels.forEach(d => {
+        cats.push('categories=' + encodeURIComponent(d.type))
+        keys.push('keywords=' + encodeURIComponent(d.value))
+      })
+
+      let params = `${cats.join('&') + '&' + keys.join('&')}&options=illustration&options=location&options=celebrity&options=event`
+      let url = `http://dataviz.i3s.unice.fr/crobora-api/search/imagesOR?${params}`
+      console.log(url)
   
       let response = await fetch(url)
       let data = await response.json()
 
-      await this.fetchArchiveData(data)
+      
+      data = data.map(d => d.records).flat()
 
+      console.log(data)
       if (response.ok) 
           this.setContent(await this.getContent(data))
       else alert('Something went wrong. Please try again later!')
     }
 
-    async fetchArchiveData(data) {
-      for (let d of data) {
-        let res = await fetch(`http://dataviz.i3s.unice.fr/crobora-api/subject?ID_doc=${d.documentId}`)
-        let docInfo = await res.json()
-        if (!docInfo) continue;
-        d.documentTitle = docInfo.document_title;
-      }
-    }
-
     async getContent(result){
-        
-
+      
         let content = '';
         if (result.length > 0) {
+  
             content = '<b>' + result.length + ' associated images </b><br><br>'
 
-            result.sort( (a,b) => a.documentTitle.localeCompare(b.documentTitle))
+            result.sort( (a,b) => a.document_title.localeCompare(b.document_title))
 
             result.forEach((d) => {
-                let docLink = d.documentId ? `http://dataviz.i3s.unice.fr/crobora/document/${d.documentId.replace('/', '_')}` : '#'
+                let docLink = d.ID_document ? `http://dataviz.i3s.unice.fr/crobora/document/${d.ID_document}` : '#'
                 
                 content += `<div class="image-content" >
                     <hr>
-                    <p>Archive: <b>${d.documentTitle}</b><br>
-                      Date: <b>${d.date}</b><br>
-                      Collection: <b>${d.collection}</b> 
+                    <p>Document: <b>${d.document_title}</b><br>
+                      Date: <b>${d.day_airing}</b><br>
+                      Broadcaster: <b>${d.channel}</b> 
                     </p>
 
                     <div class="image-keywords">
                       <div style="width: 50%;">
-                        <a href="${docLink}" target="_blank" style="pointer-events: ${d.documentId ? 'auto' : 'none'};">
-                            <img class="main-image" src=${this.getLink(d.image)} width="100%" title="Click to explore the archive metadata in the CROBORA platform" ></img> </a>
+                        <a href="${docLink}" target="_blank" style="pointer-events: ${d.ID_document ? 'auto' : 'none'};">
+                            <img class="main-image" src=${this.getLink(d.image_title)} width="100%" title="Click to explore the archive metadata in the CROBORA platform" ></img> </a>
                         <br>
                       </div>
                       <div style="width: 50%;">
                       <b style="margin-left: 10px;">Keywords:</b>
                         <ul>
-                        ${d.celebrity.map(e => `<li title="Celebrity"> <img src="/arviz/images/${this.dashboard.app}/celebrity-icon.svg" width="15px"></img> ${e} </li>`).join('')}
-                        ${d.illustration.map(e => `<li title="Illustration"> <img src="/arviz/images/${this.dashboard.app}/illustration-icon.svg" width="15px"></img> ${e} </li>`).join('')}
-                        ${d.event.map(e => `<li title="Event"> <img src="/arviz/images/${this.dashboard.app}/event-icon.svg" width="15px"></img> ${e} </li>`).join('')}
-                        ${d.location.map(e => `<li title="Location"> <img src="/arviz/images/${this.dashboard.app}/location-icon.svg" width="15px"></img> ${e} </li>`).join('')}
+                        ${d.celebrity ? d.celebrity.map(e => `<li title="Celebrity"> <img src="/arviz/images/${this.dashboard.app}/celebrity-icon.svg" width="15px"></img> ${e} </li>`).join('') : ''}
+                        ${d.illustration ? d.illustration.map(e => `<li title="Illustration"> <img src="/arviz/images/${this.dashboard.app}/illustration-icon.svg" width="15px"></img> ${e} </li>`).join('') : ''}
+                        ${d.event ? d.event.map(e => `<li title="Event"> <img src="/arviz/images/${this.dashboard.app}/event-icon.svg" width="15px"></img> ${e} </li>`).join('') : ''}
+                        ${d.location ? d.location.map(e => `<li title="Location"> <img src="/arviz/images/${this.dashboard.app}/location-icon.svg" width="15px"></img> ${e} </li>`).join('') : ''}
                         </ul>
                       </div>
                     </div>
                     
-                    <p style="display: ${d.documentId ? 'block' : 'none'};">Explore the archive metadata <a href="${docLink}"  target="_blank">here</a></p>
+                    <p style="display: ${d.ID_document ? 'block' : 'none'};">Explore the archive metadata <a href="${docLink}"  target="_blank">here</a></p>
                     
                     </div>`
             })

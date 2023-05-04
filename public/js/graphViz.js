@@ -73,7 +73,7 @@ class GraphView extends Chart{
 
     empty(){
 
-        let text = `We could not find any rule containing the keyword "${this.value}". Please change the filter options or try again with another keyword.`;
+        let text = `We could not find any rule containing the keyword "${this.dashboard.getLabel(this.value)}". Please change the filter options or try again with another keyword.`;
 
         this.group.select('text#welcome-text')
             .style('display', 'block')
@@ -119,10 +119,9 @@ class GraphView extends Chart{
         this.dashboard.scatterplot.hide()
 
         this.display()
-        this.clearSearch()
+        
 
-        //TODO: check if filters changed
-        if (this.value != value || filter) { // if the action is to create a new graph
+        if (this.value != value || filter) { // if the action is to create a new graph, i.e. new value or filter choice
 
             this.value = value;
 
@@ -160,11 +159,12 @@ class GraphView extends Chart{
                 this.drawEdges()
         } 
 
+        this.clearSearch()
         this.dashboard.hideLoading()
     }
 
     clearSearch() {
-        this.dashboard.shadowRoot.querySelector('#source-input').value = this.value || '';
+        this.dashboard.shadowRoot.querySelector('#source-input').value = this.dashboard.getLabel(this.value);
     }
 
     getNodeById(nodeId){

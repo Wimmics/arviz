@@ -1,8 +1,6 @@
 {
     "documents": "PREFIX wdt: <http://www.wikidata.org/prop/direct/>  SELECT distinct ?article ?abs ?authors ?date ?title ?url FROM <http://ns.inria.fr/covid19/graph/entityfishing>   FROM <http://ns.inria.fr/covid19/graph/wikidata-named-entities-full>  FROM <http://ns.inria.fr/covid19/graph/articles> WHERE { $pattern ?article dct:abstract [rdf:value ?abs]; dct:issued ?date;  dce:creator ?authors;  dct:title ?title;  bibo:doi ?doi;  schema:url ?url. } LIMIT 10000",
     "pattern": "$ann schema:about ?article; oa:hasBody <$body>.",
-    "uris": {
-        "wikidata" : "prefix schema: <http://schema.org/>  prefix oa: <http://www.w3.org/ns/oa#> prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  select distinct ?uri ?label FROM <http://ns.inria.fr/covid19/graph/entityfishing>   FROM <http://ns.inria.fr/covid19/graph/wikidata-named-entities-full>  FROM <http://ns.inria.fr/covid19/graph/articles>    where { ?a schema:about ?article; oa:hasBody ?uri. ?uri rdfs:label ?label . filter langMatches(lang(?label), 'en') } limit 10000 offset $offset" 
-    },
+    "labels": "prefix schema: <http://schema.org/>  prefix oa: <http://www.w3.org/ns/oa#> prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  select distinct ?uri ?label FROM <http://ns.inria.fr/covid19/graph/entityfishing>   FROM <http://ns.inria.fr/covid19/graph/wikidata-named-entities-full>  FROM <http://ns.inria.fr/covid19/graph/articles>    where { ?a schema:about ?article; oa:hasBody ?uri. ?uri rdfs:label ?label . filter langMatches(lang(?label), 'en') } limit 10000 offset $offset" ,
     "endpoint": "https://covidontheweb.inria.fr/sparql"
 }

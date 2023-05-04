@@ -45,6 +45,7 @@ async function loadData(req) {
     let dirname = path.join(__dirname, datadir + params.app + '/rules/')
     if (fs.existsSync(dirname)){
         let filenames = fs.readdirSync(dirname)
+        filenames = filenames.filter(d => d.includes('.json'))
         filenames.forEach(filename => {
             let rawdata = fs.readFileSync(path.join(dirname + filename))
 
@@ -123,48 +124,31 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
     let filePath = path.join(__dirname, datadir + req.params.app + '/labels.json')
 
     let labels = []
-    switch(req.params.app) {
-        case 'covid':
-            labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
-            labels = labels.filter((d,i) => labels.indexOf(d) === i)
-            labels = labels.map(d => ({value: d}))
-            break;
-        case 'issa':
-        
-            if (fs.existsSync(filePath)) {
-                labels = fs.readFileSync(filePath)
-                labels = JSON.parse(labels)
-            } else {
+    if (fs.existsSync(filePath)) {
+        labels = fs.readFileSync(filePath)
+        labels = JSON.parse(labels)
+    } else {
 
-                let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
-                queries = JSON.parse(queries)
-                
-                let endpoint = queries.endpoint
+        let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
+        queries = JSON.parse(queries)
+
+        switch(req.params.app) {
+            case 'covid':
+                let query = queries.labels
+                query = query.replace(/\$lang/g, "en") // TODO: replace lang according to view settings
+                labels = await runQuery(query, queries.endpoint)
+
+                fs.writeFileSync(filePath, JSON.stringify(labels), null, 4)
+                break;
+            case 'issa':
                 let graphs = Object.keys(queries.labels)
 
                 let values = []
                 for (let i = 0; i < graphs.length; i++) {
-                    let offset = 0
                     let query = queries.labels[graphs[i]]
                     query = query.replace(/\$lang/g, "en") // TODO: replace lang according to view settings
 
-                    let result, 
-                        bindings
-                  
-                    try {
-
-                        do {
-                            result = await sparql.sendRequest(query.replace('$offset', offset), endpoint)
-                            result = JSON.parse(result)
-                            bindings = result.results.bindings
-
-                            values = values.concat(bindings)
-                            offset += 10000;
-                        } while ( bindings.length ) 
-
-                    } catch(e) {
-                        console.log(e)
-                    }
+                    values = await runQuery(query, queries.endpoint)
                 }
 
                 let uniqueURI = values.map(d => d.uri.value)
@@ -185,86 +169,48 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
                 }
 
                 fs.writeFileSync(filePath, JSON.stringify(labels), null, 4)
-            }
-            break;
-        case 'crobora':
-            labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
-            labels = labels.filter((d,i) => labels.indexOf(d) === i)
-            labels = labels.map(d => {
-                let values = d.split('--')
-                return {
-                    type: values[0],
-                    value: values[1]
-                }
-            })
-            break;
+                
+                break;
+            case 'crobora':
+                labels = data.rules.map(d => d.antecedents.concat(d.consequents)).flat()
+                labels = labels.filter((d,i) => labels.indexOf(d) === i)
+                labels = labels.map(d => {
+                    let values = d.split('--')
+                    return {
+                        type: values[0],
+                        value: values[1]
+                    }
+                })
+                break;
+        }
+    }
+
+    async function runQuery(query, endpoint) {
+        let offset = 0,
+            result, 
+            bindings,
+            values = []
+        
+        try {
+
+            do {
+                result = await sparql.sendRequest(query.replace('$offset', offset), endpoint)
+                result = JSON.parse(result)
+                bindings = result.results.bindings
+
+                values = values.concat(bindings)
+                offset += 10000;
+            } while ( bindings.length ) 
+
+        } catch(e) {
+            console.log(e)
+        }
+
+        return values
     }
     
 
     res.send(JSON.stringify(labels))
-})
-
-app.get('/arviz/api/:app/uris', async function(req, res) {
-
-    let filePath = path.join(__dirname, datadir + req.params.app + '/labels_uri.json')
-    
-    if (fs.existsSync(filePath)) {
-        res.sendFile(filePath)
-    } else {
-
-        let queries = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/queries.json'))
-        queries = JSON.parse(queries)
-
-        let uris = []
-        
-        let endpoint = queries.endpoint
-        let graphs = Object.keys(queries.uris)
-
-        for (let i = 0; i < graphs.length; i++) {
-            let offset = 0
-            let query = queries.uris[graphs[i]]
-
-            let result = await sparql.sendRequest(query.replace('$offset', offset), endpoint)
-            try {
-                result = JSON.parse(result)
-                let bindings = result.results.bindings
-
-                while ( bindings.length ) {
-                    uris = uris.concat(bindings)
-
-                    offset += 10000;
-                    result = await sparql.sendRequest(query.replace('$offset', offset), endpoint)
-                    result = JSON.parse(result)
-                    bindings = result.results.bindings
-                }
-
-            } catch(e) {
-                console.log(e)
-            }
-        }
-
-        let data = await loadData(req)
-        let validLabels = data.rules.map(d => d.source.concat(d.target)).flat()
-        let result = uris.filter(d => validLabels.includes(d.label.value)) // keep only labels mentioned in the rules
-
-        fs.writeFileSync(path.join(__dirname, datadir + req.params.app + '/labels_uri.json'), JSON.stringify(result), null, 4)
-
-        res.send(JSON.stringify(uris))
-    }
-    
-
-})
-
-// TODO: replace this route as we can request the info directly from /crobora-api
-app.get('/arviz/api/:app/images', async function(req, res) {
-    let values = req.query.values.split(',') // array of labels
-
-    let data = fs.readFileSync(path.join(__dirname, datadir + req.params.app + '/context.json'))
-    data = JSON.parse(data)
-
-    data = data.filter(d => values.every(e => d.keywords.includes(e)))
-
-    res.send(JSON.stringify(data))
 })
 
 app.get('/arviz/api/:app/publications', async function(req, res) {
@@ -280,7 +226,7 @@ app.get('/arviz/api/:app/publications', async function(req, res) {
     let patternTuned = ''
     for (let i = 0; i < values.length; i++) {
         let annvar = `?a${i}`
-        patternTuned += pattern.replace('$ann', annvar).replace('$ann', annvar).replace('$body', values[i])
+        patternTuned += pattern.replace('$ann', annvar).replace('$body', values[i])
     }
 
     query = query.replace('$pattern', patternTuned)

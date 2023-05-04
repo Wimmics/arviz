@@ -261,8 +261,7 @@ class ScatterPlot extends Chart{
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify( {
                 filtering: this.dashboard.filter.getFilteringCriteria(),
-                uncheck_methods: this.dashboard.filter.getMethods(),
-                langs: this.dashboard.filter.getLanguages()
+                uncheck_methods: this.dashboard.filter.getMethods()
             } )
         })
         return response.json()

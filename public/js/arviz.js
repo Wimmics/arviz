@@ -105,14 +105,15 @@ class ARViz extends HTMLElement {
     async fetchLabels() {
         let response = await fetch('/arviz/api/' + this.app + '/labels')
         this.labels = await response.json()
-        console.log("labels = ", this.labels)
     }
 
     getLabel(value) {
+        if (!value) return ''
         switch(this.app) {
             case 'issa':
                 value = `http://aims.fao.org/aos/agrovoc/c_${value}`
-                return this.labels.find(d => d.uri === value).prefLabel
+                let d = this.labels.find(d => d.uri === value)
+                return d ? d.prefLabel : ''
             case 'crobora':
                 value = value.split('--')
                 return `${value[1]} (${value[0]})`
@@ -143,7 +144,6 @@ class ARViz extends HTMLElement {
         d3.event.preventDefault();
 
         let input = this.shadowRoot.querySelector('#' + element.id.replace('button', 'input')).value
-        console.log("input = ", input)
         
         let value;
         switch(this.app) {
@@ -152,14 +152,17 @@ class ARViz extends HTMLElement {
                 value = value.replace("http://aims.fao.org/aos/agrovoc/c_", "")
                 break;
             case 'crobora':
-                let label = this.labels.find(d => d.value === input)
+                let split = input.split('(')
+                let val = split[0].trim()
+                let type = split[1].replace(')', '').trim()
+                
+                let label = this.labels.find(d => d.value === val && d.type === type)
                 value = `${label.type}--${label.value}`
                 break;
             default:
                 value = input;
         }
-        console.log('value = ', value)
-
+    
         this.graph.set(value)
     }       
 
@@ -178,7 +181,7 @@ class ARViz extends HTMLElement {
                         return d.value.toLowerCase().includes(value)
                 })
 
-            tempLabels = tempLabels.map(d => d.altLabels || d.label || d.value).flat()
+            tempLabels = tempLabels.map(d => this.app === "crobora" ? `${d.value} (${d.type})` : (d.altLabels || d.label.value)).flat()
 
             d3.select(this.shadowRoot.querySelector('#labels_list'))
                 .selectAll('option')

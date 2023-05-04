@@ -55,7 +55,7 @@ class Chart{
 
     // tooltip functions
     getRuleTooltip(d){
-        return d.source.join(', ') + ' &#8594; ' + d.target.join(', ') + "<br><br>" +
+        return d.source.map(e => this.dashboard.getLabel(e)).join(', ') + ' &#8594; ' + d.target.map(e => this.dashboard.getLabel(e)).join(', ') + "<br><br>" +
             'Interestingness: ' + d.interestingness.toFixed(2) + '<br>' +
             'Confidence: ' + d.confidence.toFixed(2) + '<br><br>' +
             'Click for more';
@@ -70,7 +70,7 @@ class Chart{
     }
 
     getRuleId(d) {
-        return ((this.cleanText(d.source.join('_')) + '_' + this.cleanText(d.target.join('_'))) + (d.cluster ? '_' + d.cluster : '')).replace(/\s+/g, '_');
+        return ('rule_' + (this.cleanText(d.source.join('_')) + '_' + this.cleanText(d.target.join('_'))) + (d.cluster ? '_' + d.cluster : '')).replace(/\s+/g, '_');
     }
 
     clearPanels() {
