@@ -50,8 +50,8 @@
     <script>
         let locals = <%- JSON.stringify(locals) %>;
 
-        if (locals.params.keyword && locals.params.keyword.length) 
-            document.querySelector("#arviz").setAttribute("keyword", locals.params.keyword)
+        if (locals.params.value && locals.params.type) 
+            document.querySelector("#arviz").setAttribute("keyword", `${locals.params.type}--${locals.params.value}`)
     </script>
 </body>
 

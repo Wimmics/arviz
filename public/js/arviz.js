@@ -56,7 +56,7 @@ class ARViz extends HTMLElement {
         this.setInteraction()
 
         this.keyword = this.getAttribute("keyword")
-        
+        console.log(this.keyword)
         this.setActiveChart('graph', this.keyword)
     }
 
