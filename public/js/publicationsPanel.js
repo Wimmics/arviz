@@ -51,7 +51,7 @@ class PublicationsPanel extends DetailsPanel{
             data.forEach(d => {
                 content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + '<b>Authors:</b> ' + d.authors.split('@@').join(' and ') + '</br>' +
                     '<b>DOI:</b> <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br>' + 
-                    (this.dashboard.app === 'issa' ? '<a href="http://issa.i3s.unice.fr/visu/?uri=' + d.article + '" target="_blank">Augmented visualization (ISSA)</a><br>' : '') +
+                    (this.dashboard.app === 'issa' ? '<a href="http://issa.i3s.unice.fr/notice/?uri=' + d.article + '" target="_blank">Augmented visualization (ISSA)</a><br>' : '') +
                     '</br>'
             })
         }else {
