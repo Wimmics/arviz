@@ -6,13 +6,15 @@
  * Yun Tian - Olivier Corby - Marco Winckler - 2019-2020
  * Minh nhat Do - Aline Menin - Maroua Tikat - 2020-2022
 **/
-const port = 8030
+
 
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const sparql = require('./sparql_helper');
 const path = require('path');
+const https = require("https")
+
 
 const datadir = 'data/';
 
@@ -249,7 +251,20 @@ app.get('/arviz/api/:app/publications', async function(req, res) {
 
 ///// end arviz routes ///////////////////////////
 
+const port = 8030
+const portHTTPS = 8033
 
-app.listen(port, () => { 
-    console.log(`Server started at port ${port}.`)
-});
+app.listen(port, () => { console.log(`Server started at port ${port}.`) })
+
+try {
+    var privateKey = fs.readFileSync( '/etc/httpd/certificate/exp_20240906/dataviz_i3s_unice_fr.key' );
+    var certificate = fs.readFileSync( '/etc/httpd/certificate/exp_20240906/dataviz_i3s_unice_fr_cert.crt' );
+    var ca = fs.readFileSync( '/etc/httpd/certificate/exp_20240906/dataviz_i3s_unice_fr_AC.cer' );
+    var options = {key: privateKey, cert: certificate, ca: ca};
+    https.createServer( options, function(req,res)
+    {
+        app.handle( req, res );
+    } ).listen( portHTTPS , () => { console.log(`HTTPS server started at port ${portHTTPS}`) } )
+} catch(e) {
+    console.log("Could not start HTTPS server")
+}
