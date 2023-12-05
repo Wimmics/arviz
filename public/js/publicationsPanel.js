@@ -49,7 +49,7 @@ class PublicationsPanel extends DetailsPanel{
         if (data.length > 0) {
             content = '<br><b>Associated Publications (' + data.length + ')</b><br><br>'
             data.forEach(d => {
-                content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + '<b>Authors:</b> ' + d.authors.split('--').join(' and ') + '</br>' +
+                content += '<b>' + d.title + '</b> (' + d.year + ') </br>' + '<b>Authors:</b> ' + d.authors.split('@@').join(' and ') + '</br>' +
                     '<b>DOI:</b> <a href="https://doi.org/' + d.url +'" target="_blank">' + d.url + '</a></br>' + 
                     (this.dashboard.app === 'issa' ? '<a href="http://issa.i3s.unice.fr/visu/?uri=' + d.article + '" target="_blank">Augmented visualization (ISSA)</a><br>' : '') +
                     '</br>'

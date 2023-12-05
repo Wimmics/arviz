@@ -2,7 +2,7 @@ class ImagesPanel extends DetailsPanel {
     constructor() {
         super()
 
-        this.path = "http://dataviz.i3s.unice.fr/crobora/assets/images/images_archives/"
+        this.path = "https://crobora.huma-num.fr/crobora-secret-team/assets/images/images_archives/"
 
         this.width = 500;
         this.height = 500;
@@ -35,7 +35,7 @@ class ImagesPanel extends DetailsPanel {
       })
 
       let params = `${cats.join('&') + '&' + keys.join('&')}&options=illustration&options=location&options=celebrity&options=event`
-      let url = `http://dataviz.i3s.unice.fr/crobora-api/search/imagesOR?${params}`
+      let url = `https://crobora.huma-num.fr/crobora-api/search/imagesOR?${params}`
       console.log(url)
   
       let response = await fetch(url)
@@ -60,7 +60,7 @@ class ImagesPanel extends DetailsPanel {
             result.sort( (a,b) => a.document_title.localeCompare(b.document_title))
 
             result.forEach((d) => {
-                let docLink = d.ID_document ? `http://dataviz.i3s.unice.fr/crobora/document/${d.ID_document}` : '#'
+                let docLink = d.ID_document ? `https://crobora.huma-num.fr/crobora-secret-team/document/${d.ID_document}` : '#'
                 
                 content += `<div class="image-content" >
                     <hr>
