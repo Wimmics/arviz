@@ -187,8 +187,10 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
                 labels = labels.map(d => {
                     let values = d.split('--')
                     return {
+                        key: d,
                         type: values[0],
-                        value: values[1]
+                        value: values[1],
+                        count: data.rules.filter(e => e.source.includes(d) || e.target.includes(d)).length
                     }
                 })
                 break;

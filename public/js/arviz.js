@@ -169,17 +169,12 @@ class ARViz extends HTMLElement {
                 value = value.replace("http://aims.fao.org/aos/agrovoc/c_", "")
                 break;
             case 'crobora':
-                let split = input.split('(')
-                let val = split[0].trim()
-                let type = split[1].replace(')', '').trim()
-                
-                let label = this.labels.find(d => d.value === val && d.type === type)
-                value = `${label.type}--${label.value}`
+                value = value.key
                 break;
             default:
                 value = input;
         }
-    
+        
         this.graph.set(value)
     }       
 
@@ -197,8 +192,9 @@ class ARViz extends HTMLElement {
                         return d.value.toLowerCase().includes(value)
                 })
 
-            let values = []
+            let values = tempLabels
             if (this.app === "issa") {
+                values = []
                 for (let entry of tempLabels) {
                     entry.altLabels.forEach(d => {
                         values.push({
@@ -209,6 +205,7 @@ class ARViz extends HTMLElement {
                     })
                 }
             }
+
 
             //tempLabels = tempLabels.map(d => this.app === "crobora" ? `${d.value} (${d.type})` : (d.altLabels || d.label.value)).flat()
 
@@ -224,7 +221,7 @@ class ARViz extends HTMLElement {
                 .attr('value', d => {
                     switch(this.app) {
                         case 'crobora': 
-                            return `${d.value} (${d.type})`
+                            return `${d.value} (${d.type}) (${d.count} rules)`
                         case 'issa':
                             return `${d.value} (${d.count} rules)`
                         case 'covid':
