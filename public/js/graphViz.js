@@ -120,7 +120,6 @@ class GraphView extends Chart{
 
         this.display()
         
-
         if (this.value != value || filter) { // if the action is to create a new graph, i.e. new value or filter choice
 
             this.value = value;

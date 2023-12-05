@@ -36,6 +36,7 @@ class ARViz extends HTMLElement {
         this.filter.init()
             
         await this.fetchLabels() 
+        console.log('labels = ', this.labels)
         d3.selectAll('.labels-loading').style('display', 'none')
         d3.select('#vis-loading').style('display', 'none')
 
@@ -56,7 +57,7 @@ class ARViz extends HTMLElement {
         this.setInteraction()
 
         this.keyword = this.getAttribute("keyword")
-        console.log(this.keyword)
+      
         this.setActiveChart('graph', this.keyword)
     }
 
@@ -89,9 +90,15 @@ class ARViz extends HTMLElement {
             .on('change', function(event) { _this.chord.updateRotationValue(event) })
 
         let forms = d3.selectAll(this.shadowRoot.querySelectorAll("div.autocomplete"))
-            
+        let eventSource;
         forms.selectAll("input[type=text]")
-            .on('input', function(event) { _this.updateDatalist(this) })
+            .on('keydown', () => eventSource = d3.event.key ? 'key' : 'list')
+            .on('input', function(event) { 
+                if (eventSource === 'key') {
+                    if (this.value.length > 2) 
+                        _this.updateDatalist(this.value.toLowerCase())
+                }  
+            })
 
         forms.selectAll("button")
             .on('click', function() { _this.handleInput(this); })
@@ -140,15 +147,25 @@ class ARViz extends HTMLElement {
     }
 
     // handle the submit action from the graph view's forms
-    handleInput(element){
+    handleInput(){
         d3.event.preventDefault();
 
-        let input = this.shadowRoot.querySelector('#' + element.id.replace('button', 'input')).value
-        
         let value;
+        let input = this.shadowRoot.querySelector('#source-input').value
+       
+        let datalist = d3.select(this.shadowRoot.querySelector('#labels_list'))
+        
+        let option = datalist.selectAll('option').filter(function() { return this.value === input })
+        if (option.size()) value = option.datum()
+
+        if (!value) { 
+            alert("You must select a value from the list!")
+            return;
+        }
+        
         switch(this.app) {
             case 'issa':
-                value = this.labels.find(d => d.altLabels.includes(input)).uri
+                value = this.labels.find(d => d.uri === value.uri).uri
                 value = value.replace("http://aims.fao.org/aos/agrovoc/c_", "")
                 break;
             case 'crobora':
@@ -166,9 +183,8 @@ class ARViz extends HTMLElement {
         this.graph.set(value)
     }       
 
-    updateDatalist(element) {
+    updateDatalist(value) {
         
-        let value = element.value.toLowerCase()
         if (value.length > 1) {
             let tempLabels = [];
             if (this.labels.length)
@@ -181,17 +197,40 @@ class ARViz extends HTMLElement {
                         return d.value.toLowerCase().includes(value)
                 })
 
-            tempLabels = tempLabels.map(d => this.app === "crobora" ? `${d.value} (${d.type})` : (d.altLabels || d.label.value)).flat()
+            let values = []
+            if (this.app === "issa") {
+                for (let entry of tempLabels) {
+                    entry.altLabels.forEach(d => {
+                        values.push({
+                            uri: entry.uri,
+                            count: entry.count,
+                            value: d
+                        })
+                    })
+                }
+            }
 
+            //tempLabels = tempLabels.map(d => this.app === "crobora" ? `${d.value} (${d.type})` : (d.altLabels || d.label.value)).flat()
+
+            //TO-DO: verify how the labels mofidications affected /covid and /crobora
             d3.select(this.shadowRoot.querySelector('#labels_list'))
                 .selectAll('option')
-                .data(tempLabels)
+                .data(values)
                 .join(
                     enter => enter.append('option'),
                     update => update,
                     exit => exit.remove()
                 )
-                .attr('value', d => d)
+                .attr('value', d => {
+                    switch(this.app) {
+                        case 'crobora': 
+                            return `${d.value} (${d.type})`
+                        case 'issa':
+                            return `${d.value} (${d.count} rules)`
+                        case 'covid':
+                            return d.label.value
+                    }
+                })
         }
     }
     

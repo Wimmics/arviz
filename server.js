@@ -167,10 +167,14 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
 
                     uri_data.forEach(d => { if (d.altLabel) altLabels.push(d.altLabel.value) })
 
+                    let value = uri.replace("http://aims.fao.org/aos/agrovoc/c_", "")
+                    let rules = data.rules.filter(e => e.source.includes(value) || e.target.includes(value))
+                    
                     labels.push({
                         uri: uri,
                         prefLabel: prefLabel,
                         altLabels: altLabels,
+                        count: rules.length
                     })
                 }
 
