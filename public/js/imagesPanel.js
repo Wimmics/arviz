@@ -2,7 +2,7 @@ class ImagesPanel extends DetailsPanel {
     constructor() {
         super()
 
-        this.path = "https://crobora.huma-num.fr/crobora-secret-team/assets/images/images_archives/"
+        this.path = "https://crobora.huma-num.fr/crobora-api/login/images/" 
 
         this.width = 500;
         this.height = 500;
@@ -25,29 +25,24 @@ class ImagesPanel extends DetailsPanel {
     }
 
     async fetchData() { 
-      console.log(this.labels)
 
-      let cats = []
-      let keys = []
-      this.labels.forEach(d => {
-        cats.push('categories=' + encodeURIComponent(d.type))
-        keys.push('keywords=' + encodeURIComponent(d.value))
+      let params = {
+        keywords: this.labels.map(d => d.value),
+        categories: this.labels.map(d => d.type),
+        options: ["illustration", "location", "celebrity", "event"]
+      }
+
+      let response = await fetch(`/arviz/api/${this.dashboard.app}/images`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(params) 
       })
 
-      let params = `${cats.join('&') + '&' + keys.join('&')}&options=illustration&options=location&options=celebrity&options=event`
-      let url = `https://crobora.huma-num.fr/crobora-api/search/imagesOR?${params}`
-      console.log(url)
-  
-      let response = await fetch(url)
       let data = await response.json()
 
-      
       data = data.map(d => d.records).flat()
 
-      console.log(data)
-      if (response.ok) 
-          this.setContent(await this.getContent(data))
-      else alert('Something went wrong. Please try again later!')
+      this.setContent(await this.getContent(data))
     }
 
     async getContent(result){
@@ -60,7 +55,7 @@ class ImagesPanel extends DetailsPanel {
             result.sort( (a,b) => a.document_title.localeCompare(b.document_title))
 
             result.forEach((d) => {
-                let docLink = d.ID_document ? `https://crobora.huma-num.fr/crobora-secret-team/document/${d.ID_document}` : '#'
+                let docLink = d.ID_document ? `https://crobora.huma-num.fr/crobora/document/${d.ID_document}` : '#'
                 
                 content += `<div class="image-content" >
                     <hr>
@@ -72,7 +67,7 @@ class ImagesPanel extends DetailsPanel {
                     <div class="image-keywords">
                       <div style="width: 50%;">
                         <a href="${docLink}" target="_blank" style="pointer-events: ${d.ID_document ? 'auto' : 'none'};">
-                            <img class="main-image" src=${this.getLink(d.image_title)} width="100%" title="Click to explore the archive metadata in the CROBORA platform" ></img> </a>
+                            <img class="main-image" src=${this.getImage(d.image_title)} width="100%" title="Click to explore the archive metadata in the CROBORA platform" ></img> </a>
                         <br>
                       </div>
                       <div style="width: 50%;">
@@ -91,28 +86,33 @@ class ImagesPanel extends DetailsPanel {
                     </div>`
             })
         }else {
-            content += '<center style="height: fit-content; text-align: center;">We could not load the associated images. <br>Please try again later!'
+            let forReason = () => result.code ? `Reason: ${result.message} (${result.code})<br>` : ''
+            content += `<center style="height: fit-content; text-align: center;">We could not retrieve the associated images. <br>
+            ${forReason()}
+            Please try again later!`
         }
         
         return content;
     }
 
-    getLink(image_title) {
+    getImage(image_title) {
       image_title = encodeURIComponent(image_title)
+      return this.path + image_title + "?token=" + this.dashboard.token 
+
       if (image_title.includes("TF1")){
-        return this.path + 'Atlas_TF1/' + image_title +".png";
+        return this.path + 'Atlas_TF1/' + image_title + "?token=null" 
       } else if (image_title.includes("FR2")){
-        return this.path + 'Atlas_France2/' + image_title +".png";
+        return this.path + 'Atlas_France2/' + image_title + "?token=null" 
       } else if (image_title.includes("FR3")){
-        return this.path + 'Atlas_France3/' + image_title +".png";
+        return this.path + 'Atlas_France3/' + image_title + "?token=null" 
       } else if (image_title.includes("ARTE")){
-        return this.path + 'Atlas_Arte/' + image_title +".png";
+        return this.path + 'Atlas_Arte/' + image_title + "?token=null" 
       } else if (image_title.includes("TG1")){
-        return this.path + 'Atlas_RaiUno/' + image_title +".png";
+        return this.path + 'Atlas_RaiUno/' + image_title + "?token=null" 
       } else if (image_title.includes("TG2")){
-        return this.path + 'Atlas_RaiDue/'+ image_title +".png";
+        return this.path + 'Atlas_RaiDue/'+ image_title + "?token=null" 
       } else {
-        return this.path + 'Atlas_WebFR/'+ image_title +".PNG";
+        return this.path + 'Atlas_WebFR/'+ image_title + "?token=null"  
       }
     }
   

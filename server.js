@@ -225,6 +225,26 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
     res.send(JSON.stringify(labels))
 })
 
+app.post('/arviz/api/:app/images', async function(req, res) {
+    let params = req.body;
+   
+    let response, result;
+    try {
+        response = await fetch("https://crobora.huma-num.fr/crobora-api/search/imagesOR", {
+            method: "POST", 
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(params) })
+
+        result = await response.json()
+    } catch(e) {
+        console.log(response)
+    }
+
+    if (!result) result = {code: response.status, message: response.statusText}
+    
+    res.send(JSON.stringify(result))
+})
+
 app.get('/arviz/api/:app/publications', async function(req, res) {
     let values = req.query.values.split(',') // array of uris
 

@@ -36,7 +36,7 @@ class ARViz extends HTMLElement {
         this.filter.init()
             
         await this.fetchLabels() 
-        console.log('labels = ', this.labels)
+
         d3.selectAll('.labels-loading').style('display', 'none')
         d3.select('#vis-loading').style('display', 'none')
 
@@ -57,6 +57,8 @@ class ARViz extends HTMLElement {
         this.setInteraction()
 
         this.keyword = this.getAttribute("keyword")
+        this.token = this.getAttribute("token")
+        console.log(this.keyword, this.token)
       
         this.setActiveChart('graph', this.keyword)
     }

@@ -43,8 +43,6 @@
 </head>
 
 <body>
-
-    
     <vis-arviz id="arviz" app=<%= locals.app %> >  </vis-arviz>  
     
     <script>
@@ -52,6 +50,7 @@
 
         if (locals.params.value && locals.params.type) 
             document.querySelector("#arviz").setAttribute("keyword", `${locals.params.type}--${locals.params.value}`)
+            document.querySelector("#arviz").setAttribute('token', locals.params.token)
     </script>
 </body>
 
