@@ -40,15 +40,15 @@ class ImagesPanel extends DetailsPanel {
 
       let data = await response.json()
 
-      data = data.map(d => d.records).flat()
-
       this.setContent(await this.getContent(data))
     }
 
     async getContent(result){
       
         let content = '';
+       
         if (result.length > 0) {
+            result = result.map(d => d.records).flat()
   
             content = '<b>' + result.length + ' associated images </b><br><br>'
 
@@ -85,8 +85,8 @@ class ImagesPanel extends DetailsPanel {
                     
                     </div>`
             })
-        }else {
-            let forReason = () => result.code ? `Reason: ${result.message} (${result.code})<br>` : ''
+        } else {
+            let forReason = () => result.code ? `Reason: ${result.message} ${result.code ? '(' + result.code + ')' : ''} <br>` : ''
             content += `<center style="height: fit-content; text-align: center;">We could not retrieve the associated images. <br>
             ${forReason()}
             Please try again later!`
@@ -98,22 +98,6 @@ class ImagesPanel extends DetailsPanel {
     getImage(image_title) {
       image_title = encodeURIComponent(image_title)
       return this.path + image_title + "?token=" + this.dashboard.token 
-
-      if (image_title.includes("TF1")){
-        return this.path + 'Atlas_TF1/' + image_title + "?token=null" 
-      } else if (image_title.includes("FR2")){
-        return this.path + 'Atlas_France2/' + image_title + "?token=null" 
-      } else if (image_title.includes("FR3")){
-        return this.path + 'Atlas_France3/' + image_title + "?token=null" 
-      } else if (image_title.includes("ARTE")){
-        return this.path + 'Atlas_Arte/' + image_title + "?token=null" 
-      } else if (image_title.includes("TG1")){
-        return this.path + 'Atlas_RaiUno/' + image_title + "?token=null" 
-      } else if (image_title.includes("TG2")){
-        return this.path + 'Atlas_RaiDue/'+ image_title + "?token=null" 
-      } else {
-        return this.path + 'Atlas_WebFR/'+ image_title + "?token=null"  
-      }
     }
   
 }

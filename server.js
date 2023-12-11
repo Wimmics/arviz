@@ -143,8 +143,6 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
                 let query = queries.labels
                 query = query.replace(/\$lang/g, "en") // TODO: replace lang according to view settings
                 labels = await runQuery(query, queries.endpoint)
-
-                fs.writeFileSync(filePath, JSON.stringify(labels), null, 4)
                 break;
             case 'issa':
                 let graphs = Object.keys(queries.labels)
@@ -177,8 +175,6 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
                         count: rules.length
                     })
                 }
-
-                fs.writeFileSync(filePath, JSON.stringify(labels), null, 4)
                 
                 break;
             case 'crobora':
@@ -195,6 +191,8 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
                 })
                 break;
         }
+
+        fs.writeFileSync(filePath, JSON.stringify(labels), null, 4)
     }
 
     async function runQuery(query, endpoint) {
@@ -240,7 +238,10 @@ app.post('/arviz/api/:app/images', async function(req, res) {
         console.log(response)
     }
 
-    if (!result) result = {code: response.status, message: response.statusText}
+    if (!result && response) 
+        result = { code: response.status, message: response.statusText }
+    else if (!result && !response) 
+        result = { message: "Unknown Error" }
     
     res.send(JSON.stringify(result))
 })
