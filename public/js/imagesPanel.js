@@ -46,6 +46,7 @@ class ImagesPanel extends DetailsPanel {
     async getContent(result){
       
         let content = '';
+
        
         if (result.length > 0) {
             result = result.map(d => d.records).flat()
@@ -86,7 +87,7 @@ class ImagesPanel extends DetailsPanel {
                     </div>`
             })
         } else {
-            let forReason = () => result.code ? `Reason: ${result.message} ${result.code ? '(' + result.code + ')' : ''} <br>` : ''
+            let forReason = () => result.statusText ? `Reason: ${result.statusText} (${result.status}) <br>` : ''
             content += `<center style="height: fit-content; text-align: center;">We could not retrieve the associated images. <br>
             ${forReason()}
             Please try again later!`

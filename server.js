@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 const sparql = require('./sparql_helper');
 const path = require('path');
 const https = require("https")
+const fetch = require('node-fetch')
 
 
 const datadir = 'data/';
@@ -225,25 +226,20 @@ app.get('/arviz/api/:app/labels', async function(req, res) {
 
 app.post('/arviz/api/:app/images', async function(req, res) {
     let params = req.body;
-   
-    let response, result;
-    try {
-        response = await fetch("https://crobora.huma-num.fr/crobora-api/search/imagesOR", {
+
+    let result = await fetch("https://crobora.huma-num.fr/crobora-api/search/imagesOR", {
             method: "POST", 
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(params) })
-
-        result = await response.json()
-    } catch(e) {
-        console.log(response)
-    }
-
-    if (!result && response) 
-        result = { code: response.status, message: response.statusText }
-    else if (!result && !response) 
-        result = { message: "Unknown Error" }
-    
-    res.send(JSON.stringify(result))
+        .then(async function(response){
+            if(response.status >= 200 && response.status < 300){
+            return await response.text().then(data => {
+                return data
+            })}
+            else return response
+        })
+        
+    res.send(result)
 })
 
 app.get('/arviz/api/:app/publications', async function(req, res) {
