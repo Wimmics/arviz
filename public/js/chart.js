@@ -15,7 +15,7 @@ class Chart{
         this.width = this.div.node().clientWidth
         this.height = this.div.node().clientHeight
 
-        this.margin = {left: 100, top: 250, bottom: this.height - 75, right: this.width - 100};
+        this.margin = {left: 100, top: 250, bottom: this.height - 75, right: this.width - 50};
 
         this.panels = {}
 
@@ -122,5 +122,21 @@ class Chart{
         this.panels[id] = panel;         
     }
 
+
+    async fetchData() {
+        let url = '/arviz/' + this.dashboard.app + '/data/' + this.id;
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify( {
+                // type: this.type,
+                value: this.value,
+                filtering: this.dashboard.filter.getFilteringCriteria(),
+                //uncheck_methods: this.dashboard.filter.getMethods(),
+                dataset: this.dashboard.filter.getDataset()
+            } )
+        })
+        return response.json()
+    }
   
 }

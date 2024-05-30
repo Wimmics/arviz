@@ -117,6 +117,7 @@ class ScatterPlot extends Chart{
             this.filter = this.dashboard.filter.getFilteringCriteria()
 
             let result = await this.fetchData()
+            
             this.count = result.count
             this.data = result.data
             this.changed = false
@@ -254,18 +255,20 @@ class ScatterPlot extends Chart{
             })
     }
 
-    async  fetchData() {
-        let url = '/arviz/' + this.dashboard.getAttribute("app") + '/data/' + this.id
-        let response = await fetch(url, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify( {
-                filtering: this.dashboard.filter.getFilteringCriteria(),
-                uncheck_methods: this.dashboard.filter.getMethods()
-            } )
-        })
-        return response.json()
-    }
+    // async  fetchData() {
+    //     let url = '/arviz/' + this.dashboard.getAttribute("app") + '/data/' + this.id
+    //     let response = await fetch(url, {
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify( {
+    //             filtering: this.dashboard.filter.getFilteringCriteria(),
+    //             uncheck_methods: this.dashboard.filter.getMethods(),
+    //             dataset: this.dashboard.filter.getDataset()
+    //         } )
+    //     })
+       
+    //     return response.json()
+    // }
 }
 
 

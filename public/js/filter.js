@@ -29,10 +29,12 @@ class FilterPanel extends ConfigPanel {
         this.filtering = {'symmetry': true,
                     'no_symmetry': true,
                     'conf': {'min': this.extent.conf.min, 'max': this.extent.conf.max, 'step': 0.02, 'avg': confAvg, 'default': .7, max_sel: this.extent.conf.max, min_sel: .7},
-                    'int': {'min': this.extent.int.min, 'max': this.extent.int.max, 'step': 0.05, 'avg': intAvg , 'default': .3, max_sel: this.extent.int.max, min_sel: .3}}
+                    'int': {'min': this.extent.int.min, 'max': this.extent.int.max, 'step': 0.05, 'avg': intAvg , 'default': .3, max_sel: this.extent.int.max, min_sel: .3},
+                    'methods': []
+                }
 
-        this.config.methods.forEach(d => {
-            this.filtering[d.key] = true;
+        this.config.methods.forEach((d,i) => {
+            this.filtering.methods.push({value: d.key, selected: i === 0 });
         })
 
         this.data = [
@@ -56,11 +58,9 @@ class FilterPanel extends ConfigPanel {
             
         ]  
 
+        
         if (this.config.methods.length && this.config.methods.length > 1) {
-            this.data.push({'label': 'Methods of Rules Extraction', 'value': 'methods',
-                'children': this.config.methods.map(d => { 
-                    return {value: d.key, checked: true, label: d.label, type: 'checkbox'}
-                }) })
+            this.methods = this.config.methods.map((d,i) => { return {value: d.key, selected: i === 0, label: d.label} })
         }
 
     }
@@ -154,25 +154,48 @@ class FilterPanel extends ConfigPanel {
                     }
                 })
                 .on('mousedown', function(d) { _this.updateInputRange(this) })
-                .on('mouseup', () => {
-                    let changed = false;
-                    ['conf', 'int'].forEach(e => {
-                        const a = this.div.select('input#'+e+'-a').node(),
-                            b = this.div.select('input#'+e+'-b').node();    
-
-                        changed = changed || this.filtering[e].min_sel != a.valueAsNumber || this.filtering[e].max_sel != b.valueAsNumber;
-                        this.filtering[e].min_sel = a.valueAsNumber
-                        this.filtering[e].max_sel = b.valueAsNumber
-
-                        this.div.select('text#'+e+'-text').text(`${(a.valueAsNumber).toFixed(2)} - ${(b.valueAsNumber).toFixed(2)}`)
-                    })
-
-                    if (changed) {
-                        this.dashboard.updateChart(true)
-                    }
-                })
+                .on('mouseup', () => this.setSelection())
 
         this.div.style('width', '0')
+
+
+        // set datasets list on the nav-bar
+        const datasetList = d3.select(this.dashboard.shadowRoot.querySelector("#dataset-list"))
+
+        datasetList.selectAll('option')
+            .data(this.methods)
+            .enter()
+                .append('option')
+                .attr("value", d => d.value)
+                .property('selected', d => d.selected)
+                .text(d => d.label)
+                
+        datasetList.on('change', function() {
+            let selectedOption = this.options[this.selectedIndex]
+            let value = selectedOption.value
+            _this.filtering.methods.forEach(d => d.selected = d.value === value)
+            _this.dashboard.updateChart(true)
+        })
+                
+        
+    }
+
+    setSelection() {
+        let changed = false;
+        ['conf', 'int'].forEach(e => {
+            const a = this.div.select('input#'+e+'-a').node(),
+                b = this.div.select('input#'+e+'-b').node();    
+
+            changed = changed || this.filtering[e].min_sel != a.valueAsNumber || this.filtering[e].max_sel != b.valueAsNumber;
+            this.filtering[e].min_sel = a.valueAsNumber
+            this.filtering[e].max_sel = b.valueAsNumber
+
+            this.div.select('text#'+e+'-text').text(`${(a.valueAsNumber).toFixed(2)} - ${(b.valueAsNumber).toFixed(2)}`)
+        })
+
+        if (changed) {
+            this.dashboard.updateChart(true)
+        }
     }
 
     updateInputRange(elem){
@@ -224,6 +247,10 @@ class FilterPanel extends ConfigPanel {
     getMethods() {
         let unckeck_methods = this.config.methods.filter(d => !this.filtering[d.key])
         return unckeck_methods.map(d => d.key)
+    }
+
+    getDataset() {
+        return this.filtering.methods.find(d => d.selected).value;
     }
 
     // async filterData(data) {

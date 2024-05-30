@@ -431,7 +431,8 @@ class CircularView extends Chart{
         let values = {
             sort: this.dashboard.sort.sortCriteria.rules,
             filtering: this.dashboard.filter.getFilteringCriteria(),
-            uncheck_methods: this.dashboard.filter.getMethods()
+            // uncheck_methods: this.dashboard.filter.getMethods()
+            dataset: this.dashboard.filter.getDataset()
         }
 
         if (arguments.length) {

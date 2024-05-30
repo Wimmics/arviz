@@ -185,7 +185,7 @@ input{
 /* tab-based view */
 
 .sideNav-bar{
-    top: 50px;
+    top: 100px;
     width: 0px;
     position: fixed;
     transition: 0.5s;
@@ -207,13 +207,37 @@ input{
     background: transparent;
 }
 
+.navBar{
+    background-color: #2C3E50;
+    height: 30px;
+    width: 99vw;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+}
+
+.navBar h3{
+    padding: 5px;
+    text-align: center;
+    width: fit-content;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.navBar select{
+    border: none;
+    padding: 5px;
+    width: 150px;
+}
+
 .visu-space{
     display: table-cell;
-    top: 0;
+    top: 50px;
     width: 100vw;
-    height: 100vh;
-    border-top-style: solid;
-    border-width: 1px;
+    height: calc(100vh - 50px);
     position: absolute;
     overflow: hidden;
 }
@@ -223,9 +247,9 @@ input{
     text-align: center;
     height: 20px;
     border-radius: 0px 0px 20px 20px;
-    background-color: #2C3E50;
+    background-color: "#cccccc";
     float: left;
-    color: #cccccc;
+    color: '#2C3E50';
     transition: 0.5s;
     cursor: pointer;
     vertical-align: bottom;
@@ -247,7 +271,7 @@ input{
 .menu-buttons{
     position: relative;
     display: table-cell;
-    top: 50px;
+    top: 100px;
     z-index: 1000;
 }
 

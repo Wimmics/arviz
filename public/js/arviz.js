@@ -33,7 +33,7 @@ class ARViz extends HTMLElement {
         this.sort.init()
 
         this.filter = new FilterPanel(this.config)
-        this.filter.init()
+        await this.filter.init()
 
         d3.selectAll('.labels-loading').style('display', 'none')
         d3.select('#vis-loading').style('display', 'none')
@@ -59,7 +59,7 @@ class ARViz extends HTMLElement {
        
         await this.fetchLabels() 
       
-        this.setActiveChart('graph', this.keyword)
+        this.setActiveChart('scatterplot', this.keyword)
     }
 
     setInteraction() {
@@ -255,8 +255,8 @@ class ARViz extends HTMLElement {
                 
                 return {
                     'height' : active ? '25px' : '20px',
-                    'background-color': active ? '#cccccc' : '#2C3E50',
-                    'color': active ? '#2C3E50' : '#cccccc',
+                    'background-color': active ? '#2C3E50' : '#cccccc',
+                    'color': active ?  '#cccccc' : '#2C3E50',
                     'line-height': active ? '30px' : '20px'
                 }
             })
@@ -320,6 +320,16 @@ template.innerHTML = `
 <div class='sideNav-bar' id='data-filter'></div>
 <div class='sideNav-bar' id='data-sort'></div>
 <div class='sideNav-bar' id='upload-file'></div>
+
+<div class="navBar">
+    <div>
+        <h3>ARViz</h3>
+    </div>
+    <div>
+        <label>Choose a dataset</label>
+        <select id="dataset-list"></select>
+    </div>
+</div>
 
 <div class='visu-space'>
     <!-- tabs that enable switching between views -->

@@ -665,18 +665,5 @@ class GraphView extends Chart{
         return rules
     }
 
-    async fetchData() {
-        let url = '/arviz/' + this.dashboard.app + '/data/' + this.id;
-        let response = await fetch(url, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify( {
-                // type: this.type,
-                value: this.value,
-                filtering: this.dashboard.filter.getFilteringCriteria(),
-                uncheck_methods: this.dashboard.filter.getMethods()
-            } )
-        })
-        return response.json()
-    }
+    
 }

@@ -1,1 +1,5343 @@
-[{"antecedents-list":["steroid","osteoblast"],"consequents-list":["saon"],"confidence":0.83,"interestingness":0.83,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["steroid","osteoblast"],"target":["saon"]},{"antecedents-list":["adjuvant","leishmania infantum"],"consequents-list":["leishmania braziliensis"],"confidence":1.0,"interestingness":0.83,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["adjuvant","leishmania infantum"],"target":["leishmania braziliensis"]},{"antecedents-list":["saudi arabia","saud of saudi arabia"],"consequents-list":["national guard health affairs"],"confidence":1.0,"interestingness":0.83,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["saudi arabia","saud of saudi arabia"],"target":["national guard health affairs"]},{"antecedents-list":["saudi arabia","national guard health affairs"],"consequents-list":["saud of saudi arabia"],"confidence":1.0,"interestingness":0.83,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["saudi arabia","national guard health affairs"],"target":["saud of saudi arabia"]},{"antecedents-list":["diarrhea","dl-lactic acid"],"consequents-list":["halofuginone"],"confidence":1.0,"interestingness":0.86,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["diarrhea","dl-lactic acid"],"target":["halofuginone"]},{"antecedents-list":["cryptosporidiosis","dl-lactic acid"],"consequents-list":["halofuginone"],"confidence":1.0,"interestingness":0.71,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["cryptosporidiosis","dl-lactic acid"],"target":["halofuginone"]},{"antecedents-list":["hyaena"],"consequents-list":["crocuta crocuta"],"confidence":1.0,"interestingness":0.71,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["hyaena"],"target":["crocuta crocuta"]},{"antecedents-list":["model organism","hispid cotton rat"],"consequents-list":["sigmodon"],"confidence":1.0,"interestingness":0.71,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["model organism","hispid cotton rat"],"target":["sigmodon"]},{"antecedents-list":["crocuta crocuta"],"consequents-list":["hyaena"],"confidence":0.71,"interestingness":0.71,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["crocuta crocuta"],"target":["hyaena"]},{"antecedents-list":["confederation of european paper industries"],"consequents-list":["coalition for epidemic preparedness innovations"],"confidence":0.83,"interestingness":0.69,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["confederation of european paper industries"],"target":["coalition for epidemic preparedness innovations"]},{"antecedents-list":["coalition for epidemic preparedness innovations"],"consequents-list":["confederation of european paper industries"],"confidence":0.83,"interestingness":0.69,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["coalition for epidemic preparedness innovations"],"target":["confederation of european paper industries"]},{"antecedents-list":["model organism","sigmodon"],"consequents-list":["hispid cotton rat"],"confidence":0.83,"interestingness":0.69,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["model organism","sigmodon"],"target":["hispid cotton rat"]},{"antecedents-list":["national guard health affairs"],"consequents-list":["saud of saudi arabia"],"confidence":0.83,"interestingness":0.69,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["national guard health affairs"],"target":["saud of saudi arabia"]},{"antecedents-list":["saponin","leishmania infantum"],"consequents-list":["leishmania braziliensis"],"confidence":0.83,"interestingness":0.69,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["saponin","leishmania infantum"],"target":["leishmania braziliensis"]},{"antecedents-list":["saud of saudi arabia"],"consequents-list":["national guard health affairs"],"confidence":0.83,"interestingness":0.69,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["saud of saudi arabia"],"target":["national guard health affairs"]},{"antecedents-list":["saponin","antigen"],"consequents-list":["leishmania braziliensis"],"confidence":0.75,"interestingness":0.75,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["saponin","antigen"],"target":["leishmania braziliensis"]},{"antecedents-list":["saponin","leishmania"],"consequents-list":["leishmania braziliensis"],"confidence":0.75,"interestingness":0.75,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["saponin","leishmania"],"target":["leishmania braziliensis"]},{"antecedents-list":["adjuvant","leishmania"],"consequents-list":["leishmania braziliensis"],"confidence":0.75,"interestingness":0.75,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["adjuvant","leishmania"],"target":["leishmania braziliensis"]},{"antecedents-list":["jun","sb-203580"],"consequents-list":["pyrazolanthrone"],"confidence":1.0,"interestingness":0.62,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["jun","sb-203580"],"target":["pyrazolanthrone"]},{"antecedents-list":["antigen","leishmania infantum"],"consequents-list":["leishmania braziliensis"],"confidence":0.71,"interestingness":0.6,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["antigen","leishmania infantum"],"target":["leishmania braziliensis"]},{"antecedents-list":["visceral leishmaniasis","antigen"],"consequents-list":["leishmania braziliensis"],"confidence":0.71,"interestingness":0.6,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["visceral leishmaniasis","antigen"],"target":["leishmania braziliensis"]},{"antecedents-list":["exoribonuclease","viral hepatitis"],"consequents-list":["proofreading"],"confidence":0.83,"interestingness":0.6,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["exoribonuclease","viral hepatitis"],"target":["proofreading"]},{"antecedents-list":["sigmodon"],"consequents-list":["hispid cotton rat"],"confidence":0.71,"interestingness":0.6,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["sigmodon"],"target":["hispid cotton rat"]},{"antecedents-list":["hispid cotton rat"],"consequents-list":["sigmodon"],"confidence":0.83,"interestingness":0.6,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["hispid cotton rat"],"target":["sigmodon"]},{"antecedents-list":["exoribonuclease","murinae"],"consequents-list":["proofreading"],"confidence":0.83,"interestingness":0.6,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["exoribonuclease","murinae"],"target":["proofreading"]},{"antecedents-list":["visceral leishmaniasis","adjuvant"],"consequents-list":["leishmania braziliensis"],"confidence":0.71,"interestingness":0.6,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["visceral leishmaniasis","adjuvant"],"target":["leishmania braziliensis"]},{"antecedents-list":["echinacea"],"consequents-list":["echinacea purpurea"],"confidence":0.71,"interestingness":0.6,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["echinacea"],"target":["echinacea purpurea"]},{"antecedents-list":["echinacea purpurea"],"consequents-list":["echinacea"],"confidence":0.83,"interestingness":0.6,"support":0.0002134,"isSymmetric":true,"cluster":"no_clustering","source":["echinacea purpurea"],"target":["echinacea"]},{"antecedents-list":["chemical bond"],"consequents-list":["k l o m r g"],"confidence":1.0,"interestingness":0.89,"support":0.0003414,"isSymmetric":true,"cluster":"no_clustering","source":["chemical bond"],"target":["k l o m r g"]},{"antecedents-list":["adam proteins","metalloproteinase"],"consequents-list":["disintegrin"],"confidence":1.0,"interestingness":0.56,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["adam proteins","metalloproteinase"],"target":["disintegrin"]},{"antecedents-list":["wogonin"],"consequents-list":["baicalin"],"confidence":1.0,"interestingness":0.56,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["wogonin"],"target":["baicalin"]},{"antecedents-list":["k l o m r g"],"consequents-list":["chemical bond"],"confidence":0.89,"interestingness":0.89,"support":0.0003414,"isSymmetric":true,"cluster":"no_clustering","source":["k l o m r g"],"target":["chemical bond"]},{"antecedents-list":["baicalin","baicalein"],"consequents-list":["scutellaria baicalensis"],"confidence":0.83,"interestingness":0.52,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["baicalin","baicalein"],"target":["scutellaria baicalensis"]},{"antecedents-list":["sb-203580","phosphorylation"],"consequents-list":["pyrazolanthrone"],"confidence":0.83,"interestingness":0.52,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["sb-203580","phosphorylation"],"target":["pyrazolanthrone"]},{"antecedents-list":["singapore","epinephelinae"],"consequents-list":["iridoviridae"],"confidence":1.0,"interestingness":0.6,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["singapore","epinephelinae"],"target":["iridoviridae"]},{"antecedents-list":["jak-stat signaling pathway","transcription factor stat"],"consequents-list":["janus kinase"],"confidence":1.0,"interestingness":0.5,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["jak-stat signaling pathway","transcription factor stat"],"target":["janus kinase"]},{"antecedents-list":["singapore","iridoviridae"],"consequents-list":["epinephelinae"],"confidence":1.0,"interestingness":0.6,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["singapore","iridoviridae"],"target":["epinephelinae"]},{"antecedents-list":["biomedical waste","people's republic of china"],"consequents-list":["incineration"],"confidence":0.86,"interestingness":0.57,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["biomedical waste","people's republic of china"],"target":["incineration"]},{"antecedents-list":["teicoplanin"],"consequents-list":["glycopeptide antibiotic"],"confidence":0.86,"interestingness":0.57,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["teicoplanin"],"target":["glycopeptide antibiotic"]},{"antecedents-list":["phosphorylation","pyrazolanthrone"],"consequents-list":["sb-203580"],"confidence":0.83,"interestingness":0.46,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["phosphorylation","pyrazolanthrone"],"target":["sb-203580"]},{"antecedents-list":["jun","pyrazolanthrone"],"consequents-list":["sb-203580"],"confidence":0.83,"interestingness":0.46,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["jun","pyrazolanthrone"],"target":["sb-203580"]},{"antecedents-list":["adam proteins"],"consequents-list":["disintegrin"],"confidence":0.83,"interestingness":0.46,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["adam proteins"],"target":["disintegrin"]},{"antecedents-list":["bacteroidetes"],"consequents-list":["firmicutes"],"confidence":0.83,"interestingness":0.46,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["bacteroidetes"],"target":["firmicutes"]},{"antecedents-list":["scutellaria baicalensis","baicalein"],"consequents-list":["baicalin"],"confidence":0.83,"interestingness":0.46,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["scutellaria baicalensis","baicalein"],"target":["baicalin"]},{"antecedents-list":["scutellaria baicalensis","baicalin"],"consequents-list":["baicalein"],"confidence":0.83,"interestingness":0.46,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["scutellaria baicalensis","baicalin"],"target":["baicalein"]},{"antecedents-list":["cd86","mus"],"consequents-list":["cd80"],"confidence":1.0,"interestingness":0.45,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["cd86","mus"],"target":["cd80"]},{"antecedents-list":["people's republic of china","incineration"],"consequents-list":["biomedical waste"],"confidence":1.0,"interestingness":0.55,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["people's republic of china","incineration"],"target":["biomedical waste"]},{"antecedents-list":["biosolids"],"consequents-list":["sludge"],"confidence":0.71,"interestingness":0.45,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["biosolids"],"target":["sludge"]},{"antecedents-list":["jun","phosphorylation"],"consequents-list":["pyrazolanthrone"],"confidence":0.71,"interestingness":0.45,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["jun","phosphorylation"],"target":["pyrazolanthrone"]},{"antecedents-list":["cysteine protease","glycoprotein"],"consequents-list":["ctsb"],"confidence":0.71,"interestingness":0.45,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["cysteine protease","glycoprotein"],"target":["ctsb"]},{"antecedents-list":["protein kinase","adenosine cyclic phosphate"],"consequents-list":["protein kinase a"],"confidence":0.83,"interestingness":0.42,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["protein kinase","adenosine cyclic phosphate"],"target":["protein kinase a"]},{"antecedents-list":["inositol","eif2ak2"],"consequents-list":["atf6"],"confidence":1.0,"interestingness":0.42,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["inositol","eif2ak2"],"target":["atf6"]},{"antecedents-list":["mus","cd80"],"consequents-list":["cd86"],"confidence":1.0,"interestingness":0.42,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["mus","cd80"],"target":["cd86"]},{"antecedents-list":["tylonycteris"],"consequents-list":["pipistrellus"],"confidence":0.83,"interestingness":0.42,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["tylonycteris"],"target":["pipistrellus"]},{"antecedents-list":["jak-stat signaling pathway","activator"],"consequents-list":["janus kinase"],"confidence":0.83,"interestingness":0.42,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["jak-stat signaling pathway","activator"],"target":["janus kinase"]},{"antecedents-list":["scutellaria baicalensis"],"consequents-list":["baicalin"],"confidence":0.75,"interestingness":0.5,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["scutellaria baicalensis"],"target":["baicalin"]},{"antecedents-list":["scutellaria baicalensis"],"consequents-list":["baicalein"],"confidence":0.75,"interestingness":0.5,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["scutellaria baicalensis"],"target":["baicalein"]},{"antecedents-list":["biomedical waste"],"consequents-list":["incineration"],"confidence":0.73,"interestingness":0.65,"support":0.0003414,"isSymmetric":true,"cluster":"no_clustering","source":["biomedical waste"],"target":["incineration"]},{"antecedents-list":["unfolded protein response","enzyme"],"consequents-list":["inositol"],"confidence":0.89,"interestingness":0.65,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","enzyme"],"target":["inositol"]},{"antecedents-list":["incineration"],"consequents-list":["biomedical waste"],"confidence":0.89,"interestingness":0.65,"support":0.0003414,"isSymmetric":true,"cluster":"no_clustering","source":["incineration"],"target":["biomedical waste"]},{"antecedents-list":["jun","phosphorylation"],"consequents-list":["sb-203580"],"confidence":0.71,"interestingness":0.4,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["jun","phosphorylation"],"target":["sb-203580"]},{"antecedents-list":["enzyme","eif2ak3"],"consequents-list":["inositol"],"confidence":0.86,"interestingness":0.47,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["enzyme","eif2ak3"],"target":["inositol"]},{"antecedents-list":["west africa","npc1"],"consequents-list":["niemann-pick disease"],"confidence":1.0,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["west africa","npc1"],"target":["niemann-pick disease"]},{"antecedents-list":["cathepsins","niemann-pick disease"],"consequents-list":["npc1"],"confidence":1.0,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["cathepsins","niemann-pick disease"],"target":["npc1"]},{"antecedents-list":["cathepsins","npc1"],"consequents-list":["niemann-pick disease"],"confidence":1.0,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["cathepsins","npc1"],"target":["niemann-pick disease"]},{"antecedents-list":["metabolite","cytochromes"],"consequents-list":["cytochrome p450"],"confidence":1.0,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["metabolite","cytochromes"],"target":["cytochrome p450"]},{"antecedents-list":["west africa","niemann-pick disease"],"consequents-list":["npc1"],"confidence":1.0,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["west africa","niemann-pick disease"],"target":["npc1"]},{"antecedents-list":["enzyme","atf6"],"consequents-list":["inositol"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["enzyme","atf6"],"target":["inositol"]},{"antecedents-list":["human respiratory syncytial virus","pasteurella multocida"],"consequents-list":["mycoplasma bovis"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["human respiratory syncytial virus","pasteurella multocida"],"target":["mycoplasma bovis"]},{"antecedents-list":["homeostasis","eif2ak3"],"consequents-list":["inositol"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["homeostasis","eif2ak3"],"target":["inositol"]},{"antecedents-list":["eif2ak2","atf6"],"consequents-list":["inositol"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak2","atf6"],"target":["inositol"]},{"antecedents-list":["galactomannan"],"consequents-list":["aspergillosis"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["galactomannan"],"target":["aspergillosis"]},{"antecedents-list":["protein kinase","atf6"],"consequents-list":["inositol"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["protein kinase","atf6"],"target":["inositol"]},{"antecedents-list":["eif2ak3","ern1"],"consequents-list":["inositol"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak3","ern1"],"target":["inositol"]},{"antecedents-list":["ern1","kinase"],"consequents-list":["inositol"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["ern1","kinase"],"target":["inositol"]},{"antecedents-list":["cattle","pasteurella multocida"],"consequents-list":["mycoplasma bovis"],"confidence":0.83,"interestingness":0.38,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["cattle","pasteurella multocida"],"target":["mycoplasma bovis"]},{"antecedents-list":["computational fluid dynamics","pollutant"],"consequents-list":["atmospheric entry"],"confidence":0.75,"interestingness":0.45,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["computational fluid dynamics","pollutant"],"target":["atmospheric entry"]},{"antecedents-list":["ritonavir"],"consequents-list":["lopinavir"],"confidence":0.89,"interestingness":0.59,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["ritonavir"],"target":["lopinavir"]},{"antecedents-list":["saon"],"consequents-list":["osteoblast"],"confidence":1.0,"interestingness":0.36,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["saon"],"target":["osteoblast"]},{"antecedents-list":["sb-203580","pyrazolanthrone"],"consequents-list":["jun"],"confidence":1.0,"interestingness":0.36,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["sb-203580","pyrazolanthrone"],"target":["jun"]},{"antecedents-list":["natural killer cell","cytomegalovirus"],"consequents-list":["mine countermeasures vessel"],"confidence":1.0,"interestingness":0.36,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["natural killer cell","cytomegalovirus"],"target":["mine countermeasures vessel"]},{"antecedents-list":["ebola virus","protein structure"],"consequents-list":["gp2 series"],"confidence":1.0,"interestingness":0.36,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["ebola virus","protein structure"],"target":["gp2 series"]},{"antecedents-list":["eif2ak2","endoplasmic reticulum"],"consequents-list":["atf6"],"confidence":0.86,"interestingness":0.43,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak2","endoplasmic reticulum"],"target":["atf6"]},{"antecedents-list":["atf6","kinase"],"consequents-list":["inositol"],"confidence":0.78,"interestingness":0.49,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["atf6","kinase"],"target":["inositol"]},{"antecedents-list":["apis mellifera"],"consequents-list":["apis"],"confidence":0.83,"interestingness":0.35,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["apis mellifera"],"target":["apis"]},{"antecedents-list":["innate immune system","pentraxins"],"consequents-list":["ptx3"],"confidence":0.83,"interestingness":0.35,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["innate immune system","pentraxins"],"target":["ptx3"]},{"antecedents-list":["homeostasis","eif2ak3"],"consequents-list":["atf6"],"confidence":0.83,"interestingness":0.35,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["homeostasis","eif2ak3"],"target":["atf6"]},{"antecedents-list":["ern1","kinase"],"consequents-list":["atf6"],"confidence":0.83,"interestingness":0.35,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["ern1","kinase"],"target":["atf6"]},{"antecedents-list":["inositol","protein kinase"],"consequents-list":["atf6"],"confidence":0.83,"interestingness":0.35,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["inositol","protein kinase"],"target":["atf6"]},{"antecedents-list":["eif2ak3","ern1"],"consequents-list":["atf6"],"confidence":0.83,"interestingness":0.35,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak3","ern1"],"target":["atf6"]},{"antecedents-list":["dendritic cell","cd80"],"consequents-list":["cd86"],"confidence":0.83,"interestingness":0.35,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["dendritic cell","cd80"],"target":["cd86"]},{"antecedents-list":["glycoprotein","npc1"],"consequents-list":["niemann-pick disease"],"confidence":0.9,"interestingness":0.62,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["glycoprotein","npc1"],"target":["niemann-pick disease"]},{"antecedents-list":["niemann-pick disease","ebola virus"],"consequents-list":["npc1"],"confidence":0.9,"interestingness":0.62,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["niemann-pick disease","ebola virus"],"target":["npc1"]},{"antecedents-list":["endocytosis","cell-penetrating peptide"],"consequents-list":["missionaries of the precious blood"],"confidence":0.75,"interestingness":0.41,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["endocytosis","cell-penetrating peptide"],"target":["missionaries of the precious blood"]},{"antecedents-list":["eif2ak3","atf6"],"consequents-list":["inositol"],"confidence":0.75,"interestingness":0.41,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak3","atf6"],"target":["inositol"]},{"antecedents-list":["liberia","west africa"],"consequents-list":["guinea"],"confidence":0.88,"interestingness":0.47,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["liberia","west africa"],"target":["guinea"]},{"antecedents-list":["inflammation","ptx3"],"consequents-list":["pentraxins"],"confidence":0.8,"interestingness":0.53,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["inflammation","ptx3"],"target":["pentraxins"]},{"antecedents-list":["perinatal necrotizing enterocolitis","neonatal intensive care unit"],"consequents-list":["nec"],"confidence":1.0,"interestingness":0.33,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["perinatal necrotizing enterocolitis","neonatal intensive care unit"],"target":["nec"]},{"antecedents-list":["entropy","thermodynamics"],"consequents-list":["enthalpy"],"confidence":1.0,"interestingness":0.33,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["entropy","thermodynamics"],"target":["enthalpy"]},{"antecedents-list":["inflammation","pentraxins"],"consequents-list":["ptx3"],"confidence":0.8,"interestingness":0.53,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["inflammation","pentraxins"],"target":["ptx3"]},{"antecedents-list":["niemann-pick disease","host"],"consequents-list":["npc1"],"confidence":0.86,"interestingness":0.4,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["niemann-pick disease","host"],"target":["npc1"]},{"antecedents-list":["eif2ak3","activating transcription factor"],"consequents-list":["inositol"],"confidence":0.71,"interestingness":0.32,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak3","activating transcription factor"],"target":["inositol"]},{"antecedents-list":["activating transcription factor","kinase"],"consequents-list":["inositol"],"confidence":0.71,"interestingness":0.32,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["activating transcription factor","kinase"],"target":["inositol"]},{"antecedents-list":["eif2ak2","endoplasmic reticulum"],"consequents-list":["inositol"],"confidence":0.71,"interestingness":0.32,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak2","endoplasmic reticulum"],"target":["inositol"]},{"antecedents-list":["eif2ak3","signal transduction"],"consequents-list":["inositol"],"confidence":0.71,"interestingness":0.32,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak3","signal transduction"],"target":["inositol"]},{"antecedents-list":["inositol","kinase"],"consequents-list":["atf6"],"confidence":0.78,"interestingness":0.45,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["inositol","kinase"],"target":["atf6"]},{"antecedents-list":["recombinant dna","alphabaculovirus"],"consequents-list":["bombyx mori"],"confidence":0.83,"interestingness":0.32,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["recombinant dna","alphabaculovirus"],"target":["bombyx mori"]},{"antecedents-list":["protein folding","cyclophilin"],"consequents-list":["cypa"],"confidence":0.83,"interestingness":0.32,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["protein folding","cyclophilin"],"target":["cypa"]},{"antecedents-list":["peptide","cell-penetrating peptide"],"consequents-list":["missionaries of the precious blood"],"confidence":0.7,"interestingness":0.45,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["peptide","cell-penetrating peptide"],"target":["missionaries of the precious blood"]},{"antecedents-list":["npc1","ebola virus"],"consequents-list":["niemann-pick disease"],"confidence":0.82,"interestingness":0.57,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["npc1","ebola virus"],"target":["niemann-pick disease"]},{"antecedents-list":["sierra leone","liberia"],"consequents-list":["guinea"],"confidence":0.82,"interestingness":0.57,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["sierra leone","liberia"],"target":["guinea"]},{"antecedents-list":["facebook"],"consequents-list":["twitter"],"confidence":1.0,"interestingness":0.37,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["facebook"],"target":["twitter"]},{"antecedents-list":["pathogenesis","common marmoset"],"consequents-list":["marmoset"],"confidence":1.0,"interestingness":0.31,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["pathogenesis","common marmoset"],"target":["marmoset"]},{"antecedents-list":["pentraxins"],"consequents-list":["ptx3"],"confidence":0.75,"interestingness":0.56,"support":0.0003841,"isSymmetric":true,"cluster":"no_clustering","source":["pentraxins"],"target":["ptx3"]},{"antecedents-list":["inositol","eif2ak3"],"consequents-list":["atf6"],"confidence":0.75,"interestingness":0.37,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["inositol","eif2ak3"],"target":["atf6"]},{"antecedents-list":["marmoset","middle east respiratory syndrome coronavirus"],"consequents-list":["common marmoset"],"confidence":1.0,"interestingness":0.31,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["marmoset","middle east respiratory syndrome coronavirus"],"target":["common marmoset"]},{"antecedents-list":["bunyaviridae","people's republic of china"],"consequents-list":["sfts virus"],"confidence":1.0,"interestingness":0.56,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["bunyaviridae","people's republic of china"],"target":["sfts virus"]},{"antecedents-list":["guinea","west africa"],"consequents-list":["liberia"],"confidence":1.0,"interestingness":0.44,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["guinea","west africa"],"target":["liberia"]},{"antecedents-list":["ptx3"],"consequents-list":["pentraxins"],"confidence":0.75,"interestingness":0.56,"support":0.0003841,"isSymmetric":true,"cluster":"no_clustering","source":["ptx3"],"target":["pentraxins"]},{"antecedents-list":["matrix metalloproteinases","mmp9"],"consequents-list":["mmp2"],"confidence":0.75,"interestingness":0.37,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["matrix metalloproteinases","mmp9"],"target":["mmp2"]},{"antecedents-list":["sierra leone","guinea"],"consequents-list":["liberia"],"confidence":1.0,"interestingness":0.56,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["sierra leone","guinea"],"target":["liberia"]},{"antecedents-list":["unfolded protein response","eif2ak2"],"consequents-list":["atf6"],"confidence":0.75,"interestingness":0.37,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","eif2ak2"],"target":["atf6"]},{"antecedents-list":["pathogenesis","marmoset"],"consequents-list":["common marmoset"],"confidence":1.0,"interestingness":0.31,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["pathogenesis","marmoset"],"target":["common marmoset"]},{"antecedents-list":["eif2ak2","eif2ak3"],"consequents-list":["atf6"],"confidence":0.75,"interestingness":0.37,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak2","eif2ak3"],"target":["atf6"]},{"antecedents-list":["cd8","visceral leishmaniasis"],"consequents-list":["leishmania infantum"],"confidence":1.0,"interestingness":0.31,"support":0.0002134,"isSymmetric":false,"cluster":"no_clustering","source":["cd8","visceral leishmaniasis"],"target":["leishmania infantum"]},{"antecedents-list":["glycolic acid"],"consequents-list":["plga"],"confidence":0.86,"interestingness":0.37,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["glycolic acid"],"target":["plga"]},{"antecedents-list":["methyl","membrane raft"],"consequents-list":["hypocholesterolemia"],"confidence":0.78,"interestingness":0.42,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["methyl","membrane raft"],"target":["hypocholesterolemia"]},{"antecedents-list":["cyclodextrin","membrane raft"],"consequents-list":["hypocholesterolemia"],"confidence":0.78,"interestingness":0.42,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["cyclodextrin","membrane raft"],"target":["hypocholesterolemia"]},{"antecedents-list":["peptide bond","cyclophilin"],"consequents-list":["cypa"],"confidence":0.78,"interestingness":0.42,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["peptide bond","cyclophilin"],"target":["cypa"]},{"antecedents-list":["pathogenesis","nec"],"consequents-list":["perinatal necrotizing enterocolitis"],"confidence":1.0,"interestingness":0.35,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["pathogenesis","nec"],"target":["perinatal necrotizing enterocolitis"]},{"antecedents-list":["asteroid family","glutamic--pyruvic transaminase"],"consequents-list":["aspartate transaminase"],"confidence":1.0,"interestingness":0.41,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["asteroid family","glutamic--pyruvic transaminase"],"target":["aspartate transaminase"]},{"antecedents-list":["nec","preterm birth"],"consequents-list":["perinatal necrotizing enterocolitis"],"confidence":1.0,"interestingness":0.41,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["nec","preterm birth"],"target":["perinatal necrotizing enterocolitis"]},{"antecedents-list":["unfolded protein response","inositol"],"consequents-list":["atf6"],"confidence":0.7,"interestingness":0.41,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","inositol"],"target":["atf6"]},{"antecedents-list":["npc1","host"],"consequents-list":["niemann-pick disease"],"confidence":0.75,"interestingness":0.35,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["npc1","host"],"target":["niemann-pick disease"]},{"antecedents-list":["liberia","western african ebola virus epidemic"],"consequents-list":["guinea"],"confidence":0.75,"interestingness":0.35,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["liberia","western african ebola virus epidemic"],"target":["guinea"]},{"antecedents-list":["glycoprotein","niemann-pick disease"],"consequents-list":["npc1"],"confidence":0.75,"interestingness":0.52,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["glycoprotein","niemann-pick disease"],"target":["npc1"]},{"antecedents-list":["pathogenesis","perinatal necrotizing enterocolitis"],"consequents-list":["nec"],"confidence":0.86,"interestingness":0.34,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["pathogenesis","perinatal necrotizing enterocolitis"],"target":["nec"]},{"antecedents-list":["lutzomyia"],"consequents-list":["sandfly"],"confidence":0.86,"interestingness":0.34,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["lutzomyia"],"target":["sandfly"]},{"antecedents-list":["poly [adp-ribose] polymerase","post-translational modification"],"consequents-list":["adp-ribosylation"],"confidence":1.0,"interestingness":0.33,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["poly [adp-ribose] polymerase","post-translational modification"],"target":["adp-ribosylation"]},{"antecedents-list":["eif2ak2","endoplasmic reticulum"],"consequents-list":["eif2ak3"],"confidence":1.0,"interestingness":0.39,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak2","endoplasmic reticulum"],"target":["eif2ak3"]},{"antecedents-list":["adenosine diphosphate ribose","dna repair"],"consequents-list":["adp-ribosylation"],"confidence":1.0,"interestingness":0.39,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["adenosine diphosphate ribose","dna repair"],"target":["adp-ribosylation"]},{"antecedents-list":["adenosine diphosphate","post-translational modification"],"consequents-list":["adp-ribosylation"],"confidence":1.0,"interestingness":0.33,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["adenosine diphosphate","post-translational modification"],"target":["adp-ribosylation"]},{"antecedents-list":["unfolded protein response","eif2ak2"],"consequents-list":["eif2ak3"],"confidence":1.0,"interestingness":0.44,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","eif2ak2"],"target":["eif2ak3"]},{"antecedents-list":["activating transcription factor","kinase"],"consequents-list":["eif2ak3"],"confidence":1.0,"interestingness":0.39,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["activating transcription factor","kinase"],"target":["eif2ak3"]},{"antecedents-list":["ern1","kinase"],"consequents-list":["eif2ak3"],"confidence":1.0,"interestingness":0.33,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["ern1","kinase"],"target":["eif2ak3"]},{"antecedents-list":["eif2ak2","atf6"],"consequents-list":["eif2ak3"],"confidence":1.0,"interestingness":0.33,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["eif2ak2","atf6"],"target":["eif2ak3"]},{"antecedents-list":["marmoset","primates"],"consequents-list":["common marmoset"],"confidence":0.89,"interestingness":0.44,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["marmoset","primates"],"target":["common marmoset"]},{"antecedents-list":["pyrazolanthrone"],"consequents-list":["jun"],"confidence":0.75,"interestingness":0.32,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["pyrazolanthrone"],"target":["jun"]},{"antecedents-list":["genus","rift valley fever"],"consequents-list":["phlebovirus"],"confidence":1.0,"interestingness":0.32,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["genus","rift valley fever"],"target":["phlebovirus"]},{"antecedents-list":["oxidative stress","cat"],"consequents-list":["superoxide dismutase"],"confidence":1.0,"interestingness":0.32,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["oxidative stress","cat"],"target":["superoxide dismutase"]},{"antecedents-list":["duchenne muscular dystrophy","oligonucleotide"],"consequents-list":["muscular dystrophy"],"confidence":1.0,"interestingness":0.42,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["duchenne muscular dystrophy","oligonucleotide"],"target":["muscular dystrophy"]},{"antecedents-list":["bunyaviridae","rift valley fever"],"consequents-list":["phlebovirus"],"confidence":1.0,"interestingness":0.32,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["bunyaviridae","rift valley fever"],"target":["phlebovirus"]},{"antecedents-list":["docking","mole"],"consequents-list":["small calorie"],"confidence":1.0,"interestingness":0.37,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["docking","mole"],"target":["small calorie"]},{"antecedents-list":["bunyaviridae","severe fever with thrombocytopenia syndrome"],"consequents-list":["sfts virus"],"confidence":0.83,"interestingness":0.52,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["bunyaviridae","severe fever with thrombocytopenia syndrome"],"target":["sfts virus"]},{"antecedents-list":["murinae","cytomegalovirus"],"consequents-list":["mine countermeasures vessel"],"confidence":0.73,"interestingness":0.42,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["murinae","cytomegalovirus"],"target":["mine countermeasures vessel"]},{"antecedents-list":["perinatal necrotizing enterocolitis","preterm birth"],"consequents-list":["nec"],"confidence":0.78,"interestingness":0.36,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["perinatal necrotizing enterocolitis","preterm birth"],"target":["nec"]},{"antecedents-list":["hantaan orthohantavirus","hantavirus"],"consequents-list":["hemorrhagic fever with renal syndrome"],"confidence":0.78,"interestingness":0.36,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["hantaan orthohantavirus","hantavirus"],"target":["hemorrhagic fever with renal syndrome"]},{"antecedents-list":["guinea","ebola virus disease"],"consequents-list":["liberia"],"confidence":0.82,"interestingness":0.46,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["guinea","ebola virus disease"],"target":["liberia"]},{"antecedents-list":["perinatal necrotizing enterocolitis"],"consequents-list":["nec"],"confidence":0.76,"interestingness":0.66,"support":0.0005548,"isSymmetric":true,"cluster":"no_clustering","source":["perinatal necrotizing enterocolitis"],"target":["nec"]},{"antecedents-list":["nec"],"consequents-list":["perinatal necrotizing enterocolitis"],"confidence":0.87,"interestingness":0.66,"support":0.0005548,"isSymmetric":true,"cluster":"no_clustering","source":["nec"],"target":["perinatal necrotizing enterocolitis"]},{"antecedents-list":["parasitism","chagas disease"],"consequents-list":["trypanosoma cruzi"],"confidence":0.86,"interestingness":0.3,"support":0.0002561,"isSymmetric":false,"cluster":"no_clustering","source":["parasitism","chagas disease"],"target":["trypanosoma cruzi"]},{"antecedents-list":["morpholino","muscular dystrophy"],"consequents-list":["duchenne muscular dystrophy"],"confidence":1.0,"interestingness":0.4,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["morpholino","muscular dystrophy"],"target":["duchenne muscular dystrophy"]},{"antecedents-list":["oligonucleotide","muscular dystrophy"],"consequents-list":["duchenne muscular dystrophy"],"confidence":1.0,"interestingness":0.4,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["oligonucleotide","muscular dystrophy"],"target":["duchenne muscular dystrophy"]},{"antecedents-list":["common marmoset","primates"],"consequents-list":["marmoset"],"confidence":0.8,"interestingness":0.4,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["common marmoset","primates"],"target":["marmoset"]},{"antecedents-list":["dmd"],"consequents-list":["duchenne muscular dystrophy"],"confidence":1.0,"interestingness":0.45,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["dmd"],"target":["duchenne muscular dystrophy"]},{"antecedents-list":["inositol","kinase"],"consequents-list":["eif2ak3"],"confidence":0.89,"interestingness":0.4,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["inositol","kinase"],"target":["eif2ak3"]},{"antecedents-list":["atf6","kinase"],"consequents-list":["eif2ak3"],"confidence":0.89,"interestingness":0.4,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["atf6","kinase"],"target":["eif2ak3"]},{"antecedents-list":["unfolded protein response","protein kinase"],"consequents-list":["eif2ak3"],"confidence":0.89,"interestingness":0.4,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","protein kinase"],"target":["eif2ak3"]},{"antecedents-list":["adenosine diphosphate ribose","post-translational modification"],"consequents-list":["adp-ribosylation"],"confidence":0.88,"interestingness":0.34,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["adenosine diphosphate ribose","post-translational modification"],"target":["adp-ribosylation"]},{"antecedents-list":["parasitism","canidae"],"consequents-list":["leishmania infantum"],"confidence":0.78,"interestingness":0.34,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["parasitism","canidae"],"target":["leishmania infantum"]},{"antecedents-list":["parasitism","visceral leishmaniasis"],"consequents-list":["leishmania infantum"],"confidence":0.78,"interestingness":0.34,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["parasitism","visceral leishmaniasis"],"target":["leishmania infantum"]},{"antecedents-list":["unfolded protein response","activating transcription factor"],"consequents-list":["eif2ak3"],"confidence":0.88,"interestingness":0.34,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","activating transcription factor"],"target":["eif2ak3"]},{"antecedents-list":["inflammation","otitis media"],"consequents-list":["middle ear"],"confidence":0.78,"interestingness":0.34,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["inflammation","otitis media"],"target":["middle ear"]},{"antecedents-list":["missionaries of the precious blood"],"consequents-list":["cell-penetrating peptide"],"confidence":0.73,"interestingness":0.39,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["missionaries of the precious blood"],"target":["cell-penetrating peptide"]},{"antecedents-list":["guinea"],"consequents-list":["liberia"],"confidence":0.77,"interestingness":0.48,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["guinea"],"target":["liberia"]},{"antecedents-list":["crystallography","crystallization"],"consequents-list":["space group"],"confidence":1.0,"interestingness":0.38,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["crystallography","crystallization"],"target":["space group"]},{"antecedents-list":["transcription","crystallization"],"consequents-list":["space group"],"confidence":1.0,"interestingness":0.48,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["transcription","crystallization"],"target":["space group"]},{"antecedents-list":["crystallography","structural biology"],"consequents-list":["space group"],"confidence":1.0,"interestingness":0.33,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["crystallography","structural biology"],"target":["space group"]},{"antecedents-list":["crystallography","transcription"],"consequents-list":["space group"],"confidence":1.0,"interestingness":0.33,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["crystallography","transcription"],"target":["space group"]},{"antecedents-list":["structural biology","transcription"],"consequents-list":["space group"],"confidence":1.0,"interestingness":0.43,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["structural biology","transcription"],"target":["space group"]},{"antecedents-list":["diffraction","transcription"],"consequents-list":["space group"],"confidence":1.0,"interestingness":0.48,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["diffraction","transcription"],"target":["space group"]},{"antecedents-list":["dmd"],"consequents-list":["muscular dystrophy"],"confidence":0.89,"interestingness":0.37,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["dmd"],"target":["muscular dystrophy"]},{"antecedents-list":["duchenne muscular dystrophy","morpholino"],"consequents-list":["muscular dystrophy"],"confidence":0.89,"interestingness":0.37,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["duchenne muscular dystrophy","morpholino"],"target":["muscular dystrophy"]},{"antecedents-list":["unfolded protein response","kinase"],"consequents-list":["eif2ak3"],"confidence":0.83,"interestingness":0.69,"support":0.0006402,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","kinase"],"target":["eif2ak3"]},{"antecedents-list":["chagas disease"],"consequents-list":["trypanosoma cruzi"],"confidence":0.79,"interestingness":0.51,"support":0.0004694,"isSymmetric":false,"cluster":"no_clustering","source":["chagas disease"],"target":["trypanosoma cruzi"]},{"antecedents-list":["molecular cloning","structural biology"],"consequents-list":["diffraction"],"confidence":1.0,"interestingness":0.32,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["molecular cloning","structural biology"],"target":["diffraction"]},{"antecedents-list":["escherichia coli","space group"],"consequents-list":["diffraction"],"confidence":1.0,"interestingness":0.36,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["escherichia coli","space group"],"target":["diffraction"]},{"antecedents-list":["molecular cloning","space group"],"consequents-list":["diffraction"],"confidence":1.0,"interestingness":0.32,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["molecular cloning","space group"],"target":["diffraction"]},{"antecedents-list":["escherichia coli","crystallization"],"consequents-list":["diffraction"],"confidence":1.0,"interestingness":0.41,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["escherichia coli","crystallization"],"target":["diffraction"]},{"antecedents-list":["escherichia coli","structural biology"],"consequents-list":["diffraction"],"confidence":1.0,"interestingness":0.36,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["escherichia coli","structural biology"],"target":["diffraction"]},{"antecedents-list":["molecular cloning","crystallization"],"consequents-list":["diffraction"],"confidence":1.0,"interestingness":0.36,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["molecular cloning","crystallization"],"target":["diffraction"]},{"antecedents-list":["structural biology","transcription"],"consequents-list":["diffraction"],"confidence":1.0,"interestingness":0.41,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["structural biology","transcription"],"target":["diffraction"]},{"antecedents-list":["toxin","clostridium difficile colitis"],"consequents-list":["clostridium difficile"],"confidence":1.0,"interestingness":0.32,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["toxin","clostridium difficile colitis"],"target":["clostridium difficile"]},{"antecedents-list":["duchenne muscular dystrophy"],"consequents-list":["muscular dystrophy"],"confidence":0.85,"interestingness":0.76,"support":0.0007255,"isSymmetric":true,"cluster":"no_clustering","source":["duchenne muscular dystrophy"],"target":["muscular dystrophy"]},{"antecedents-list":["muscular dystrophy"],"consequents-list":["duchenne muscular dystrophy"],"confidence":0.89,"interestingness":0.76,"support":0.0007255,"isSymmetric":true,"cluster":"no_clustering","source":["muscular dystrophy"],"target":["duchenne muscular dystrophy"]},{"antecedents-list":["unfolded protein response","inositol"],"consequents-list":["eif2ak3"],"confidence":0.8,"interestingness":0.36,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","inositol"],"target":["eif2ak3"]},{"antecedents-list":["paramyxovirus","newcastle disease virus"],"consequents-list":["avulavirus"],"confidence":0.88,"interestingness":0.31,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["paramyxovirus","newcastle disease virus"],"target":["avulavirus"]},{"antecedents-list":["sierra leone","western african ebola virus epidemic"],"consequents-list":["liberia"],"confidence":0.7,"interestingness":0.31,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["sierra leone","western african ebola virus epidemic"],"target":["liberia"]},{"antecedents-list":["rapgef3"],"consequents-list":["adenosine cyclic phosphate"],"confidence":1.0,"interestingness":0.3,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["rapgef3"],"target":["adenosine cyclic phosphate"]},{"antecedents-list":["unfolded protein response","enzyme"],"consequents-list":["eif2ak3"],"confidence":0.78,"interestingness":0.3,"support":0.0002987,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","enzyme"],"target":["eif2ak3"]},{"antecedents-list":["autocrine signaling"],"consequents-list":["paracrine"],"confidence":0.77,"interestingness":0.43,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["autocrine signaling"],"target":["paracrine"]},{"antecedents-list":["endoplasmic reticulum","kinase"],"consequents-list":["eif2ak3"],"confidence":0.76,"interestingness":0.55,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["endoplasmic reticulum","kinase"],"target":["eif2ak3"]},{"antecedents-list":["escherichia coli","diffraction"],"consequents-list":["space group"],"confidence":0.89,"interestingness":0.34,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["escherichia coli","diffraction"],"target":["space group"]},{"antecedents-list":["escherichia coli","crystallization"],"consequents-list":["space group"],"confidence":0.89,"interestingness":0.34,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["escherichia coli","crystallization"],"target":["space group"]},{"antecedents-list":["modified vaccinia ankara","vaccinia virus"],"consequents-list":["volt-ampere"],"confidence":0.89,"interestingness":0.34,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["modified vaccinia ankara","vaccinia virus"],"target":["volt-ampere"]},{"antecedents-list":["space group","structural biology"],"consequents-list":["diffraction"],"confidence":0.93,"interestingness":0.55,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["space group","structural biology"],"target":["diffraction"]},{"antecedents-list":["genus","bunyaviridae"],"consequents-list":["phlebovirus"],"confidence":0.8,"interestingness":0.51,"support":0.0005121,"isSymmetric":false,"cluster":"no_clustering","source":["genus","bunyaviridae"],"target":["phlebovirus"]},{"antecedents-list":["diffraction","structural biology"],"consequents-list":["space group"],"confidence":0.87,"interestingness":0.54,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["diffraction","structural biology"],"target":["space group"]},{"antecedents-list":["diffraction","crystal structure"],"consequents-list":["space group"],"confidence":0.87,"interestingness":0.54,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["diffraction","crystal structure"],"target":["space group"]},{"antecedents-list":["transcription","crystallization"],"consequents-list":["diffraction"],"confidence":0.9,"interestingness":0.37,"support":0.0003841,"isSymmetric":false,"cluster":"no_clustering","source":["transcription","crystallization"],"target":["diffraction"]},{"antecedents-list":["unfolded protein response","atf6"],"consequents-list":["eif2ak3"],"confidence":0.73,"interestingness":0.32,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["unfolded protein response","atf6"],"target":["eif2ak3"]},{"antecedents-list":["inositol"],"consequents-list":["eif2ak3"],"confidence":0.73,"interestingness":0.32,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["inositol"],"target":["eif2ak3"]},{"antecedents-list":["structural biology","crystal structure"],"consequents-list":["diffraction"],"confidence":0.87,"interestingness":0.51,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["structural biology","crystal structure"],"target":["diffraction"]},{"antecedents-list":["diffraction","crystallization"],"consequents-list":["space group"],"confidence":0.81,"interestingness":0.5,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["diffraction","crystallization"],"target":["space group"]},{"antecedents-list":["cat"],"consequents-list":["superoxide dismutase"],"confidence":0.73,"interestingness":0.31,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["cat"],"target":["superoxide dismutase"]},{"antecedents-list":["atmospheric entry"],"consequents-list":["pollutant"],"confidence":0.8,"interestingness":0.3,"support":0.0003414,"isSymmetric":false,"cluster":"no_clustering","source":["atmospheric entry"],"target":["pollutant"]},{"antecedents-list":["structural biology","crystal structure"],"consequents-list":["space group"],"confidence":0.8,"interestingness":0.46,"support":0.0005121,"isSymmetric":false,"cluster":"no_clustering","source":["structural biology","crystal structure"],"target":["space group"]},{"antecedents-list":["space group","transcription"],"consequents-list":["diffraction"],"confidence":0.83,"interestingness":0.38,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["space group","transcription"],"target":["diffraction"]},{"antecedents-list":["sfts virus"],"consequents-list":["severe fever with thrombocytopenia syndrome"],"confidence":0.94,"interestingness":0.56,"support":0.0006402,"isSymmetric":false,"cluster":"no_clustering","source":["sfts virus"],"target":["severe fever with thrombocytopenia syndrome"]},{"antecedents-list":["structural biology","crystallization"],"consequents-list":["diffraction"],"confidence":0.82,"interestingness":0.52,"support":0.0005975,"isSymmetric":false,"cluster":"no_clustering","source":["structural biology","crystallization"],"target":["diffraction"]},{"antecedents-list":["space group","crystallization"],"consequents-list":["diffraction"],"confidence":0.81,"interestingness":0.48,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["space group","crystallization"],"target":["diffraction"]},{"antecedents-list":["space group","crystal structure"],"consequents-list":["diffraction"],"confidence":0.81,"interestingness":0.48,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["space group","crystal structure"],"target":["diffraction"]},{"antecedents-list":["structural biology","crystallization"],"consequents-list":["space group"],"confidence":0.76,"interestingness":0.47,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["structural biology","crystallization"],"target":["space group"]},{"antecedents-list":["coccidiosis","apicomplexan life cycle"],"consequents-list":["eimeria"],"confidence":0.91,"interestingness":0.36,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["coccidiosis","apicomplexan life cycle"],"target":["eimeria"]},{"antecedents-list":["crystal structure","crystallization"],"consequents-list":["space group"],"confidence":0.72,"interestingness":0.45,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["crystal structure","crystallization"],"target":["space group"]},{"antecedents-list":["crystal structure","crystallization"],"consequents-list":["diffraction"],"confidence":0.72,"interestingness":0.43,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["crystal structure","crystallization"],"target":["diffraction"]},{"antecedents-list":["volt-ampere","recombinant dna"],"consequents-list":["modified vaccinia ankara"],"confidence":0.92,"interestingness":0.36,"support":0.0004694,"isSymmetric":false,"cluster":"no_clustering","source":["volt-ampere","recombinant dna"],"target":["modified vaccinia ankara"]},{"antecedents-list":["space group"],"consequents-list":["diffraction"],"confidence":0.71,"interestingness":0.49,"support":0.0006402,"isSymmetric":false,"cluster":"no_clustering","source":["space group"],"target":["diffraction"]},{"antecedents-list":["coccidiosis"],"consequents-list":["eimeria"],"confidence":0.77,"interestingness":0.31,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["coccidiosis"],"target":["eimeria"]},{"antecedents-list":["volt-ampere"],"consequents-list":["modified vaccinia ankara"],"confidence":0.86,"interestingness":0.55,"support":0.0007682,"isSymmetric":false,"cluster":"no_clustering","source":["volt-ampere"],"target":["modified vaccinia ankara"]},{"antecedents-list":["tcov","meleagris"],"consequents-list":["turkey coronavirus"],"confidence":1.0,"interestingness":0.3,"support":0.0004268,"isSymmetric":false,"cluster":"no_clustering","source":["tcov","meleagris"],"target":["turkey coronavirus"]},{"antecedents-list":["cholesterol","methyl"],"consequents-list":["cyclodextrin"],"confidence":0.88,"interestingness":0.41,"support":0.0005975,"isSymmetric":false,"cluster":"no_clustering","source":["cholesterol","methyl"],"target":["cyclodextrin"]},{"antecedents-list":["sev"],"consequents-list":["sendai virus"],"confidence":1.0,"interestingness":0.33,"support":0.0005121,"isSymmetric":false,"cluster":"no_clustering","source":["sev"],"target":["sendai virus"]},{"antecedents-list":["tcov"],"consequents-list":["turkey coronavirus"],"confidence":0.91,"interestingness":0.55,"support":0.0008535,"isSymmetric":false,"cluster":"no_clustering","source":["tcov"],"target":["turkey coronavirus"]},{"antecedents-list":["cypa"],"consequents-list":["cyclophilin"],"confidence":0.92,"interestingness":0.31,"support":0.0005121,"isSymmetric":false,"cluster":"no_clustering","source":["cypa"],"target":["cyclophilin"]},{"antecedents-list":["nlrp3"],"consequents-list":["inflammasome"],"confidence":0.88,"interestingness":0.35,"support":0.0005975,"isSymmetric":false,"cluster":"no_clustering","source":["nlrp3"],"target":["inflammasome"]},{"antecedents-list":["diffraction","structural biology"],"consequents-list":["crystallization"],"confidence":0.93,"interestingness":0.34,"support":0.0005975,"isSymmetric":false,"cluster":"no_clustering","source":["diffraction","structural biology"],"target":["crystallization"]},{"antecedents-list":["space group","structural biology"],"consequents-list":["crystallization"],"confidence":0.93,"interestingness":0.32,"support":0.0005548,"isSymmetric":false,"cluster":"no_clustering","source":["space group","structural biology"],"target":["crystallization"]},{"antecedents-list":["henipavirus","glycoprotein"],"consequents-list":["new international version"],"confidence":0.74,"interestingness":0.31,"support":0.0005975,"isSymmetric":false,"cluster":"no_clustering","source":["henipavirus","glycoprotein"],"target":["new international version"]},{"antecedents-list":["hypothetical protein spy_1046"],"consequents-list":["crispr"],"confidence":0.94,"interestingness":0.35,"support":0.0006828,"isSymmetric":false,"cluster":"no_clustering","source":["hypothetical protein spy_1046"],"target":["crispr"]},{"antecedents-list":["phosphoinositide 3-kinase","kinase"],"consequents-list":["phosphatidylinositol"],"confidence":0.84,"interestingness":0.35,"support":0.0006828,"isSymmetric":false,"cluster":"no_clustering","source":["phosphoinositide 3-kinase","kinase"],"target":["phosphatidylinositol"]},{"antecedents-list":["space group"],"consequents-list":["crystallization"],"confidence":0.76,"interestingness":0.32,"support":0.0006828,"isSymmetric":false,"cluster":"no_clustering","source":["space group"],"target":["crystallization"]},{"antecedents-list":["medline","systematic review"],"consequents-list":["embase"],"confidence":0.73,"interestingness":0.38,"support":0.0008109,"isSymmetric":false,"cluster":"no_clustering","source":["medline","systematic review"],"target":["embase"]},{"antecedents-list":["diffraction"],"consequents-list":["crystallization"],"confidence":0.73,"interestingness":0.31,"support":0.0006828,"isSymmetric":false,"cluster":"no_clustering","source":["diffraction"],"target":["crystallization"]},{"antecedents-list":["hand foot and mouth disease","enterovirus"],"consequents-list":["enterovirus 71"],"confidence":0.76,"interestingness":0.4,"support":0.0009389,"isSymmetric":false,"cluster":"no_clustering","source":["hand foot and mouth disease","enterovirus"],"target":["enterovirus 71"]},{"antecedents-list":["head of femur"],"consequents-list":["osteonecrosis"],"confidence":0.79,"interestingness":0.41,"support":0.0009816,"isSymmetric":false,"cluster":"no_clustering","source":["head of femur"],"target":["osteonecrosis"]},{"antecedents-list":["prv engine"],"consequents-list":["pseudorabies"],"confidence":0.72,"interestingness":0.37,"support":0.0009816,"isSymmetric":false,"cluster":"no_clustering","source":["prv engine"],"target":["pseudorabies"]},{"antecedents-list":["cardiovascular disease"],"consequents-list":["c\u00e1ncer anal"],"confidence":0.99,"interestingness":0.98,"support":0.0041823,"isSymmetric":true,"cluster":"no_clustering","source":["cardiovascular disease"],"target":["c\u00e1ncer anal"]},{"antecedents-list":["c\u00e1ncer anal"],"consequents-list":["cardiovascular disease"],"confidence":0.99,"interestingness":0.98,"support":0.0041823,"isSymmetric":true,"cluster":"no_clustering","source":["c\u00e1ncer anal"],"target":["cardiovascular disease"]},{"antecedents-list":["database","pz cussons"],"consequents-list":["code reuse"],"confidence":0.89,"interestingness":0.88,"support":0.0043957,"isSymmetric":false,"cluster":"no_clustering","source":["database","pz cussons"],"target":["code reuse"]},{"antecedents-list":["code reuse"],"consequents-list":["pz cussons"],"confidence":0.99,"interestingness":0.87,"support":0.0043957,"isSymmetric":true,"cluster":"no_clustering","source":["code reuse"],"target":["pz cussons"]},{"antecedents-list":["pz cussons"],"consequents-list":["code reuse"],"confidence":0.88,"interestingness":0.87,"support":0.0043957,"isSymmetric":true,"cluster":"no_clustering","source":["pz cussons"],"target":["code reuse"]},{"antecedents-list":["renin\u2013angiotensin system"],"consequents-list":["agt"],"confidence":0.73,"interestingness":0.34,"support":0.0020912,"isSymmetric":false,"cluster":"no_clustering","source":["renin\u2013angiotensin system"],"target":["agt"]},{"antecedents-list":["elsevier","database"],"consequents-list":["pz cussons"],"confidence":0.76,"interestingness":0.75,"support":0.0049505,"isSymmetric":false,"cluster":"no_clustering","source":["elsevier","database"],"target":["pz cussons"]},{"antecedents-list":["international federation of basque pelota"],"consequents-list":["feline infectious peritonitis"],"confidence":0.96,"interestingness":0.35,"support":0.002774,"isSymmetric":false,"cluster":"no_clustering","source":["international federation of basque pelota"],"target":["feline infectious peritonitis"]},{"antecedents-list":["ace","biochemical receptor"],"consequents-list":["ace2"],"confidence":0.82,"interestingness":0.3,"support":0.0031154,"isSymmetric":false,"cluster":"no_clustering","source":["ace","biochemical receptor"],"target":["ace2"]},{"antecedents-list":["ace"],"consequents-list":["ace2"],"confidence":0.75,"interestingness":0.46,"support":0.0052066,"isSymmetric":false,"cluster":"no_clustering","source":["ace"],"target":["ace2"]},{"antecedents-list":["code reuse"],"consequents-list":["elsevier"],"confidence":1.0,"interestingness":0.35,"support":0.0044384,"isSymmetric":false,"cluster":"no_clustering","source":["code reuse"],"target":["elsevier"]},{"antecedents-list":["pz cussons"],"consequents-list":["elsevier"],"confidence":1.0,"interestingness":0.39,"support":0.0049932,"isSymmetric":false,"cluster":"no_clustering","source":["pz cussons"],"target":["elsevier"]},{"antecedents-list":["code reuse"],"consequents-list":["database"],"confidence":1.0,"interestingness":0.31,"support":0.0044384,"isSymmetric":false,"cluster":"no_clustering","source":["code reuse"],"target":["database"]},{"antecedents-list":["pz cussons"],"consequents-list":["database"],"confidence":0.99,"interestingness":0.34,"support":0.0049505,"isSymmetric":false,"cluster":"no_clustering","source":["pz cussons"],"target":["database"]}]
+[
+	{
+		"antecedents-list": [
+			"steroid",
+			"osteoblast"
+		],
+		"consequents-list": [
+			"saon"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.83,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"steroid",
+			"osteoblast"
+		],
+		"target": [
+			"saon"
+		]
+	},
+	{
+		"antecedents-list": [
+			"adjuvant",
+			"leishmania infantum"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.83,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"adjuvant",
+			"leishmania infantum"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"saudi arabia",
+			"saud of saudi arabia"
+		],
+		"consequents-list": [
+			"national guard health affairs"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.83,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"saudi arabia",
+			"saud of saudi arabia"
+		],
+		"target": [
+			"national guard health affairs"
+		]
+	},
+	{
+		"antecedents-list": [
+			"saudi arabia",
+			"national guard health affairs"
+		],
+		"consequents-list": [
+			"saud of saudi arabia"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.83,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"saudi arabia",
+			"national guard health affairs"
+		],
+		"target": [
+			"saud of saudi arabia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"diarrhea",
+			"dl-lactic acid"
+		],
+		"consequents-list": [
+			"halofuginone"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.86,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"diarrhea",
+			"dl-lactic acid"
+		],
+		"target": [
+			"halofuginone"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cryptosporidiosis",
+			"dl-lactic acid"
+		],
+		"consequents-list": [
+			"halofuginone"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.71,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cryptosporidiosis",
+			"dl-lactic acid"
+		],
+		"target": [
+			"halofuginone"
+		]
+	},
+	{
+		"antecedents-list": [
+			"hyaena"
+		],
+		"consequents-list": [
+			"crocuta crocuta"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.71,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"hyaena"
+		],
+		"target": [
+			"crocuta crocuta"
+		]
+	},
+	{
+		"antecedents-list": [
+			"model organism",
+			"hispid cotton rat"
+		],
+		"consequents-list": [
+			"sigmodon"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.71,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"model organism",
+			"hispid cotton rat"
+		],
+		"target": [
+			"sigmodon"
+		]
+	},
+	{
+		"antecedents-list": [
+			"crocuta crocuta"
+		],
+		"consequents-list": [
+			"hyaena"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.71,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"crocuta crocuta"
+		],
+		"target": [
+			"hyaena"
+		]
+	},
+	{
+		"antecedents-list": [
+			"confederation of european paper industries"
+		],
+		"consequents-list": [
+			"coalition for epidemic preparedness innovations"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.69,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"confederation of european paper industries"
+		],
+		"target": [
+			"coalition for epidemic preparedness innovations"
+		]
+	},
+	{
+		"antecedents-list": [
+			"coalition for epidemic preparedness innovations"
+		],
+		"consequents-list": [
+			"confederation of european paper industries"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.69,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"coalition for epidemic preparedness innovations"
+		],
+		"target": [
+			"confederation of european paper industries"
+		]
+	},
+	{
+		"antecedents-list": [
+			"model organism",
+			"sigmodon"
+		],
+		"consequents-list": [
+			"hispid cotton rat"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.69,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"model organism",
+			"sigmodon"
+		],
+		"target": [
+			"hispid cotton rat"
+		]
+	},
+	{
+		"antecedents-list": [
+			"national guard health affairs"
+		],
+		"consequents-list": [
+			"saud of saudi arabia"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.69,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"national guard health affairs"
+		],
+		"target": [
+			"saud of saudi arabia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"saponin",
+			"leishmania infantum"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.69,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"saponin",
+			"leishmania infantum"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"saud of saudi arabia"
+		],
+		"consequents-list": [
+			"national guard health affairs"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.69,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"saud of saudi arabia"
+		],
+		"target": [
+			"national guard health affairs"
+		]
+	},
+	{
+		"antecedents-list": [
+			"saponin",
+			"antigen"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.75,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"saponin",
+			"antigen"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"saponin",
+			"leishmania"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.75,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"saponin",
+			"leishmania"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"adjuvant",
+			"leishmania"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.75,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"adjuvant",
+			"leishmania"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"jun",
+			"sb-203580"
+		],
+		"consequents-list": [
+			"pyrazolanthrone"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.62,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"jun",
+			"sb-203580"
+		],
+		"target": [
+			"pyrazolanthrone"
+		]
+	},
+	{
+		"antecedents-list": [
+			"antigen",
+			"leishmania infantum"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"antigen",
+			"leishmania infantum"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"visceral leishmaniasis",
+			"antigen"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"visceral leishmaniasis",
+			"antigen"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"exoribonuclease",
+			"viral hepatitis"
+		],
+		"consequents-list": [
+			"proofreading"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"exoribonuclease",
+			"viral hepatitis"
+		],
+		"target": [
+			"proofreading"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sigmodon"
+		],
+		"consequents-list": [
+			"hispid cotton rat"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"sigmodon"
+		],
+		"target": [
+			"hispid cotton rat"
+		]
+	},
+	{
+		"antecedents-list": [
+			"hispid cotton rat"
+		],
+		"consequents-list": [
+			"sigmodon"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"hispid cotton rat"
+		],
+		"target": [
+			"sigmodon"
+		]
+	},
+	{
+		"antecedents-list": [
+			"exoribonuclease",
+			"murinae"
+		],
+		"consequents-list": [
+			"proofreading"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"exoribonuclease",
+			"murinae"
+		],
+		"target": [
+			"proofreading"
+		]
+	},
+	{
+		"antecedents-list": [
+			"visceral leishmaniasis",
+			"adjuvant"
+		],
+		"consequents-list": [
+			"leishmania braziliensis"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"visceral leishmaniasis",
+			"adjuvant"
+		],
+		"target": [
+			"leishmania braziliensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"echinacea"
+		],
+		"consequents-list": [
+			"echinacea purpurea"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"echinacea"
+		],
+		"target": [
+			"echinacea purpurea"
+		]
+	},
+	{
+		"antecedents-list": [
+			"echinacea purpurea"
+		],
+		"consequents-list": [
+			"echinacea"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.6,
+		"support": 0.0002134,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"echinacea purpurea"
+		],
+		"target": [
+			"echinacea"
+		]
+	},
+	{
+		"antecedents-list": [
+			"chemical bond"
+		],
+		"consequents-list": [
+			"k l o m r g"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.89,
+		"support": 0.0003414,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"chemical bond"
+		],
+		"target": [
+			"k l o m r g"
+		]
+	},
+	{
+		"antecedents-list": [
+			"adam proteins",
+			"metalloproteinase"
+		],
+		"consequents-list": [
+			"disintegrin"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.56,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"adam proteins",
+			"metalloproteinase"
+		],
+		"target": [
+			"disintegrin"
+		]
+	},
+	{
+		"antecedents-list": [
+			"wogonin"
+		],
+		"consequents-list": [
+			"baicalin"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.56,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"wogonin"
+		],
+		"target": [
+			"baicalin"
+		]
+	},
+	{
+		"antecedents-list": [
+			"k l o m r g"
+		],
+		"consequents-list": [
+			"chemical bond"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.89,
+		"support": 0.0003414,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"k l o m r g"
+		],
+		"target": [
+			"chemical bond"
+		]
+	},
+	{
+		"antecedents-list": [
+			"baicalin",
+			"baicalein"
+		],
+		"consequents-list": [
+			"scutellaria baicalensis"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.52,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"baicalin",
+			"baicalein"
+		],
+		"target": [
+			"scutellaria baicalensis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sb-203580",
+			"phosphorylation"
+		],
+		"consequents-list": [
+			"pyrazolanthrone"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.52,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"sb-203580",
+			"phosphorylation"
+		],
+		"target": [
+			"pyrazolanthrone"
+		]
+	},
+	{
+		"antecedents-list": [
+			"singapore",
+			"epinephelinae"
+		],
+		"consequents-list": [
+			"iridoviridae"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.6,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"singapore",
+			"epinephelinae"
+		],
+		"target": [
+			"iridoviridae"
+		]
+	},
+	{
+		"antecedents-list": [
+			"jak-stat signaling pathway",
+			"transcription factor stat"
+		],
+		"consequents-list": [
+			"janus kinase"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.5,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"jak-stat signaling pathway",
+			"transcription factor stat"
+		],
+		"target": [
+			"janus kinase"
+		]
+	},
+	{
+		"antecedents-list": [
+			"singapore",
+			"iridoviridae"
+		],
+		"consequents-list": [
+			"epinephelinae"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.6,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"singapore",
+			"iridoviridae"
+		],
+		"target": [
+			"epinephelinae"
+		]
+	},
+	{
+		"antecedents-list": [
+			"biomedical waste",
+			"people's republic of china"
+		],
+		"consequents-list": [
+			"incineration"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.57,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"biomedical waste",
+			"people's republic of china"
+		],
+		"target": [
+			"incineration"
+		]
+	},
+	{
+		"antecedents-list": [
+			"teicoplanin"
+		],
+		"consequents-list": [
+			"glycopeptide antibiotic"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.57,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"teicoplanin"
+		],
+		"target": [
+			"glycopeptide antibiotic"
+		]
+	},
+	{
+		"antecedents-list": [
+			"phosphorylation",
+			"pyrazolanthrone"
+		],
+		"consequents-list": [
+			"sb-203580"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.46,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"phosphorylation",
+			"pyrazolanthrone"
+		],
+		"target": [
+			"sb-203580"
+		]
+	},
+	{
+		"antecedents-list": [
+			"jun",
+			"pyrazolanthrone"
+		],
+		"consequents-list": [
+			"sb-203580"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.46,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"jun",
+			"pyrazolanthrone"
+		],
+		"target": [
+			"sb-203580"
+		]
+	},
+	{
+		"antecedents-list": [
+			"adam proteins"
+		],
+		"consequents-list": [
+			"disintegrin"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.46,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"adam proteins"
+		],
+		"target": [
+			"disintegrin"
+		]
+	},
+	{
+		"antecedents-list": [
+			"bacteroidetes"
+		],
+		"consequents-list": [
+			"firmicutes"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.46,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"bacteroidetes"
+		],
+		"target": [
+			"firmicutes"
+		]
+	},
+	{
+		"antecedents-list": [
+			"scutellaria baicalensis",
+			"baicalein"
+		],
+		"consequents-list": [
+			"baicalin"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.46,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"scutellaria baicalensis",
+			"baicalein"
+		],
+		"target": [
+			"baicalin"
+		]
+	},
+	{
+		"antecedents-list": [
+			"scutellaria baicalensis",
+			"baicalin"
+		],
+		"consequents-list": [
+			"baicalein"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.46,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"scutellaria baicalensis",
+			"baicalin"
+		],
+		"target": [
+			"baicalein"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cd86",
+			"mus"
+		],
+		"consequents-list": [
+			"cd80"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.45,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cd86",
+			"mus"
+		],
+		"target": [
+			"cd80"
+		]
+	},
+	{
+		"antecedents-list": [
+			"people's republic of china",
+			"incineration"
+		],
+		"consequents-list": [
+			"biomedical waste"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.55,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"people's republic of china",
+			"incineration"
+		],
+		"target": [
+			"biomedical waste"
+		]
+	},
+	{
+		"antecedents-list": [
+			"biosolids"
+		],
+		"consequents-list": [
+			"sludge"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.45,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"biosolids"
+		],
+		"target": [
+			"sludge"
+		]
+	},
+	{
+		"antecedents-list": [
+			"jun",
+			"phosphorylation"
+		],
+		"consequents-list": [
+			"pyrazolanthrone"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.45,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"jun",
+			"phosphorylation"
+		],
+		"target": [
+			"pyrazolanthrone"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cysteine protease",
+			"glycoprotein"
+		],
+		"consequents-list": [
+			"ctsb"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.45,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cysteine protease",
+			"glycoprotein"
+		],
+		"target": [
+			"ctsb"
+		]
+	},
+	{
+		"antecedents-list": [
+			"protein kinase",
+			"adenosine cyclic phosphate"
+		],
+		"consequents-list": [
+			"protein kinase a"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.42,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"protein kinase",
+			"adenosine cyclic phosphate"
+		],
+		"target": [
+			"protein kinase a"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inositol",
+			"eif2ak2"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.42,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inositol",
+			"eif2ak2"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"mus",
+			"cd80"
+		],
+		"consequents-list": [
+			"cd86"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.42,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"mus",
+			"cd80"
+		],
+		"target": [
+			"cd86"
+		]
+	},
+	{
+		"antecedents-list": [
+			"tylonycteris"
+		],
+		"consequents-list": [
+			"pipistrellus"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.42,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"tylonycteris"
+		],
+		"target": [
+			"pipistrellus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"jak-stat signaling pathway",
+			"activator"
+		],
+		"consequents-list": [
+			"janus kinase"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.42,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"jak-stat signaling pathway",
+			"activator"
+		],
+		"target": [
+			"janus kinase"
+		]
+	},
+	{
+		"antecedents-list": [
+			"scutellaria baicalensis"
+		],
+		"consequents-list": [
+			"baicalin"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.5,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"scutellaria baicalensis"
+		],
+		"target": [
+			"baicalin"
+		]
+	},
+	{
+		"antecedents-list": [
+			"scutellaria baicalensis"
+		],
+		"consequents-list": [
+			"baicalein"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.5,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"scutellaria baicalensis"
+		],
+		"target": [
+			"baicalein"
+		]
+	},
+	{
+		"antecedents-list": [
+			"biomedical waste"
+		],
+		"consequents-list": [
+			"incineration"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.65,
+		"support": 0.0003414,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"biomedical waste"
+		],
+		"target": [
+			"incineration"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"enzyme"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.65,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"enzyme"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"incineration"
+		],
+		"consequents-list": [
+			"biomedical waste"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.65,
+		"support": 0.0003414,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"incineration"
+		],
+		"target": [
+			"biomedical waste"
+		]
+	},
+	{
+		"antecedents-list": [
+			"jun",
+			"phosphorylation"
+		],
+		"consequents-list": [
+			"sb-203580"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.4,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"jun",
+			"phosphorylation"
+		],
+		"target": [
+			"sb-203580"
+		]
+	},
+	{
+		"antecedents-list": [
+			"enzyme",
+			"eif2ak3"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.47,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"enzyme",
+			"eif2ak3"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"west africa",
+			"npc1"
+		],
+		"consequents-list": [
+			"niemann-pick disease"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"west africa",
+			"npc1"
+		],
+		"target": [
+			"niemann-pick disease"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cathepsins",
+			"niemann-pick disease"
+		],
+		"consequents-list": [
+			"npc1"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cathepsins",
+			"niemann-pick disease"
+		],
+		"target": [
+			"npc1"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cathepsins",
+			"npc1"
+		],
+		"consequents-list": [
+			"niemann-pick disease"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cathepsins",
+			"npc1"
+		],
+		"target": [
+			"niemann-pick disease"
+		]
+	},
+	{
+		"antecedents-list": [
+			"metabolite",
+			"cytochromes"
+		],
+		"consequents-list": [
+			"cytochrome p450"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"metabolite",
+			"cytochromes"
+		],
+		"target": [
+			"cytochrome p450"
+		]
+	},
+	{
+		"antecedents-list": [
+			"west africa",
+			"niemann-pick disease"
+		],
+		"consequents-list": [
+			"npc1"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"west africa",
+			"niemann-pick disease"
+		],
+		"target": [
+			"npc1"
+		]
+	},
+	{
+		"antecedents-list": [
+			"enzyme",
+			"atf6"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"enzyme",
+			"atf6"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"human respiratory syncytial virus",
+			"pasteurella multocida"
+		],
+		"consequents-list": [
+			"mycoplasma bovis"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"human respiratory syncytial virus",
+			"pasteurella multocida"
+		],
+		"target": [
+			"mycoplasma bovis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"homeostasis",
+			"eif2ak3"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"homeostasis",
+			"eif2ak3"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak2",
+			"atf6"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak2",
+			"atf6"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"galactomannan"
+		],
+		"consequents-list": [
+			"aspergillosis"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"galactomannan"
+		],
+		"target": [
+			"aspergillosis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"protein kinase",
+			"atf6"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"protein kinase",
+			"atf6"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak3",
+			"ern1"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak3",
+			"ern1"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ern1",
+			"kinase"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"ern1",
+			"kinase"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cattle",
+			"pasteurella multocida"
+		],
+		"consequents-list": [
+			"mycoplasma bovis"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cattle",
+			"pasteurella multocida"
+		],
+		"target": [
+			"mycoplasma bovis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"computational fluid dynamics",
+			"pollutant"
+		],
+		"consequents-list": [
+			"atmospheric entry"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.45,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"computational fluid dynamics",
+			"pollutant"
+		],
+		"target": [
+			"atmospheric entry"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ritonavir"
+		],
+		"consequents-list": [
+			"lopinavir"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.59,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"ritonavir"
+		],
+		"target": [
+			"lopinavir"
+		]
+	},
+	{
+		"antecedents-list": [
+			"saon"
+		],
+		"consequents-list": [
+			"osteoblast"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.36,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"saon"
+		],
+		"target": [
+			"osteoblast"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sb-203580",
+			"pyrazolanthrone"
+		],
+		"consequents-list": [
+			"jun"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.36,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"sb-203580",
+			"pyrazolanthrone"
+		],
+		"target": [
+			"jun"
+		]
+	},
+	{
+		"antecedents-list": [
+			"natural killer cell",
+			"cytomegalovirus"
+		],
+		"consequents-list": [
+			"mine countermeasures vessel"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.36,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"natural killer cell",
+			"cytomegalovirus"
+		],
+		"target": [
+			"mine countermeasures vessel"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ebola virus",
+			"protein structure"
+		],
+		"consequents-list": [
+			"gp2 series"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.36,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"ebola virus",
+			"protein structure"
+		],
+		"target": [
+			"gp2 series"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak2",
+			"endoplasmic reticulum"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.43,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak2",
+			"endoplasmic reticulum"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"atf6",
+			"kinase"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.49,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"atf6",
+			"kinase"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"apis mellifera"
+		],
+		"consequents-list": [
+			"apis"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.35,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"apis mellifera"
+		],
+		"target": [
+			"apis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"innate immune system",
+			"pentraxins"
+		],
+		"consequents-list": [
+			"ptx3"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.35,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"innate immune system",
+			"pentraxins"
+		],
+		"target": [
+			"ptx3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"homeostasis",
+			"eif2ak3"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.35,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"homeostasis",
+			"eif2ak3"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ern1",
+			"kinase"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.35,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"ern1",
+			"kinase"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inositol",
+			"protein kinase"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.35,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inositol",
+			"protein kinase"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak3",
+			"ern1"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.35,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak3",
+			"ern1"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"dendritic cell",
+			"cd80"
+		],
+		"consequents-list": [
+			"cd86"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.35,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"dendritic cell",
+			"cd80"
+		],
+		"target": [
+			"cd86"
+		]
+	},
+	{
+		"antecedents-list": [
+			"glycoprotein",
+			"npc1"
+		],
+		"consequents-list": [
+			"niemann-pick disease"
+		],
+		"confidence": 0.9,
+		"interestingness": 0.62,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"glycoprotein",
+			"npc1"
+		],
+		"target": [
+			"niemann-pick disease"
+		]
+	},
+	{
+		"antecedents-list": [
+			"niemann-pick disease",
+			"ebola virus"
+		],
+		"consequents-list": [
+			"npc1"
+		],
+		"confidence": 0.9,
+		"interestingness": 0.62,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"niemann-pick disease",
+			"ebola virus"
+		],
+		"target": [
+			"npc1"
+		]
+	},
+	{
+		"antecedents-list": [
+			"endocytosis",
+			"cell-penetrating peptide"
+		],
+		"consequents-list": [
+			"missionaries of the precious blood"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.41,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"endocytosis",
+			"cell-penetrating peptide"
+		],
+		"target": [
+			"missionaries of the precious blood"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak3",
+			"atf6"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.41,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak3",
+			"atf6"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"liberia",
+			"west africa"
+		],
+		"consequents-list": [
+			"guinea"
+		],
+		"confidence": 0.88,
+		"interestingness": 0.47,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"liberia",
+			"west africa"
+		],
+		"target": [
+			"guinea"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inflammation",
+			"ptx3"
+		],
+		"consequents-list": [
+			"pentraxins"
+		],
+		"confidence": 0.8,
+		"interestingness": 0.53,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inflammation",
+			"ptx3"
+		],
+		"target": [
+			"pentraxins"
+		]
+	},
+	{
+		"antecedents-list": [
+			"perinatal necrotizing enterocolitis",
+			"neonatal intensive care unit"
+		],
+		"consequents-list": [
+			"nec"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"perinatal necrotizing enterocolitis",
+			"neonatal intensive care unit"
+		],
+		"target": [
+			"nec"
+		]
+	},
+	{
+		"antecedents-list": [
+			"entropy",
+			"thermodynamics"
+		],
+		"consequents-list": [
+			"enthalpy"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"entropy",
+			"thermodynamics"
+		],
+		"target": [
+			"enthalpy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inflammation",
+			"pentraxins"
+		],
+		"consequents-list": [
+			"ptx3"
+		],
+		"confidence": 0.8,
+		"interestingness": 0.53,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inflammation",
+			"pentraxins"
+		],
+		"target": [
+			"ptx3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"niemann-pick disease",
+			"host"
+		],
+		"consequents-list": [
+			"npc1"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.4,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"niemann-pick disease",
+			"host"
+		],
+		"target": [
+			"npc1"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak3",
+			"activating transcription factor"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.32,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak3",
+			"activating transcription factor"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"activating transcription factor",
+			"kinase"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.32,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"activating transcription factor",
+			"kinase"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak2",
+			"endoplasmic reticulum"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.32,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak2",
+			"endoplasmic reticulum"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak3",
+			"signal transduction"
+		],
+		"consequents-list": [
+			"inositol"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.32,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak3",
+			"signal transduction"
+		],
+		"target": [
+			"inositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inositol",
+			"kinase"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.45,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inositol",
+			"kinase"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"recombinant dna",
+			"alphabaculovirus"
+		],
+		"consequents-list": [
+			"bombyx mori"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.32,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"recombinant dna",
+			"alphabaculovirus"
+		],
+		"target": [
+			"bombyx mori"
+		]
+	},
+	{
+		"antecedents-list": [
+			"protein folding",
+			"cyclophilin"
+		],
+		"consequents-list": [
+			"cypa"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.32,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"protein folding",
+			"cyclophilin"
+		],
+		"target": [
+			"cypa"
+		]
+	},
+	{
+		"antecedents-list": [
+			"peptide",
+			"cell-penetrating peptide"
+		],
+		"consequents-list": [
+			"missionaries of the precious blood"
+		],
+		"confidence": 0.7,
+		"interestingness": 0.45,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"peptide",
+			"cell-penetrating peptide"
+		],
+		"target": [
+			"missionaries of the precious blood"
+		]
+	},
+	{
+		"antecedents-list": [
+			"npc1",
+			"ebola virus"
+		],
+		"consequents-list": [
+			"niemann-pick disease"
+		],
+		"confidence": 0.82,
+		"interestingness": 0.57,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"npc1",
+			"ebola virus"
+		],
+		"target": [
+			"niemann-pick disease"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sierra leone",
+			"liberia"
+		],
+		"consequents-list": [
+			"guinea"
+		],
+		"confidence": 0.82,
+		"interestingness": 0.57,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"sierra leone",
+			"liberia"
+		],
+		"target": [
+			"guinea"
+		]
+	},
+	{
+		"antecedents-list": [
+			"facebook"
+		],
+		"consequents-list": [
+			"twitter"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.37,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"facebook"
+		],
+		"target": [
+			"twitter"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pathogenesis",
+			"common marmoset"
+		],
+		"consequents-list": [
+			"marmoset"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.31,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"pathogenesis",
+			"common marmoset"
+		],
+		"target": [
+			"marmoset"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pentraxins"
+		],
+		"consequents-list": [
+			"ptx3"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.56,
+		"support": 0.0003841,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"pentraxins"
+		],
+		"target": [
+			"ptx3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inositol",
+			"eif2ak3"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.37,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inositol",
+			"eif2ak3"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"marmoset",
+			"middle east respiratory syndrome coronavirus"
+		],
+		"consequents-list": [
+			"common marmoset"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.31,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"marmoset",
+			"middle east respiratory syndrome coronavirus"
+		],
+		"target": [
+			"common marmoset"
+		]
+	},
+	{
+		"antecedents-list": [
+			"bunyaviridae",
+			"people's republic of china"
+		],
+		"consequents-list": [
+			"sfts virus"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.56,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"bunyaviridae",
+			"people's republic of china"
+		],
+		"target": [
+			"sfts virus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"guinea",
+			"west africa"
+		],
+		"consequents-list": [
+			"liberia"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.44,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"guinea",
+			"west africa"
+		],
+		"target": [
+			"liberia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ptx3"
+		],
+		"consequents-list": [
+			"pentraxins"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.56,
+		"support": 0.0003841,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"ptx3"
+		],
+		"target": [
+			"pentraxins"
+		]
+	},
+	{
+		"antecedents-list": [
+			"matrix metalloproteinases",
+			"mmp9"
+		],
+		"consequents-list": [
+			"mmp2"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.37,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"matrix metalloproteinases",
+			"mmp9"
+		],
+		"target": [
+			"mmp2"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sierra leone",
+			"guinea"
+		],
+		"consequents-list": [
+			"liberia"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.56,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"sierra leone",
+			"guinea"
+		],
+		"target": [
+			"liberia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"eif2ak2"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.37,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"eif2ak2"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pathogenesis",
+			"marmoset"
+		],
+		"consequents-list": [
+			"common marmoset"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.31,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"pathogenesis",
+			"marmoset"
+		],
+		"target": [
+			"common marmoset"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak2",
+			"eif2ak3"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.37,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak2",
+			"eif2ak3"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cd8",
+			"visceral leishmaniasis"
+		],
+		"consequents-list": [
+			"leishmania infantum"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.31,
+		"support": 0.0002134,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cd8",
+			"visceral leishmaniasis"
+		],
+		"target": [
+			"leishmania infantum"
+		]
+	},
+	{
+		"antecedents-list": [
+			"glycolic acid"
+		],
+		"consequents-list": [
+			"plga"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.37,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"glycolic acid"
+		],
+		"target": [
+			"plga"
+		]
+	},
+	{
+		"antecedents-list": [
+			"methyl",
+			"membrane raft"
+		],
+		"consequents-list": [
+			"hypocholesterolemia"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.42,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"methyl",
+			"membrane raft"
+		],
+		"target": [
+			"hypocholesterolemia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cyclodextrin",
+			"membrane raft"
+		],
+		"consequents-list": [
+			"hypocholesterolemia"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.42,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cyclodextrin",
+			"membrane raft"
+		],
+		"target": [
+			"hypocholesterolemia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"peptide bond",
+			"cyclophilin"
+		],
+		"consequents-list": [
+			"cypa"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.42,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"peptide bond",
+			"cyclophilin"
+		],
+		"target": [
+			"cypa"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pathogenesis",
+			"nec"
+		],
+		"consequents-list": [
+			"perinatal necrotizing enterocolitis"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.35,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"pathogenesis",
+			"nec"
+		],
+		"target": [
+			"perinatal necrotizing enterocolitis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"asteroid family",
+			"glutamic--pyruvic transaminase"
+		],
+		"consequents-list": [
+			"aspartate transaminase"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.41,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"asteroid family",
+			"glutamic--pyruvic transaminase"
+		],
+		"target": [
+			"aspartate transaminase"
+		]
+	},
+	{
+		"antecedents-list": [
+			"nec",
+			"preterm birth"
+		],
+		"consequents-list": [
+			"perinatal necrotizing enterocolitis"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.41,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"nec",
+			"preterm birth"
+		],
+		"target": [
+			"perinatal necrotizing enterocolitis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"inositol"
+		],
+		"consequents-list": [
+			"atf6"
+		],
+		"confidence": 0.7,
+		"interestingness": 0.41,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"inositol"
+		],
+		"target": [
+			"atf6"
+		]
+	},
+	{
+		"antecedents-list": [
+			"npc1",
+			"host"
+		],
+		"consequents-list": [
+			"niemann-pick disease"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.35,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"npc1",
+			"host"
+		],
+		"target": [
+			"niemann-pick disease"
+		]
+	},
+	{
+		"antecedents-list": [
+			"liberia",
+			"western african ebola virus epidemic"
+		],
+		"consequents-list": [
+			"guinea"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.35,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"liberia",
+			"western african ebola virus epidemic"
+		],
+		"target": [
+			"guinea"
+		]
+	},
+	{
+		"antecedents-list": [
+			"glycoprotein",
+			"niemann-pick disease"
+		],
+		"consequents-list": [
+			"npc1"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.52,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"glycoprotein",
+			"niemann-pick disease"
+		],
+		"target": [
+			"npc1"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pathogenesis",
+			"perinatal necrotizing enterocolitis"
+		],
+		"consequents-list": [
+			"nec"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.34,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"pathogenesis",
+			"perinatal necrotizing enterocolitis"
+		],
+		"target": [
+			"nec"
+		]
+	},
+	{
+		"antecedents-list": [
+			"lutzomyia"
+		],
+		"consequents-list": [
+			"sandfly"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.34,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"lutzomyia"
+		],
+		"target": [
+			"sandfly"
+		]
+	},
+	{
+		"antecedents-list": [
+			"poly [adp-ribose] polymerase",
+			"post-translational modification"
+		],
+		"consequents-list": [
+			"adp-ribosylation"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"poly [adp-ribose] polymerase",
+			"post-translational modification"
+		],
+		"target": [
+			"adp-ribosylation"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak2",
+			"endoplasmic reticulum"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.39,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak2",
+			"endoplasmic reticulum"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"adenosine diphosphate ribose",
+			"dna repair"
+		],
+		"consequents-list": [
+			"adp-ribosylation"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.39,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"adenosine diphosphate ribose",
+			"dna repair"
+		],
+		"target": [
+			"adp-ribosylation"
+		]
+	},
+	{
+		"antecedents-list": [
+			"adenosine diphosphate",
+			"post-translational modification"
+		],
+		"consequents-list": [
+			"adp-ribosylation"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"adenosine diphosphate",
+			"post-translational modification"
+		],
+		"target": [
+			"adp-ribosylation"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"eif2ak2"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.44,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"eif2ak2"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"activating transcription factor",
+			"kinase"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.39,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"activating transcription factor",
+			"kinase"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ern1",
+			"kinase"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"ern1",
+			"kinase"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"eif2ak2",
+			"atf6"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"eif2ak2",
+			"atf6"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"marmoset",
+			"primates"
+		],
+		"consequents-list": [
+			"common marmoset"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.44,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"marmoset",
+			"primates"
+		],
+		"target": [
+			"common marmoset"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pyrazolanthrone"
+		],
+		"consequents-list": [
+			"jun"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.32,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"pyrazolanthrone"
+		],
+		"target": [
+			"jun"
+		]
+	},
+	{
+		"antecedents-list": [
+			"genus",
+			"rift valley fever"
+		],
+		"consequents-list": [
+			"phlebovirus"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.32,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"genus",
+			"rift valley fever"
+		],
+		"target": [
+			"phlebovirus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"oxidative stress",
+			"cat"
+		],
+		"consequents-list": [
+			"superoxide dismutase"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.32,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"oxidative stress",
+			"cat"
+		],
+		"target": [
+			"superoxide dismutase"
+		]
+	},
+	{
+		"antecedents-list": [
+			"duchenne muscular dystrophy",
+			"oligonucleotide"
+		],
+		"consequents-list": [
+			"muscular dystrophy"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.42,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"duchenne muscular dystrophy",
+			"oligonucleotide"
+		],
+		"target": [
+			"muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"bunyaviridae",
+			"rift valley fever"
+		],
+		"consequents-list": [
+			"phlebovirus"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.32,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"bunyaviridae",
+			"rift valley fever"
+		],
+		"target": [
+			"phlebovirus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"docking",
+			"mole"
+		],
+		"consequents-list": [
+			"small calorie"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.37,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"docking",
+			"mole"
+		],
+		"target": [
+			"small calorie"
+		]
+	},
+	{
+		"antecedents-list": [
+			"bunyaviridae",
+			"severe fever with thrombocytopenia syndrome"
+		],
+		"consequents-list": [
+			"sfts virus"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.52,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"bunyaviridae",
+			"severe fever with thrombocytopenia syndrome"
+		],
+		"target": [
+			"sfts virus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"murinae",
+			"cytomegalovirus"
+		],
+		"consequents-list": [
+			"mine countermeasures vessel"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.42,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"murinae",
+			"cytomegalovirus"
+		],
+		"target": [
+			"mine countermeasures vessel"
+		]
+	},
+	{
+		"antecedents-list": [
+			"perinatal necrotizing enterocolitis",
+			"preterm birth"
+		],
+		"consequents-list": [
+			"nec"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.36,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"perinatal necrotizing enterocolitis",
+			"preterm birth"
+		],
+		"target": [
+			"nec"
+		]
+	},
+	{
+		"antecedents-list": [
+			"hantaan orthohantavirus",
+			"hantavirus"
+		],
+		"consequents-list": [
+			"hemorrhagic fever with renal syndrome"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.36,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"hantaan orthohantavirus",
+			"hantavirus"
+		],
+		"target": [
+			"hemorrhagic fever with renal syndrome"
+		]
+	},
+	{
+		"antecedents-list": [
+			"guinea",
+			"ebola virus disease"
+		],
+		"consequents-list": [
+			"liberia"
+		],
+		"confidence": 0.82,
+		"interestingness": 0.46,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"guinea",
+			"ebola virus disease"
+		],
+		"target": [
+			"liberia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"perinatal necrotizing enterocolitis"
+		],
+		"consequents-list": [
+			"nec"
+		],
+		"confidence": 0.76,
+		"interestingness": 0.66,
+		"support": 0.0005548,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"perinatal necrotizing enterocolitis"
+		],
+		"target": [
+			"nec"
+		]
+	},
+	{
+		"antecedents-list": [
+			"nec"
+		],
+		"consequents-list": [
+			"perinatal necrotizing enterocolitis"
+		],
+		"confidence": 0.87,
+		"interestingness": 0.66,
+		"support": 0.0005548,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"nec"
+		],
+		"target": [
+			"perinatal necrotizing enterocolitis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"parasitism",
+			"chagas disease"
+		],
+		"consequents-list": [
+			"trypanosoma cruzi"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.3,
+		"support": 0.0002561,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"parasitism",
+			"chagas disease"
+		],
+		"target": [
+			"trypanosoma cruzi"
+		]
+	},
+	{
+		"antecedents-list": [
+			"morpholino",
+			"muscular dystrophy"
+		],
+		"consequents-list": [
+			"duchenne muscular dystrophy"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.4,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"morpholino",
+			"muscular dystrophy"
+		],
+		"target": [
+			"duchenne muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"oligonucleotide",
+			"muscular dystrophy"
+		],
+		"consequents-list": [
+			"duchenne muscular dystrophy"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.4,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"oligonucleotide",
+			"muscular dystrophy"
+		],
+		"target": [
+			"duchenne muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"common marmoset",
+			"primates"
+		],
+		"consequents-list": [
+			"marmoset"
+		],
+		"confidence": 0.8,
+		"interestingness": 0.4,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"common marmoset",
+			"primates"
+		],
+		"target": [
+			"marmoset"
+		]
+	},
+	{
+		"antecedents-list": [
+			"dmd"
+		],
+		"consequents-list": [
+			"duchenne muscular dystrophy"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.45,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"dmd"
+		],
+		"target": [
+			"duchenne muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inositol",
+			"kinase"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.4,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inositol",
+			"kinase"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"atf6",
+			"kinase"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.4,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"atf6",
+			"kinase"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"protein kinase"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.4,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"protein kinase"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"adenosine diphosphate ribose",
+			"post-translational modification"
+		],
+		"consequents-list": [
+			"adp-ribosylation"
+		],
+		"confidence": 0.88,
+		"interestingness": 0.34,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"adenosine diphosphate ribose",
+			"post-translational modification"
+		],
+		"target": [
+			"adp-ribosylation"
+		]
+	},
+	{
+		"antecedents-list": [
+			"parasitism",
+			"canidae"
+		],
+		"consequents-list": [
+			"leishmania infantum"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.34,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"parasitism",
+			"canidae"
+		],
+		"target": [
+			"leishmania infantum"
+		]
+	},
+	{
+		"antecedents-list": [
+			"parasitism",
+			"visceral leishmaniasis"
+		],
+		"consequents-list": [
+			"leishmania infantum"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.34,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"parasitism",
+			"visceral leishmaniasis"
+		],
+		"target": [
+			"leishmania infantum"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"activating transcription factor"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.88,
+		"interestingness": 0.34,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"activating transcription factor"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inflammation",
+			"otitis media"
+		],
+		"consequents-list": [
+			"middle ear"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.34,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inflammation",
+			"otitis media"
+		],
+		"target": [
+			"middle ear"
+		]
+	},
+	{
+		"antecedents-list": [
+			"missionaries of the precious blood"
+		],
+		"consequents-list": [
+			"cell-penetrating peptide"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.39,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"missionaries of the precious blood"
+		],
+		"target": [
+			"cell-penetrating peptide"
+		]
+	},
+	{
+		"antecedents-list": [
+			"guinea"
+		],
+		"consequents-list": [
+			"liberia"
+		],
+		"confidence": 0.77,
+		"interestingness": 0.48,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"guinea"
+		],
+		"target": [
+			"liberia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"crystallography",
+			"crystallization"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.38,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"crystallography",
+			"crystallization"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"transcription",
+			"crystallization"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.48,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"transcription",
+			"crystallization"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"crystallography",
+			"structural biology"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"crystallography",
+			"structural biology"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"crystallography",
+			"transcription"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"crystallography",
+			"transcription"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"structural biology",
+			"transcription"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.43,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"structural biology",
+			"transcription"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"diffraction",
+			"transcription"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.48,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"diffraction",
+			"transcription"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"dmd"
+		],
+		"consequents-list": [
+			"muscular dystrophy"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.37,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"dmd"
+		],
+		"target": [
+			"muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"duchenne muscular dystrophy",
+			"morpholino"
+		],
+		"consequents-list": [
+			"muscular dystrophy"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.37,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"duchenne muscular dystrophy",
+			"morpholino"
+		],
+		"target": [
+			"muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"kinase"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.69,
+		"support": 0.0006402,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"kinase"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"chagas disease"
+		],
+		"consequents-list": [
+			"trypanosoma cruzi"
+		],
+		"confidence": 0.79,
+		"interestingness": 0.51,
+		"support": 0.0004694,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"chagas disease"
+		],
+		"target": [
+			"trypanosoma cruzi"
+		]
+	},
+	{
+		"antecedents-list": [
+			"molecular cloning",
+			"structural biology"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.32,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"molecular cloning",
+			"structural biology"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"escherichia coli",
+			"space group"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.36,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"escherichia coli",
+			"space group"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"molecular cloning",
+			"space group"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.32,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"molecular cloning",
+			"space group"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"escherichia coli",
+			"crystallization"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.41,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"escherichia coli",
+			"crystallization"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"escherichia coli",
+			"structural biology"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.36,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"escherichia coli",
+			"structural biology"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"molecular cloning",
+			"crystallization"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.36,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"molecular cloning",
+			"crystallization"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"structural biology",
+			"transcription"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.41,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"structural biology",
+			"transcription"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"toxin",
+			"clostridium difficile colitis"
+		],
+		"consequents-list": [
+			"clostridium difficile"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.32,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"toxin",
+			"clostridium difficile colitis"
+		],
+		"target": [
+			"clostridium difficile"
+		]
+	},
+	{
+		"antecedents-list": [
+			"duchenne muscular dystrophy"
+		],
+		"consequents-list": [
+			"muscular dystrophy"
+		],
+		"confidence": 0.85,
+		"interestingness": 0.76,
+		"support": 0.0007255,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"duchenne muscular dystrophy"
+		],
+		"target": [
+			"muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"muscular dystrophy"
+		],
+		"consequents-list": [
+			"duchenne muscular dystrophy"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.76,
+		"support": 0.0007255,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"muscular dystrophy"
+		],
+		"target": [
+			"duchenne muscular dystrophy"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"inositol"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.8,
+		"interestingness": 0.36,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"inositol"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"paramyxovirus",
+			"newcastle disease virus"
+		],
+		"consequents-list": [
+			"avulavirus"
+		],
+		"confidence": 0.88,
+		"interestingness": 0.31,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"paramyxovirus",
+			"newcastle disease virus"
+		],
+		"target": [
+			"avulavirus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sierra leone",
+			"western african ebola virus epidemic"
+		],
+		"consequents-list": [
+			"liberia"
+		],
+		"confidence": 0.7,
+		"interestingness": 0.31,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"sierra leone",
+			"western african ebola virus epidemic"
+		],
+		"target": [
+			"liberia"
+		]
+	},
+	{
+		"antecedents-list": [
+			"rapgef3"
+		],
+		"consequents-list": [
+			"adenosine cyclic phosphate"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.3,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"rapgef3"
+		],
+		"target": [
+			"adenosine cyclic phosphate"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"enzyme"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.78,
+		"interestingness": 0.3,
+		"support": 0.0002987,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"enzyme"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"autocrine signaling"
+		],
+		"consequents-list": [
+			"paracrine"
+		],
+		"confidence": 0.77,
+		"interestingness": 0.43,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"autocrine signaling"
+		],
+		"target": [
+			"paracrine"
+		]
+	},
+	{
+		"antecedents-list": [
+			"endoplasmic reticulum",
+			"kinase"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.76,
+		"interestingness": 0.55,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"endoplasmic reticulum",
+			"kinase"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"escherichia coli",
+			"diffraction"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.34,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"escherichia coli",
+			"diffraction"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"escherichia coli",
+			"crystallization"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.34,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"escherichia coli",
+			"crystallization"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"modified vaccinia ankara",
+			"vaccinia virus"
+		],
+		"consequents-list": [
+			"volt-ampere"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.34,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"modified vaccinia ankara",
+			"vaccinia virus"
+		],
+		"target": [
+			"volt-ampere"
+		]
+	},
+	{
+		"antecedents-list": [
+			"space group",
+			"structural biology"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.93,
+		"interestingness": 0.55,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"space group",
+			"structural biology"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"genus",
+			"bunyaviridae"
+		],
+		"consequents-list": [
+			"phlebovirus"
+		],
+		"confidence": 0.8,
+		"interestingness": 0.51,
+		"support": 0.0005121,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"genus",
+			"bunyaviridae"
+		],
+		"target": [
+			"phlebovirus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"diffraction",
+			"structural biology"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.87,
+		"interestingness": 0.54,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"diffraction",
+			"structural biology"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"diffraction",
+			"crystal structure"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.87,
+		"interestingness": 0.54,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"diffraction",
+			"crystal structure"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"transcription",
+			"crystallization"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.9,
+		"interestingness": 0.37,
+		"support": 0.0003841,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"transcription",
+			"crystallization"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"unfolded protein response",
+			"atf6"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.32,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"unfolded protein response",
+			"atf6"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"inositol"
+		],
+		"consequents-list": [
+			"eif2ak3"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.32,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"inositol"
+		],
+		"target": [
+			"eif2ak3"
+		]
+	},
+	{
+		"antecedents-list": [
+			"structural biology",
+			"crystal structure"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.87,
+		"interestingness": 0.51,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"structural biology",
+			"crystal structure"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"diffraction",
+			"crystallization"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.81,
+		"interestingness": 0.5,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"diffraction",
+			"crystallization"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cat"
+		],
+		"consequents-list": [
+			"superoxide dismutase"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.31,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cat"
+		],
+		"target": [
+			"superoxide dismutase"
+		]
+	},
+	{
+		"antecedents-list": [
+			"atmospheric entry"
+		],
+		"consequents-list": [
+			"pollutant"
+		],
+		"confidence": 0.8,
+		"interestingness": 0.3,
+		"support": 0.0003414,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"atmospheric entry"
+		],
+		"target": [
+			"pollutant"
+		]
+	},
+	{
+		"antecedents-list": [
+			"structural biology",
+			"crystal structure"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.8,
+		"interestingness": 0.46,
+		"support": 0.0005121,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"structural biology",
+			"crystal structure"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"space group",
+			"transcription"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.83,
+		"interestingness": 0.38,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"space group",
+			"transcription"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sfts virus"
+		],
+		"consequents-list": [
+			"severe fever with thrombocytopenia syndrome"
+		],
+		"confidence": 0.94,
+		"interestingness": 0.56,
+		"support": 0.0006402,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"sfts virus"
+		],
+		"target": [
+			"severe fever with thrombocytopenia syndrome"
+		]
+	},
+	{
+		"antecedents-list": [
+			"structural biology",
+			"crystallization"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.82,
+		"interestingness": 0.52,
+		"support": 0.0005975,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"structural biology",
+			"crystallization"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"space group",
+			"crystallization"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.81,
+		"interestingness": 0.48,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"space group",
+			"crystallization"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"space group",
+			"crystal structure"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.81,
+		"interestingness": 0.48,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"space group",
+			"crystal structure"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"structural biology",
+			"crystallization"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.76,
+		"interestingness": 0.47,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"structural biology",
+			"crystallization"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"coccidiosis",
+			"apicomplexan life cycle"
+		],
+		"consequents-list": [
+			"eimeria"
+		],
+		"confidence": 0.91,
+		"interestingness": 0.36,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"coccidiosis",
+			"apicomplexan life cycle"
+		],
+		"target": [
+			"eimeria"
+		]
+	},
+	{
+		"antecedents-list": [
+			"crystal structure",
+			"crystallization"
+		],
+		"consequents-list": [
+			"space group"
+		],
+		"confidence": 0.72,
+		"interestingness": 0.45,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"crystal structure",
+			"crystallization"
+		],
+		"target": [
+			"space group"
+		]
+	},
+	{
+		"antecedents-list": [
+			"crystal structure",
+			"crystallization"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.72,
+		"interestingness": 0.43,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"crystal structure",
+			"crystallization"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"volt-ampere",
+			"recombinant dna"
+		],
+		"consequents-list": [
+			"modified vaccinia ankara"
+		],
+		"confidence": 0.92,
+		"interestingness": 0.36,
+		"support": 0.0004694,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"volt-ampere",
+			"recombinant dna"
+		],
+		"target": [
+			"modified vaccinia ankara"
+		]
+	},
+	{
+		"antecedents-list": [
+			"space group"
+		],
+		"consequents-list": [
+			"diffraction"
+		],
+		"confidence": 0.71,
+		"interestingness": 0.49,
+		"support": 0.0006402,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"space group"
+		],
+		"target": [
+			"diffraction"
+		]
+	},
+	{
+		"antecedents-list": [
+			"coccidiosis"
+		],
+		"consequents-list": [
+			"eimeria"
+		],
+		"confidence": 0.77,
+		"interestingness": 0.31,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"coccidiosis"
+		],
+		"target": [
+			"eimeria"
+		]
+	},
+	{
+		"antecedents-list": [
+			"volt-ampere"
+		],
+		"consequents-list": [
+			"modified vaccinia ankara"
+		],
+		"confidence": 0.86,
+		"interestingness": 0.55,
+		"support": 0.0007682,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"volt-ampere"
+		],
+		"target": [
+			"modified vaccinia ankara"
+		]
+	},
+	{
+		"antecedents-list": [
+			"tcov",
+			"meleagris"
+		],
+		"consequents-list": [
+			"turkey coronavirus"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.3,
+		"support": 0.0004268,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"tcov",
+			"meleagris"
+		],
+		"target": [
+			"turkey coronavirus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cholesterol",
+			"methyl"
+		],
+		"consequents-list": [
+			"cyclodextrin"
+		],
+		"confidence": 0.88,
+		"interestingness": 0.41,
+		"support": 0.0005975,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cholesterol",
+			"methyl"
+		],
+		"target": [
+			"cyclodextrin"
+		]
+	},
+	{
+		"antecedents-list": [
+			"sev"
+		],
+		"consequents-list": [
+			"sendai virus"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.33,
+		"support": 0.0005121,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"sev"
+		],
+		"target": [
+			"sendai virus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"tcov"
+		],
+		"consequents-list": [
+			"turkey coronavirus"
+		],
+		"confidence": 0.91,
+		"interestingness": 0.55,
+		"support": 0.0008535,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"tcov"
+		],
+		"target": [
+			"turkey coronavirus"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cypa"
+		],
+		"consequents-list": [
+			"cyclophilin"
+		],
+		"confidence": 0.92,
+		"interestingness": 0.31,
+		"support": 0.0005121,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"cypa"
+		],
+		"target": [
+			"cyclophilin"
+		]
+	},
+	{
+		"antecedents-list": [
+			"nlrp3"
+		],
+		"consequents-list": [
+			"inflammasome"
+		],
+		"confidence": 0.88,
+		"interestingness": 0.35,
+		"support": 0.0005975,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"nlrp3"
+		],
+		"target": [
+			"inflammasome"
+		]
+	},
+	{
+		"antecedents-list": [
+			"diffraction",
+			"structural biology"
+		],
+		"consequents-list": [
+			"crystallization"
+		],
+		"confidence": 0.93,
+		"interestingness": 0.34,
+		"support": 0.0005975,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"diffraction",
+			"structural biology"
+		],
+		"target": [
+			"crystallization"
+		]
+	},
+	{
+		"antecedents-list": [
+			"space group",
+			"structural biology"
+		],
+		"consequents-list": [
+			"crystallization"
+		],
+		"confidence": 0.93,
+		"interestingness": 0.32,
+		"support": 0.0005548,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"space group",
+			"structural biology"
+		],
+		"target": [
+			"crystallization"
+		]
+	},
+	{
+		"antecedents-list": [
+			"henipavirus",
+			"glycoprotein"
+		],
+		"consequents-list": [
+			"new international version"
+		],
+		"confidence": 0.74,
+		"interestingness": 0.31,
+		"support": 0.0005975,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"henipavirus",
+			"glycoprotein"
+		],
+		"target": [
+			"new international version"
+		]
+	},
+	{
+		"antecedents-list": [
+			"hypothetical protein spy_1046"
+		],
+		"consequents-list": [
+			"crispr"
+		],
+		"confidence": 0.94,
+		"interestingness": 0.35,
+		"support": 0.0006828,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"hypothetical protein spy_1046"
+		],
+		"target": [
+			"crispr"
+		]
+	},
+	{
+		"antecedents-list": [
+			"phosphoinositide 3-kinase",
+			"kinase"
+		],
+		"consequents-list": [
+			"phosphatidylinositol"
+		],
+		"confidence": 0.84,
+		"interestingness": 0.35,
+		"support": 0.0006828,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"phosphoinositide 3-kinase",
+			"kinase"
+		],
+		"target": [
+			"phosphatidylinositol"
+		]
+	},
+	{
+		"antecedents-list": [
+			"space group"
+		],
+		"consequents-list": [
+			"crystallization"
+		],
+		"confidence": 0.76,
+		"interestingness": 0.32,
+		"support": 0.0006828,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"space group"
+		],
+		"target": [
+			"crystallization"
+		]
+	},
+	{
+		"antecedents-list": [
+			"medline",
+			"systematic review"
+		],
+		"consequents-list": [
+			"embase"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.38,
+		"support": 0.0008109,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"medline",
+			"systematic review"
+		],
+		"target": [
+			"embase"
+		]
+	},
+	{
+		"antecedents-list": [
+			"diffraction"
+		],
+		"consequents-list": [
+			"crystallization"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.31,
+		"support": 0.0006828,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"diffraction"
+		],
+		"target": [
+			"crystallization"
+		]
+	},
+	{
+		"antecedents-list": [
+			"hand foot and mouth disease",
+			"enterovirus"
+		],
+		"consequents-list": [
+			"enterovirus 71"
+		],
+		"confidence": 0.76,
+		"interestingness": 0.4,
+		"support": 0.0009389,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"hand foot and mouth disease",
+			"enterovirus"
+		],
+		"target": [
+			"enterovirus 71"
+		]
+	},
+	{
+		"antecedents-list": [
+			"head of femur"
+		],
+		"consequents-list": [
+			"osteonecrosis"
+		],
+		"confidence": 0.79,
+		"interestingness": 0.41,
+		"support": 0.0009816,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"head of femur"
+		],
+		"target": [
+			"osteonecrosis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"prv engine"
+		],
+		"consequents-list": [
+			"pseudorabies"
+		],
+		"confidence": 0.72,
+		"interestingness": 0.37,
+		"support": 0.0009816,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"prv engine"
+		],
+		"target": [
+			"pseudorabies"
+		]
+	},
+	{
+		"antecedents-list": [
+			"cardiovascular disease"
+		],
+		"consequents-list": [
+			"c\u00e1ncer anal"
+		],
+		"confidence": 0.99,
+		"interestingness": 0.98,
+		"support": 0.0041823,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"cardiovascular disease"
+		],
+		"target": [
+			"c\u00e1ncer anal"
+		]
+	},
+	{
+		"antecedents-list": [
+			"c\u00e1ncer anal"
+		],
+		"consequents-list": [
+			"cardiovascular disease"
+		],
+		"confidence": 0.99,
+		"interestingness": 0.98,
+		"support": 0.0041823,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"c\u00e1ncer anal"
+		],
+		"target": [
+			"cardiovascular disease"
+		]
+	},
+	{
+		"antecedents-list": [
+			"database",
+			"pz cussons"
+		],
+		"consequents-list": [
+			"code reuse"
+		],
+		"confidence": 0.89,
+		"interestingness": 0.88,
+		"support": 0.0043957,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"database",
+			"pz cussons"
+		],
+		"target": [
+			"code reuse"
+		]
+	},
+	{
+		"antecedents-list": [
+			"code reuse"
+		],
+		"consequents-list": [
+			"pz cussons"
+		],
+		"confidence": 0.99,
+		"interestingness": 0.87,
+		"support": 0.0043957,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"code reuse"
+		],
+		"target": [
+			"pz cussons"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pz cussons"
+		],
+		"consequents-list": [
+			"code reuse"
+		],
+		"confidence": 0.88,
+		"interestingness": 0.87,
+		"support": 0.0043957,
+		"isSymmetric": true,
+		"cluster": "no_clustering",
+		"source": [
+			"pz cussons"
+		],
+		"target": [
+			"code reuse"
+		]
+	},
+	{
+		"antecedents-list": [
+			"renin\u2013angiotensin system"
+		],
+		"consequents-list": [
+			"agt"
+		],
+		"confidence": 0.73,
+		"interestingness": 0.34,
+		"support": 0.0020912,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"renin\u2013angiotensin system"
+		],
+		"target": [
+			"agt"
+		]
+	},
+	{
+		"antecedents-list": [
+			"elsevier",
+			"database"
+		],
+		"consequents-list": [
+			"pz cussons"
+		],
+		"confidence": 0.76,
+		"interestingness": 0.75,
+		"support": 0.0049505,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"elsevier",
+			"database"
+		],
+		"target": [
+			"pz cussons"
+		]
+	},
+	{
+		"antecedents-list": [
+			"international federation of basque pelota"
+		],
+		"consequents-list": [
+			"feline infectious peritonitis"
+		],
+		"confidence": 0.96,
+		"interestingness": 0.35,
+		"support": 0.002774,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"international federation of basque pelota"
+		],
+		"target": [
+			"feline infectious peritonitis"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ace",
+			"biochemical receptor"
+		],
+		"consequents-list": [
+			"ace2"
+		],
+		"confidence": 0.82,
+		"interestingness": 0.3,
+		"support": 0.0031154,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"ace",
+			"biochemical receptor"
+		],
+		"target": [
+			"ace2"
+		]
+	},
+	{
+		"antecedents-list": [
+			"ace"
+		],
+		"consequents-list": [
+			"ace2"
+		],
+		"confidence": 0.75,
+		"interestingness": 0.46,
+		"support": 0.0052066,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"ace"
+		],
+		"target": [
+			"ace2"
+		]
+	},
+	{
+		"antecedents-list": [
+			"code reuse"
+		],
+		"consequents-list": [
+			"elsevier"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.35,
+		"support": 0.0044384,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"code reuse"
+		],
+		"target": [
+			"elsevier"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pz cussons"
+		],
+		"consequents-list": [
+			"elsevier"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.39,
+		"support": 0.0049932,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"pz cussons"
+		],
+		"target": [
+			"elsevier"
+		]
+	},
+	{
+		"antecedents-list": [
+			"code reuse"
+		],
+		"consequents-list": [
+			"database"
+		],
+		"confidence": 1.0,
+		"interestingness": 0.31,
+		"support": 0.0044384,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"code reuse"
+		],
+		"target": [
+			"database"
+		]
+	},
+	{
+		"antecedents-list": [
+			"pz cussons"
+		],
+		"consequents-list": [
+			"database"
+		],
+		"confidence": 0.99,
+		"interestingness": 0.34,
+		"support": 0.0049505,
+		"isSymmetric": false,
+		"cluster": "no_clustering",
+		"source": [
+			"pz cussons"
+		],
+		"target": [
+			"database"
+		]
+	}
+]

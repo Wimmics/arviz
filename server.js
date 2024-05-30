@@ -83,10 +83,15 @@ app.post('/arviz/:app/data/:vis', async (req, res) => {
     data.rules = data.rules.filter(d => values.filtering.symmetry && values.filtering.no_symmetry ? true : 
         (values.filtering.symmetry ? d.isSymmetric : (values.filtering.no_symmetry ? !d.isSymmetric : false)))
     
-    values.uncheck_methods.forEach(d => { // not working, verify!
-        let regex = new RegExp(d)
-        data.rules = data.rules.filter(e => !e.cluster.match(regex) )
-    })
+    let clusterRegex = new RegExp(values.dataset)
+    data.rules = data.rules.filter(e => e.cluster.match(clusterRegex))
+
+    // values.uncheck_methods.forEach(d => { // not working, verify!
+    //     let regex = new RegExp(d)
+    //     data.rules = data.rules.filter(e => !e.cluster.match(regex) )
+    // })
+
+
    
     let result = null
     if (req.params.vis === 'graph') {
