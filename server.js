@@ -285,9 +285,10 @@ const portHTTPS = 8033
 app.listen(port, () => { console.log(`Server started at port ${port}.`) })
 
 try {
-    var privateKey = fs.readFileSync( '/etc/httpd/certificate/exp_20240906/dataviz_i3s_unice_fr.key' );
-    var certificate = fs.readFileSync( '/etc/httpd/certificate/exp_20240906/dataviz_i3s_unice_fr_cert.crt' );
-    var ca = fs.readFileSync( '/etc/httpd/certificate/exp_20240906/dataviz_i3s_unice_fr_AC.cer' );
+    let folderpath = '/etc/httpd/certificate/exp_20250808/'
+    var privateKey = fs.readFileSync( folderpath + 'dataviz_i3s_unice_fr.key' );
+    var certificate = fs.readFileSync( folderpath + 'dataviz_i3s_unice_fr_cert.crt' );
+    var ca = fs.readFileSync( folderpath + 'dataviz_i3s_unice_fr_AC.cer' );
     var options = {key: privateKey, cert: certificate, ca: ca};
     https.createServer( options, function(req,res)
     {
