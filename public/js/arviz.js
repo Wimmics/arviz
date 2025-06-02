@@ -58,6 +58,7 @@ class ARViz extends HTMLElement {
         this.token = this.getAttribute("token")
        
         await this.fetchLabels() 
+
       
         this.setActiveChart('scatterplot', this.keyword)
     }
